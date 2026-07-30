@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+venv/
+env/
+
+# Environment
+.env
+.env.local
+
+# 데이터 파일 (용량 크면)
+# 작은 파일(< 10MB)은 Git에 추적해야 9일 공백 후 재현성이 보장됨
+# data/raw/*.csv
+# data/embeddings/*.pkl
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Jupyter & Streamlit
+.ipynb_checkpoints/
+.streamlit/secrets.toml
