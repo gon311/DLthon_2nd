@@ -1,7 +1,7 @@
 raw/                           # 원본 데이터
 
-jeju_venues.json          # 카카오 로컬 API 결과
-bus_stations.csv           # 버스정류장 파일 (필터링됨)
+jeju_venues.json          # 카카오 로컬 API 결과  
+bus_stations.csv           # 버스정류장 파일 (필터링됨)  
 
 
 ---
