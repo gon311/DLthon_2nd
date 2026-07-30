@@ -63,3 +63,6 @@ data/eval/results/
 # 임시 파일
 *.tmp
 *.bak
+._*
+.Rhistory
+.DS_Store
