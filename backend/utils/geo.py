@@ -9,8 +9,9 @@ import math
 import os
 
 # 카카오맵 기준 "제주 버킷" 경도 및 위도 
-LODGING_LAT = float(os.environ.get("LODGING_LAT", "33.2124578262821"))
-LODGING_LNG = float(os.environ.get("LODGING_LNG", "126.259824437429"))
+LODGING_LAT = float(os.environ["LODGING_LAT"])
+LODGING_LNG = float(os.environ["LODGING_LNG"])
+
 
 
 def haversine_m(lat1: float, lng1: float, lat2: float, lng2: float) -> int:
