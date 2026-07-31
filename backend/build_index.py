@@ -25,13 +25,15 @@ from utils.geo import distance_from_lodging_m, haversine_m
 EMBED_MODEL = "text-embedding-3-small"
 INDEX_DIR = "data/index/chroma"
 
+OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+
 
 def build_document_text(row: dict, distance_m: int, stop_distance_m: int | None) -> str:
     """kb_schema.md의 본문 템플릿을 그대로 적용."""
     lines = [
         f"{row['name']}은(는) {row['category_norm']}으로, "
+        f"{row.get('description', '')}. "  # ← description 추가
         f"숙소에서 약 {distance_m}m 거리에 있다.",
-        f"특징: {row['description']}.",
     ]
     if stop_distance_m is not None and stop_distance_m <= 300:
         lines.append(
@@ -52,7 +54,7 @@ def embed_documents(client: OpenAI, texts: list[str]) -> list[list[float]]:
     return [d.embedding for d in resp.data]
 
 
-def build_index(csv_path: str, collection_name: str) -> None:
+def build_index(csv_path: str, collection_name: str, client: OpenAI) -> None:
     rows = load_rows(csv_path)
 
     documents = []
@@ -72,6 +74,7 @@ def build_index(csv_path: str, collection_name: str) -> None:
                 "category_norm": r["category_norm"],
                 "distance_m": distance_m,
                 "source": r["source"],
+                "solo_friendly": r.get("solo_friendly", ""),  
             }
         )
 
@@ -90,7 +93,7 @@ def build_index(csv_path: str, collection_name: str) -> None:
     print(f"인덱싱 완료: {len(rows)}건 -> {INDEX_DIR}/{collection_name}")
 
 
-def smoke_test(collection_name: str, query: str) -> None:
+def smoke_test(collection_name: str, query: str, client: OpenAI) -> None:
     client = OpenAI()
     chroma = chromadb.PersistentClient(path=INDEX_DIR)
     collection = chroma.get_collection(collection_name)
@@ -104,17 +107,19 @@ def smoke_test(collection_name: str, query: str) -> None:
 
 
 if __name__ == "__main__":
+    if not OPENAI_API_KEY:
+        raise SystemExit("OPENAI_API_KEY 환경변수가 필요합니다.")
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--csv", required=True)
     parser.add_argument("--collection", default="poi_demo")
     parser.add_argument("--smoke-test", action="store_true")
     args = parser.parse_args()
 
-    if not os.environ.get("OPENAI_API_KEY"):
-        raise SystemExit("OPENAI_API_KEY 환경변수가 필요합니다.")
-
-    build_index(args.csv, args.collection)
+    client = OpenAI(api_key=OPENAI_API_KEY)
+    
+    build_index(args.csv, args.collection, client)
 
     if args.smoke_test:
         for q in ["숙소 근처 혼밥 가능한 식당", "도보 관광 코스 추천", "숙소에서 가장 가까운 편의점"]:
-            smoke_test(args.collection, q)
+            smoke_test(args.collection, q, client)
