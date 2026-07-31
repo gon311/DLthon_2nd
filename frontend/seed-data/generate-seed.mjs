@@ -105,9 +105,24 @@ const joinTemplates = [
 const statuses = ["모집중", "모집중", "모집중", "모집완료"];
 const times = ["07:00", "09:30", "12:00", "15:30", "18:30", "20:00"];
 
+// 총 60건을 15일에 불균등하게 배정한다.
+// 일별 건수 구성은 1~7건이며, 날짜 배치는 고정 난수 seed로 섞어 재현한다.
+const dailyJoinCounts = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7];
+for (let index = dailyJoinCounts.length - 1; index > 0; index -= 1) {
+  const swapIndex = Math.floor(random() * (index + 1));
+  [dailyJoinCounts[index], dailyJoinCounts[swapIndex]] =
+    [dailyJoinCounts[swapIndex], dailyJoinCounts[index]];
+}
+const joinDayOffsets = dailyJoinCounts.flatMap((count, dayOffset) =>
+  Array.from({ length: count }, () => dayOffset),
+);
+const joinDistribution = Object.fromEntries(
+  dailyJoinCounts.map((count, dayOffset) => [addDays(scheduleStart, dayOffset), count]),
+);
+
 const joinRequests = Array.from({ length: 60 }, (_, index) => {
   // 15일에 정확히 4건씩 분배한다.
-  const dayOffset = Math.floor(index / 4);
+  const dayOffset = joinDayOffsets[index];
   const scheduledDate = addDays(scheduleStart, dayOffset);
   const eligibleGuests = guests.filter(
     (guest) => guest.checkInDate <= scheduledDate && scheduledDate < guest.checkOutDate,
@@ -158,7 +173,9 @@ const seed = {
     scheduleStart,
     scheduleEnd: addDays(scheduleStart, scheduleDays - 1),
     scheduleDays,
-    joinsPerDay: 4,
+    joinDistribution,
+    minimumJoinsPerDay: Math.min(...dailyJoinCounts),
+    maximumJoinsPerDay: Math.max(...dailyJoinCounts),
     lodgingSeparationUsed: false,
   },
   guests,
