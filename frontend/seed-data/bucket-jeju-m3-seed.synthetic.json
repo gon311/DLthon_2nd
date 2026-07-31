@@ -1,0 +1,1876 @@
+{
+  "_notice": "SYNTHETIC DATA: 이 파일의 모든 투숙객·닉네임·조인 요청은 M3 개발 및 테스트를 위해 생성한 가상 데이터이며 실제 인물이나 실제 예약을 나타내지 않습니다.",
+  "_meta": {
+    "datasetName": "Bucket Jeju M3 Join Seed Dataset",
+    "version": "1.0.0",
+    "generatedAt": "2026-07-31T09:00:00+09:00",
+    "locale": "ko-KR",
+    "synthetic": true,
+    "guestCount": 30,
+    "joinRequestCount": 60,
+    "lodgingSeparationUsed": false
+  },
+  "guests": [
+    {
+      "id": "guest-001",
+      "nickname": "귤빛파도",
+      "interests": [
+        "러닝",
+        "운동",
+        "노을"
+      ],
+      "profileKeywords": [
+        "러닝",
+        "운동",
+        "노을"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-002",
+      "nickname": "오름한스푼",
+      "interests": [
+        "오름",
+        "트레킹",
+        "사진"
+      ],
+      "profileKeywords": [
+        "오름",
+        "트레킹",
+        "사진"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-003",
+      "nickname": "돌담산책",
+      "interests": [
+        "산책",
+        "카페",
+        "대화"
+      ],
+      "profileKeywords": [
+        "산책",
+        "카페",
+        "대화"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-004",
+      "nickname": "한라구름",
+      "interests": [
+        "등산",
+        "자연",
+        "일출"
+      ],
+      "profileKeywords": [
+        "등산",
+        "자연",
+        "일출"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-005",
+      "nickname": "바람소라",
+      "interests": [
+        "해변",
+        "서핑",
+        "음악"
+      ],
+      "profileKeywords": [
+        "해변",
+        "서핑",
+        "음악"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-006",
+      "nickname": "노을러너",
+      "interests": [
+        "러닝",
+        "건강",
+        "아침"
+      ],
+      "profileKeywords": [
+        "러닝",
+        "건강",
+        "아침"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-007",
+      "nickname": "해녀의별",
+      "interests": [
+        "로컬문화",
+        "식사",
+        "바다"
+      ],
+      "profileKeywords": [
+        "로컬문화",
+        "식사",
+        "바다"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-008",
+      "nickname": "모슬포참새",
+      "interests": [
+        "맛집",
+        "시장",
+        "여행"
+      ],
+      "profileKeywords": [
+        "맛집",
+        "시장",
+        "여행"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-009",
+      "nickname": "산방산콩",
+      "interests": [
+        "사진",
+        "오름",
+        "디저트"
+      ],
+      "profileKeywords": [
+        "사진",
+        "오름",
+        "디저트"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-010",
+      "nickname": "우도땅콩",
+      "interests": [
+        "자전거",
+        "해변",
+        "간식"
+      ],
+      "profileKeywords": [
+        "자전거",
+        "해변",
+        "간식"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-011",
+      "nickname": "새별오름달",
+      "interests": [
+        "별보기",
+        "오름",
+        "캠핑"
+      ],
+      "profileKeywords": [
+        "별보기",
+        "오름",
+        "캠핑"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-012",
+      "nickname": "협재물결",
+      "interests": [
+        "수영",
+        "산책",
+        "노을"
+      ],
+      "profileKeywords": [
+        "수영",
+        "산책",
+        "노을"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-013",
+      "nickname": "곶자왈토끼",
+      "interests": [
+        "숲",
+        "명상",
+        "산책"
+      ],
+      "profileKeywords": [
+        "숲",
+        "명상",
+        "산책"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-014",
+      "nickname": "애월필름",
+      "interests": [
+        "필름사진",
+        "카페",
+        "일몰"
+      ],
+      "profileKeywords": [
+        "필름사진",
+        "카페",
+        "일몰"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-015",
+      "nickname": "성산해돋이",
+      "interests": [
+        "일출",
+        "트레킹",
+        "식사"
+      ],
+      "profileKeywords": [
+        "일출",
+        "트레킹",
+        "식사"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-016",
+      "nickname": "제주책갈피",
+      "interests": [
+        "독서",
+        "카페",
+        "조용한여행"
+      ],
+      "profileKeywords": [
+        "독서",
+        "카페",
+        "조용한여행"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-017",
+      "nickname": "감귤마카롱",
+      "interests": [
+        "디저트",
+        "사진",
+        "시장"
+      ],
+      "profileKeywords": [
+        "디저트",
+        "사진",
+        "시장"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-018",
+      "nickname": "파도타는귤",
+      "interests": [
+        "서핑",
+        "러닝",
+        "식사"
+      ],
+      "profileKeywords": [
+        "서핑",
+        "러닝",
+        "식사"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-019",
+      "nickname": "오름이",
+      "interests": [
+        "맛집",
+        "산책",
+        "로컬"
+      ],
+      "profileKeywords": [
+        "맛집",
+        "산책",
+        "로컬"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-020",
+      "nickname": "하모바다",
+      "interests": [
+        "해변",
+        "낚시",
+        "노을"
+      ],
+      "profileKeywords": [
+        "해변",
+        "낚시",
+        "노을"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-021",
+      "nickname": "돌고래우체부",
+      "interests": [
+        "돌고래",
+        "드라이브",
+        "사진"
+      ],
+      "profileKeywords": [
+        "돌고래",
+        "드라이브",
+        "사진"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-022",
+      "nickname": "동백여행자",
+      "interests": [
+        "동백",
+        "정원",
+        "산책"
+      ],
+      "profileKeywords": [
+        "동백",
+        "정원",
+        "산책"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-023",
+      "nickname": "푸른현무암",
+      "interests": [
+        "지질",
+        "트레킹",
+        "자연"
+      ],
+      "profileKeywords": [
+        "지질",
+        "트레킹",
+        "자연"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-024",
+      "nickname": "귤꽃향기",
+      "interests": [
+        "꽃",
+        "카페",
+        "사진"
+      ],
+      "profileKeywords": [
+        "꽃",
+        "카페",
+        "사진"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-025",
+      "nickname": "바당친구",
+      "interests": [
+        "바다",
+        "수영",
+        "친목"
+      ],
+      "profileKeywords": [
+        "바다",
+        "수영",
+        "친목"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-026",
+      "nickname": "숲길메아리",
+      "interests": [
+        "숲길",
+        "러닝",
+        "명상"
+      ],
+      "profileKeywords": [
+        "숲길",
+        "러닝",
+        "명상"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-027",
+      "nickname": "노꼬메구름",
+      "interests": [
+        "오름",
+        "등산",
+        "노을"
+      ],
+      "profileKeywords": [
+        "오름",
+        "등산",
+        "노을"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-028",
+      "nickname": "용머리노을",
+      "interests": [
+        "해안",
+        "산책",
+        "사진"
+      ],
+      "profileKeywords": [
+        "해안",
+        "산책",
+        "사진"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-029",
+      "nickname": "비자림새",
+      "interests": [
+        "비자림",
+        "자연",
+        "독서"
+      ],
+      "profileKeywords": [
+        "비자림",
+        "자연",
+        "독서"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "guest-030",
+      "nickname": "제주한바퀴",
+      "interests": [
+        "여행",
+        "맛집",
+        "친목"
+      ],
+      "profileKeywords": [
+        "여행",
+        "맛집",
+        "친목"
+      ],
+      "isSynthetic": true
+    }
+  ],
+  "joinRequests": [
+    {
+      "id": "join-001",
+      "title": "하모해변 노을 러닝",
+      "description": "하모해변을 따라 가볍게 달린 뒤 함께 노을을 봐요. 초보 러너도 환영합니다.",
+      "category": "운동",
+      "keywords": [
+        "러닝",
+        "노을"
+      ],
+      "scheduledDate": "2026-08-01",
+      "scheduledTime": "07:00",
+      "location": "하모해변",
+      "hostGuestId": "guest-001",
+      "hostNickname": "귤빛파도",
+      "maxParticipants": 3,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-002",
+      "title": "모슬포 고기국수 저녁",
+      "description": "혼밥 대신 따뜻한 고기국수를 같이 먹어요. 메뉴는 현장에서 정해도 좋아요.",
+      "category": "식사",
+      "keywords": [
+        "식사",
+        "로컬맛집"
+      ],
+      "scheduledDate": "2026-08-02",
+      "scheduledTime": "09:30",
+      "location": "버킷 제주 로비",
+      "hostGuestId": "guest-002",
+      "hostNickname": "오름한스푼",
+      "maxParticipants": 4,
+      "currentParticipants": 2,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-003"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-003",
+      "title": "송악산 둘레길 산책",
+      "description": "천천히 풍경을 보며 송악산 둘레길을 걸어요. 편한 신발만 챙겨 오세요.",
+      "category": "여행",
+      "keywords": [
+        "산책",
+        "트레킹"
+      ],
+      "scheduledDate": "2026-08-03",
+      "scheduledTime": "12:00",
+      "location": "송악산 주차장",
+      "hostGuestId": "guest-003",
+      "hostNickname": "돌담산책",
+      "maxParticipants": 5,
+      "currentParticipants": 3,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-004",
+        "guest-005"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-004",
+      "title": "산방산 일출 사진",
+      "description": "이른 아침 산방산 풍경을 함께 촬영해요. 휴대폰 카메라도 충분합니다.",
+      "category": "여행",
+      "keywords": [
+        "사진",
+        "일출"
+      ],
+      "scheduledDate": "2026-08-04",
+      "scheduledTime": "15:30",
+      "location": "산방산 입구",
+      "hostGuestId": "guest-004",
+      "hostNickname": "한라구름",
+      "maxParticipants": 6,
+      "currentParticipants": 6,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-005",
+        "guest-006",
+        "guest-007",
+        "guest-008",
+        "guest-009"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-005",
+      "title": "대정오일시장 간식 투어",
+      "description": "시장 간식을 조금씩 나눠 먹으며 대정의 맛을 찾아봐요.",
+      "category": "식사",
+      "keywords": [
+        "시장",
+        "간식"
+      ],
+      "scheduledDate": "2026-08-05",
+      "scheduledTime": "18:30",
+      "location": "대정오일시장 입구",
+      "hostGuestId": "guest-005",
+      "hostNickname": "바람소라",
+      "maxParticipants": 7,
+      "currentParticipants": 6,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-006",
+        "guest-007",
+        "guest-008",
+        "guest-009",
+        "guest-010"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-006",
+      "title": "용머리해안 지질 산책",
+      "description": "용머리해안의 독특한 지층을 구경하며 느긋하게 걸어요.",
+      "category": "여행",
+      "keywords": [
+        "지질",
+        "산책"
+      ],
+      "scheduledDate": "2026-08-06",
+      "scheduledTime": "20:00",
+      "location": "용머리해안 매표소",
+      "hostGuestId": "guest-006",
+      "hostNickname": "노을러너",
+      "maxParticipants": 8,
+      "currentParticipants": 6,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-007",
+        "guest-008",
+        "guest-009",
+        "guest-010",
+        "guest-011"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-007",
+      "title": "모슬포항 새벽 산책",
+      "description": "조용한 항구의 아침 공기를 함께 느껴요. 따뜻한 겉옷을 추천해요.",
+      "category": "운동",
+      "keywords": [
+        "아침",
+        "산책"
+      ],
+      "scheduledDate": "2026-08-01",
+      "scheduledTime": "07:00",
+      "location": "모슬포항",
+      "hostGuestId": "guest-007",
+      "hostNickname": "해녀의별",
+      "maxParticipants": 3,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-008",
+      "title": "제주 로컬 카페 탐방",
+      "description": "대정읍의 작은 카페 두 곳을 골라 천천히 둘러봐요.",
+      "category": "카페",
+      "keywords": [
+        "카페",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-02",
+      "scheduledTime": "09:30",
+      "location": "버킷 제주 입구",
+      "hostGuestId": "guest-008",
+      "hostNickname": "모슬포참새",
+      "maxParticipants": 4,
+      "currentParticipants": 2,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-009"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-009",
+      "title": "가파도 자전거 한 바퀴",
+      "description": "배를 타고 가파도에 들어가 자전거로 섬을 둘러봐요.",
+      "category": "여행",
+      "keywords": [
+        "자전거",
+        "섬여행"
+      ],
+      "scheduledDate": "2026-08-03",
+      "scheduledTime": "12:00",
+      "location": "운진항",
+      "hostGuestId": "guest-009",
+      "hostNickname": "산방산콩",
+      "maxParticipants": 5,
+      "currentParticipants": 5,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-010",
+        "guest-011",
+        "guest-012",
+        "guest-013"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-010",
+      "title": "해변 요가 스트레칭",
+      "description": "하모해변에서 여행으로 굳은 몸을 가볍게 풀어요. 매트는 선택이에요.",
+      "category": "운동",
+      "keywords": [
+        "요가",
+        "건강"
+      ],
+      "scheduledDate": "2026-08-04",
+      "scheduledTime": "15:30",
+      "location": "하모해변",
+      "hostGuestId": "guest-010",
+      "hostNickname": "우도땅콩",
+      "maxParticipants": 6,
+      "currentParticipants": 5,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-011",
+        "guest-012",
+        "guest-013",
+        "guest-014"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-011",
+      "title": "제주 흑돼지 같이 먹기",
+      "description": "여럿이 먹으면 더 맛있는 흑돼지 저녁 모임이에요.",
+      "category": "식사",
+      "keywords": [
+        "식사",
+        "흑돼지"
+      ],
+      "scheduledDate": "2026-08-05",
+      "scheduledTime": "18:30",
+      "location": "버킷 제주 로비",
+      "hostGuestId": "guest-011",
+      "hostNickname": "새별오름달",
+      "maxParticipants": 7,
+      "currentParticipants": 5,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-012",
+        "guest-013",
+        "guest-014",
+        "guest-015"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-012",
+      "title": "노을 필름사진 산책",
+      "description": "해 질 무렵 골목과 바다를 필름 감성으로 담아봐요.",
+      "category": "여행",
+      "keywords": [
+        "사진",
+        "노을"
+      ],
+      "scheduledDate": "2026-08-06",
+      "scheduledTime": "20:00",
+      "location": "하모체육공원",
+      "hostGuestId": "guest-012",
+      "hostNickname": "협재물결",
+      "maxParticipants": 8,
+      "currentParticipants": 5,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-013",
+        "guest-014",
+        "guest-015",
+        "guest-016"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-013",
+      "title": "편의점 간식 월드컵",
+      "description": "각자 추천하는 제주 간식을 하나씩 골라 재미있게 맛봐요.",
+      "category": "친목",
+      "keywords": [
+        "간식",
+        "친목"
+      ],
+      "scheduledDate": "2026-08-01",
+      "scheduledTime": "07:00",
+      "location": "버킷 제주 공용공간",
+      "hostGuestId": "guest-013",
+      "hostNickname": "곶자왈토끼",
+      "maxParticipants": 3,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-014",
+      "title": "여행책 한 챕터 읽기",
+      "description": "각자 읽던 책을 가져와 조용히 읽고 짧게 감상을 나눠요.",
+      "category": "친목",
+      "keywords": [
+        "독서",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-02",
+      "scheduledTime": "09:30",
+      "location": "버킷 제주 라운지",
+      "hostGuestId": "guest-014",
+      "hostNickname": "애월필름",
+      "maxParticipants": 4,
+      "currentParticipants": 4,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-015",
+        "guest-016",
+        "guest-017"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-015",
+      "title": "곶자왈 숲길 트레킹",
+      "description": "제주의 숲 냄새를 느끼며 무리하지 않는 속도로 걸어요.",
+      "category": "여행",
+      "keywords": [
+        "숲",
+        "트레킹"
+      ],
+      "scheduledDate": "2026-08-03",
+      "scheduledTime": "12:00",
+      "location": "곶자왈 도립공원",
+      "hostGuestId": "guest-015",
+      "hostNickname": "성산해돋이",
+      "maxParticipants": 5,
+      "currentParticipants": 4,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-016",
+        "guest-017",
+        "guest-018"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-016",
+      "title": "아침 해장국 원정대",
+      "description": "일찍 일어난 사람끼리 든든한 제주식 해장국을 먹으러 가요.",
+      "category": "식사",
+      "keywords": [
+        "아침",
+        "식사"
+      ],
+      "scheduledDate": "2026-08-04",
+      "scheduledTime": "15:30",
+      "location": "버킷 제주 입구",
+      "hostGuestId": "guest-016",
+      "hostNickname": "제주책갈피",
+      "maxParticipants": 6,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-017",
+      "title": "별 보며 여행 이야기",
+      "description": "날씨가 맑으면 야외에서 별을 보고 서로의 제주 일정을 나눠요.",
+      "category": "친목",
+      "keywords": [
+        "별보기",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-05",
+      "scheduledTime": "18:30",
+      "location": "하모해변",
+      "hostGuestId": "guest-017",
+      "hostNickname": "감귤마카롱",
+      "maxParticipants": 7,
+      "currentParticipants": 5,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-018",
+        "guest-019",
+        "guest-020",
+        "guest-021"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-018",
+      "title": "대정쌍둥이식당 점심",
+      "description": "대정쌍둥이식당에서 점심을 같이 먹을 분을 찾아요.",
+      "category": "식사",
+      "keywords": [
+        "식사",
+        "로컬맛집"
+      ],
+      "scheduledDate": "2026-08-06",
+      "scheduledTime": "20:00",
+      "location": "대정쌍둥이식당",
+      "hostGuestId": "guest-018",
+      "hostNickname": "파도타는귤",
+      "maxParticipants": 8,
+      "currentParticipants": 4,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-019",
+        "guest-020",
+        "guest-021"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-019",
+      "title": "바닷가 플로깅",
+      "description": "산책하며 작은 쓰레기를 줍는 가벼운 플로깅 모임이에요.",
+      "category": "운동",
+      "keywords": [
+        "플로깅",
+        "산책"
+      ],
+      "scheduledDate": "2026-08-01",
+      "scheduledTime": "07:00",
+      "location": "하모해변",
+      "hostGuestId": "guest-019",
+      "hostNickname": "오름이",
+      "maxParticipants": 3,
+      "currentParticipants": 3,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-020",
+        "guest-021"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-020",
+      "title": "체크아웃 전 브런치",
+      "description": "체크아웃 전 가까운 곳에서 여유롭게 브런치를 먹어요.",
+      "category": "식사",
+      "keywords": [
+        "브런치",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-02",
+      "scheduledTime": "09:30",
+      "location": "버킷 제주 로비",
+      "hostGuestId": "guest-020",
+      "hostNickname": "하모바다",
+      "maxParticipants": 4,
+      "currentParticipants": 3,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-021",
+        "guest-022"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-021",
+      "title": "하모해변 노을 러닝 2차",
+      "description": "하모해변을 따라 가볍게 달린 뒤 함께 노을을 봐요. 초보 러너도 환영합니다.",
+      "category": "운동",
+      "keywords": [
+        "러닝",
+        "노을"
+      ],
+      "scheduledDate": "2026-08-03",
+      "scheduledTime": "12:00",
+      "location": "하모해변",
+      "hostGuestId": "guest-021",
+      "hostNickname": "돌고래우체부",
+      "maxParticipants": 5,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-022",
+      "title": "모슬포 고기국수 저녁 2차",
+      "description": "혼밥 대신 따뜻한 고기국수를 같이 먹어요. 메뉴는 현장에서 정해도 좋아요.",
+      "category": "식사",
+      "keywords": [
+        "식사",
+        "로컬맛집"
+      ],
+      "scheduledDate": "2026-08-04",
+      "scheduledTime": "15:30",
+      "location": "버킷 제주 로비",
+      "hostGuestId": "guest-022",
+      "hostNickname": "동백여행자",
+      "maxParticipants": 6,
+      "currentParticipants": 2,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-023"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-023",
+      "title": "송악산 둘레길 산책 2차",
+      "description": "천천히 풍경을 보며 송악산 둘레길을 걸어요. 편한 신발만 챙겨 오세요.",
+      "category": "여행",
+      "keywords": [
+        "산책",
+        "트레킹"
+      ],
+      "scheduledDate": "2026-08-05",
+      "scheduledTime": "18:30",
+      "location": "송악산 주차장",
+      "hostGuestId": "guest-023",
+      "hostNickname": "푸른현무암",
+      "maxParticipants": 7,
+      "currentParticipants": 5,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-024",
+        "guest-025",
+        "guest-026",
+        "guest-027"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-024",
+      "title": "산방산 일출 사진 2차",
+      "description": "이른 아침 산방산 풍경을 함께 촬영해요. 휴대폰 카메라도 충분합니다.",
+      "category": "여행",
+      "keywords": [
+        "사진",
+        "일출"
+      ],
+      "scheduledDate": "2026-08-06",
+      "scheduledTime": "20:00",
+      "location": "산방산 입구",
+      "hostGuestId": "guest-024",
+      "hostNickname": "귤꽃향기",
+      "maxParticipants": 8,
+      "currentParticipants": 8,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-025",
+        "guest-026",
+        "guest-027",
+        "guest-028",
+        "guest-029",
+        "guest-030",
+        "guest-001"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-025",
+      "title": "대정오일시장 간식 투어 2차",
+      "description": "시장 간식을 조금씩 나눠 먹으며 대정의 맛을 찾아봐요.",
+      "category": "식사",
+      "keywords": [
+        "시장",
+        "간식"
+      ],
+      "scheduledDate": "2026-08-01",
+      "scheduledTime": "07:00",
+      "location": "대정오일시장 입구",
+      "hostGuestId": "guest-025",
+      "hostNickname": "바당친구",
+      "maxParticipants": 3,
+      "currentParticipants": 2,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-026"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-026",
+      "title": "용머리해안 지질 산책 2차",
+      "description": "용머리해안의 독특한 지층을 구경하며 느긋하게 걸어요.",
+      "category": "여행",
+      "keywords": [
+        "지질",
+        "산책"
+      ],
+      "scheduledDate": "2026-08-02",
+      "scheduledTime": "09:30",
+      "location": "용머리해안 매표소",
+      "hostGuestId": "guest-026",
+      "hostNickname": "숲길메아리",
+      "maxParticipants": 4,
+      "currentParticipants": 2,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-027"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-027",
+      "title": "모슬포항 새벽 산책 2차",
+      "description": "조용한 항구의 아침 공기를 함께 느껴요. 따뜻한 겉옷을 추천해요.",
+      "category": "운동",
+      "keywords": [
+        "아침",
+        "산책"
+      ],
+      "scheduledDate": "2026-08-03",
+      "scheduledTime": "12:00",
+      "location": "모슬포항",
+      "hostGuestId": "guest-027",
+      "hostNickname": "노꼬메구름",
+      "maxParticipants": 5,
+      "currentParticipants": 3,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-028",
+        "guest-029"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-028",
+      "title": "제주 로컬 카페 탐방 2차",
+      "description": "대정읍의 작은 카페 두 곳을 골라 천천히 둘러봐요.",
+      "category": "카페",
+      "keywords": [
+        "카페",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-04",
+      "scheduledTime": "15:30",
+      "location": "버킷 제주 입구",
+      "hostGuestId": "guest-028",
+      "hostNickname": "용머리노을",
+      "maxParticipants": 6,
+      "currentParticipants": 3,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-029",
+        "guest-030"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-029",
+      "title": "가파도 자전거 한 바퀴 2차",
+      "description": "배를 타고 가파도에 들어가 자전거로 섬을 둘러봐요.",
+      "category": "여행",
+      "keywords": [
+        "자전거",
+        "섬여행"
+      ],
+      "scheduledDate": "2026-08-05",
+      "scheduledTime": "18:30",
+      "location": "운진항",
+      "hostGuestId": "guest-029",
+      "hostNickname": "비자림새",
+      "maxParticipants": 7,
+      "currentParticipants": 7,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-030",
+        "guest-001",
+        "guest-002",
+        "guest-003",
+        "guest-004",
+        "guest-005"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-030",
+      "title": "해변 요가 스트레칭 2차",
+      "description": "하모해변에서 여행으로 굳은 몸을 가볍게 풀어요. 매트는 선택이에요.",
+      "category": "운동",
+      "keywords": [
+        "요가",
+        "건강"
+      ],
+      "scheduledDate": "2026-08-06",
+      "scheduledTime": "20:00",
+      "location": "하모해변",
+      "hostGuestId": "guest-030",
+      "hostNickname": "제주한바퀴",
+      "maxParticipants": 8,
+      "currentParticipants": 7,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-001",
+        "guest-002",
+        "guest-003",
+        "guest-004",
+        "guest-005",
+        "guest-006"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-031",
+      "title": "제주 흑돼지 같이 먹기 2차",
+      "description": "여럿이 먹으면 더 맛있는 흑돼지 저녁 모임이에요.",
+      "category": "식사",
+      "keywords": [
+        "식사",
+        "흑돼지"
+      ],
+      "scheduledDate": "2026-08-01",
+      "scheduledTime": "07:00",
+      "location": "버킷 제주 로비",
+      "hostGuestId": "guest-001",
+      "hostNickname": "귤빛파도",
+      "maxParticipants": 3,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-032",
+      "title": "노을 필름사진 산책 2차",
+      "description": "해 질 무렵 골목과 바다를 필름 감성으로 담아봐요.",
+      "category": "여행",
+      "keywords": [
+        "사진",
+        "노을"
+      ],
+      "scheduledDate": "2026-08-02",
+      "scheduledTime": "09:30",
+      "location": "하모체육공원",
+      "hostGuestId": "guest-002",
+      "hostNickname": "오름한스푼",
+      "maxParticipants": 4,
+      "currentParticipants": 2,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-003"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-033",
+      "title": "편의점 간식 월드컵 2차",
+      "description": "각자 추천하는 제주 간식을 하나씩 골라 재미있게 맛봐요.",
+      "category": "친목",
+      "keywords": [
+        "간식",
+        "친목"
+      ],
+      "scheduledDate": "2026-08-03",
+      "scheduledTime": "12:00",
+      "location": "버킷 제주 공용공간",
+      "hostGuestId": "guest-003",
+      "hostNickname": "돌담산책",
+      "maxParticipants": 5,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-034",
+      "title": "여행책 한 챕터 읽기 2차",
+      "description": "각자 읽던 책을 가져와 조용히 읽고 짧게 감상을 나눠요.",
+      "category": "친목",
+      "keywords": [
+        "독서",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-04",
+      "scheduledTime": "15:30",
+      "location": "버킷 제주 라운지",
+      "hostGuestId": "guest-004",
+      "hostNickname": "한라구름",
+      "maxParticipants": 6,
+      "currentParticipants": 6,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-005",
+        "guest-006",
+        "guest-007",
+        "guest-008",
+        "guest-009"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-035",
+      "title": "곶자왈 숲길 트레킹 2차",
+      "description": "제주의 숲 냄새를 느끼며 무리하지 않는 속도로 걸어요.",
+      "category": "여행",
+      "keywords": [
+        "숲",
+        "트레킹"
+      ],
+      "scheduledDate": "2026-08-05",
+      "scheduledTime": "18:30",
+      "location": "곶자왈 도립공원",
+      "hostGuestId": "guest-005",
+      "hostNickname": "바람소라",
+      "maxParticipants": 7,
+      "currentParticipants": 6,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-006",
+        "guest-007",
+        "guest-008",
+        "guest-009",
+        "guest-010"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-036",
+      "title": "아침 해장국 원정대 2차",
+      "description": "일찍 일어난 사람끼리 든든한 제주식 해장국을 먹으러 가요.",
+      "category": "식사",
+      "keywords": [
+        "아침",
+        "식사"
+      ],
+      "scheduledDate": "2026-08-06",
+      "scheduledTime": "20:00",
+      "location": "버킷 제주 입구",
+      "hostGuestId": "guest-006",
+      "hostNickname": "노을러너",
+      "maxParticipants": 8,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-037",
+      "title": "별 보며 여행 이야기 2차",
+      "description": "날씨가 맑으면 야외에서 별을 보고 서로의 제주 일정을 나눠요.",
+      "category": "친목",
+      "keywords": [
+        "별보기",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-01",
+      "scheduledTime": "07:00",
+      "location": "하모해변",
+      "hostGuestId": "guest-007",
+      "hostNickname": "해녀의별",
+      "maxParticipants": 3,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-038",
+      "title": "대정쌍둥이식당 점심 2차",
+      "description": "대정쌍둥이식당에서 점심을 같이 먹을 분을 찾아요.",
+      "category": "식사",
+      "keywords": [
+        "식사",
+        "로컬맛집"
+      ],
+      "scheduledDate": "2026-08-02",
+      "scheduledTime": "09:30",
+      "location": "대정쌍둥이식당",
+      "hostGuestId": "guest-008",
+      "hostNickname": "모슬포참새",
+      "maxParticipants": 4,
+      "currentParticipants": 2,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-009"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-039",
+      "title": "바닷가 플로깅 2차",
+      "description": "산책하며 작은 쓰레기를 줍는 가벼운 플로깅 모임이에요.",
+      "category": "운동",
+      "keywords": [
+        "플로깅",
+        "산책"
+      ],
+      "scheduledDate": "2026-08-03",
+      "scheduledTime": "12:00",
+      "location": "하모해변",
+      "hostGuestId": "guest-009",
+      "hostNickname": "산방산콩",
+      "maxParticipants": 5,
+      "currentParticipants": 5,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-010",
+        "guest-011",
+        "guest-012",
+        "guest-013"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-040",
+      "title": "체크아웃 전 브런치 2차",
+      "description": "체크아웃 전 가까운 곳에서 여유롭게 브런치를 먹어요.",
+      "category": "식사",
+      "keywords": [
+        "브런치",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-04",
+      "scheduledTime": "15:30",
+      "location": "버킷 제주 로비",
+      "hostGuestId": "guest-010",
+      "hostNickname": "우도땅콩",
+      "maxParticipants": 6,
+      "currentParticipants": 5,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-011",
+        "guest-012",
+        "guest-013",
+        "guest-014"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-041",
+      "title": "하모해변 노을 러닝 3차",
+      "description": "하모해변을 따라 가볍게 달린 뒤 함께 노을을 봐요. 초보 러너도 환영합니다.",
+      "category": "운동",
+      "keywords": [
+        "러닝",
+        "노을"
+      ],
+      "scheduledDate": "2026-08-05",
+      "scheduledTime": "18:30",
+      "location": "하모해변",
+      "hostGuestId": "guest-011",
+      "hostNickname": "새별오름달",
+      "maxParticipants": 7,
+      "currentParticipants": 5,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-012",
+        "guest-013",
+        "guest-014",
+        "guest-015"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-042",
+      "title": "모슬포 고기국수 저녁 3차",
+      "description": "혼밥 대신 따뜻한 고기국수를 같이 먹어요. 메뉴는 현장에서 정해도 좋아요.",
+      "category": "식사",
+      "keywords": [
+        "식사",
+        "로컬맛집"
+      ],
+      "scheduledDate": "2026-08-06",
+      "scheduledTime": "20:00",
+      "location": "버킷 제주 로비",
+      "hostGuestId": "guest-012",
+      "hostNickname": "협재물결",
+      "maxParticipants": 8,
+      "currentParticipants": 7,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-013",
+        "guest-014",
+        "guest-015",
+        "guest-016",
+        "guest-017",
+        "guest-018"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-043",
+      "title": "송악산 둘레길 산책 3차",
+      "description": "천천히 풍경을 보며 송악산 둘레길을 걸어요. 편한 신발만 챙겨 오세요.",
+      "category": "여행",
+      "keywords": [
+        "산책",
+        "트레킹"
+      ],
+      "scheduledDate": "2026-08-01",
+      "scheduledTime": "07:00",
+      "location": "송악산 주차장",
+      "hostGuestId": "guest-013",
+      "hostNickname": "곶자왈토끼",
+      "maxParticipants": 3,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-044",
+      "title": "산방산 일출 사진 3차",
+      "description": "이른 아침 산방산 풍경을 함께 촬영해요. 휴대폰 카메라도 충분합니다.",
+      "category": "여행",
+      "keywords": [
+        "사진",
+        "일출"
+      ],
+      "scheduledDate": "2026-08-02",
+      "scheduledTime": "09:30",
+      "location": "산방산 입구",
+      "hostGuestId": "guest-014",
+      "hostNickname": "애월필름",
+      "maxParticipants": 4,
+      "currentParticipants": 4,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-015",
+        "guest-016",
+        "guest-017"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-045",
+      "title": "대정오일시장 간식 투어 3차",
+      "description": "시장 간식을 조금씩 나눠 먹으며 대정의 맛을 찾아봐요.",
+      "category": "식사",
+      "keywords": [
+        "시장",
+        "간식"
+      ],
+      "scheduledDate": "2026-08-03",
+      "scheduledTime": "12:00",
+      "location": "대정오일시장 입구",
+      "hostGuestId": "guest-015",
+      "hostNickname": "성산해돋이",
+      "maxParticipants": 5,
+      "currentParticipants": 4,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-016",
+        "guest-017",
+        "guest-018"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-046",
+      "title": "용머리해안 지질 산책 3차",
+      "description": "용머리해안의 독특한 지층을 구경하며 느긋하게 걸어요.",
+      "category": "여행",
+      "keywords": [
+        "지질",
+        "산책"
+      ],
+      "scheduledDate": "2026-08-04",
+      "scheduledTime": "15:30",
+      "location": "용머리해안 매표소",
+      "hostGuestId": "guest-016",
+      "hostNickname": "제주책갈피",
+      "maxParticipants": 6,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-047",
+      "title": "모슬포항 새벽 산책 3차",
+      "description": "조용한 항구의 아침 공기를 함께 느껴요. 따뜻한 겉옷을 추천해요.",
+      "category": "운동",
+      "keywords": [
+        "아침",
+        "산책"
+      ],
+      "scheduledDate": "2026-08-05",
+      "scheduledTime": "18:30",
+      "location": "모슬포항",
+      "hostGuestId": "guest-017",
+      "hostNickname": "감귤마카롱",
+      "maxParticipants": 7,
+      "currentParticipants": 5,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-018",
+        "guest-019",
+        "guest-020",
+        "guest-021"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-048",
+      "title": "제주 로컬 카페 탐방 3차",
+      "description": "대정읍의 작은 카페 두 곳을 골라 천천히 둘러봐요.",
+      "category": "카페",
+      "keywords": [
+        "카페",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-06",
+      "scheduledTime": "20:00",
+      "location": "버킷 제주 입구",
+      "hostGuestId": "guest-018",
+      "hostNickname": "파도타는귤",
+      "maxParticipants": 8,
+      "currentParticipants": 6,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-019",
+        "guest-020",
+        "guest-021",
+        "guest-022",
+        "guest-023"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-049",
+      "title": "가파도 자전거 한 바퀴 3차",
+      "description": "배를 타고 가파도에 들어가 자전거로 섬을 둘러봐요.",
+      "category": "여행",
+      "keywords": [
+        "자전거",
+        "섬여행"
+      ],
+      "scheduledDate": "2026-08-01",
+      "scheduledTime": "07:00",
+      "location": "운진항",
+      "hostGuestId": "guest-019",
+      "hostNickname": "오름이",
+      "maxParticipants": 3,
+      "currentParticipants": 3,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-020",
+        "guest-021"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-050",
+      "title": "해변 요가 스트레칭 3차",
+      "description": "하모해변에서 여행으로 굳은 몸을 가볍게 풀어요. 매트는 선택이에요.",
+      "category": "운동",
+      "keywords": [
+        "요가",
+        "건강"
+      ],
+      "scheduledDate": "2026-08-02",
+      "scheduledTime": "09:30",
+      "location": "하모해변",
+      "hostGuestId": "guest-020",
+      "hostNickname": "하모바다",
+      "maxParticipants": 4,
+      "currentParticipants": 3,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-021",
+        "guest-022"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-051",
+      "title": "제주 흑돼지 같이 먹기 3차",
+      "description": "여럿이 먹으면 더 맛있는 흑돼지 저녁 모임이에요.",
+      "category": "식사",
+      "keywords": [
+        "식사",
+        "흑돼지"
+      ],
+      "scheduledDate": "2026-08-03",
+      "scheduledTime": "12:00",
+      "location": "버킷 제주 로비",
+      "hostGuestId": "guest-021",
+      "hostNickname": "돌고래우체부",
+      "maxParticipants": 5,
+      "currentParticipants": 3,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-022",
+        "guest-023"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-052",
+      "title": "노을 필름사진 산책 3차",
+      "description": "해 질 무렵 골목과 바다를 필름 감성으로 담아봐요.",
+      "category": "여행",
+      "keywords": [
+        "사진",
+        "노을"
+      ],
+      "scheduledDate": "2026-08-04",
+      "scheduledTime": "15:30",
+      "location": "하모체육공원",
+      "hostGuestId": "guest-022",
+      "hostNickname": "동백여행자",
+      "maxParticipants": 6,
+      "currentParticipants": 2,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-023"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-053",
+      "title": "편의점 간식 월드컵 3차",
+      "description": "각자 추천하는 제주 간식을 하나씩 골라 재미있게 맛봐요.",
+      "category": "친목",
+      "keywords": [
+        "간식",
+        "친목"
+      ],
+      "scheduledDate": "2026-08-05",
+      "scheduledTime": "18:30",
+      "location": "버킷 제주 공용공간",
+      "hostGuestId": "guest-023",
+      "hostNickname": "푸른현무암",
+      "maxParticipants": 7,
+      "currentParticipants": 5,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-024",
+        "guest-025",
+        "guest-026",
+        "guest-027"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-054",
+      "title": "여행책 한 챕터 읽기 3차",
+      "description": "각자 읽던 책을 가져와 조용히 읽고 짧게 감상을 나눠요.",
+      "category": "친목",
+      "keywords": [
+        "독서",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-06",
+      "scheduledTime": "20:00",
+      "location": "버킷 제주 라운지",
+      "hostGuestId": "guest-024",
+      "hostNickname": "귤꽃향기",
+      "maxParticipants": 8,
+      "currentParticipants": 8,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-025",
+        "guest-026",
+        "guest-027",
+        "guest-028",
+        "guest-029",
+        "guest-030",
+        "guest-001"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-055",
+      "title": "곶자왈 숲길 트레킹 3차",
+      "description": "제주의 숲 냄새를 느끼며 무리하지 않는 속도로 걸어요.",
+      "category": "여행",
+      "keywords": [
+        "숲",
+        "트레킹"
+      ],
+      "scheduledDate": "2026-08-01",
+      "scheduledTime": "07:00",
+      "location": "곶자왈 도립공원",
+      "hostGuestId": "guest-025",
+      "hostNickname": "바당친구",
+      "maxParticipants": 3,
+      "currentParticipants": 2,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-026"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-056",
+      "title": "아침 해장국 원정대 3차",
+      "description": "일찍 일어난 사람끼리 든든한 제주식 해장국을 먹으러 가요.",
+      "category": "식사",
+      "keywords": [
+        "아침",
+        "식사"
+      ],
+      "scheduledDate": "2026-08-02",
+      "scheduledTime": "09:30",
+      "location": "버킷 제주 입구",
+      "hostGuestId": "guest-026",
+      "hostNickname": "숲길메아리",
+      "maxParticipants": 4,
+      "currentParticipants": 2,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-027"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-057",
+      "title": "별 보며 여행 이야기 3차",
+      "description": "날씨가 맑으면 야외에서 별을 보고 서로의 제주 일정을 나눠요.",
+      "category": "친목",
+      "keywords": [
+        "별보기",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-03",
+      "scheduledTime": "12:00",
+      "location": "하모해변",
+      "hostGuestId": "guest-027",
+      "hostNickname": "노꼬메구름",
+      "maxParticipants": 5,
+      "currentParticipants": 1,
+      "status": "모집중",
+      "participantGuestIds": [],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-058",
+      "title": "대정쌍둥이식당 점심 3차",
+      "description": "대정쌍둥이식당에서 점심을 같이 먹을 분을 찾아요.",
+      "category": "식사",
+      "keywords": [
+        "식사",
+        "로컬맛집"
+      ],
+      "scheduledDate": "2026-08-04",
+      "scheduledTime": "15:30",
+      "location": "대정쌍둥이식당",
+      "hostGuestId": "guest-028",
+      "hostNickname": "용머리노을",
+      "maxParticipants": 6,
+      "currentParticipants": 3,
+      "status": "모집중",
+      "participantGuestIds": [
+        "guest-029",
+        "guest-030"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-059",
+      "title": "바닷가 플로깅 3차",
+      "description": "산책하며 작은 쓰레기를 줍는 가벼운 플로깅 모임이에요.",
+      "category": "운동",
+      "keywords": [
+        "플로깅",
+        "산책"
+      ],
+      "scheduledDate": "2026-08-05",
+      "scheduledTime": "18:30",
+      "location": "하모해변",
+      "hostGuestId": "guest-029",
+      "hostNickname": "비자림새",
+      "maxParticipants": 7,
+      "currentParticipants": 7,
+      "status": "모집완료",
+      "participantGuestIds": [
+        "guest-030",
+        "guest-001",
+        "guest-002",
+        "guest-003",
+        "guest-004",
+        "guest-005"
+      ],
+      "isSynthetic": true
+    },
+    {
+      "id": "join-060",
+      "title": "체크아웃 전 브런치 3차",
+      "description": "체크아웃 전 가까운 곳에서 여유롭게 브런치를 먹어요.",
+      "category": "식사",
+      "keywords": [
+        "브런치",
+        "대화"
+      ],
+      "scheduledDate": "2026-08-06",
+      "scheduledTime": "20:00",
+      "location": "버킷 제주 로비",
+      "hostGuestId": "guest-030",
+      "hostNickname": "제주한바퀴",
+      "maxParticipants": 8,
+      "currentParticipants": 7,
+      "status": "일정완료",
+      "participantGuestIds": [
+        "guest-001",
+        "guest-002",
+        "guest-003",
+        "guest-004",
+        "guest-005",
+        "guest-006"
+      ],
+      "isSynthetic": true
+    }
+  ]
+}
