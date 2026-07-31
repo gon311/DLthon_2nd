@@ -9,8 +9,8 @@
 
 사용법:
     export OPENAI_API_KEY=...
-    python build_index.py --csv sample_poi.csv --collection poi_demo
-    python build_index.py --csv sample_poi.csv --collection poi_demo --smoke-test
+    python build_index.py --csv sample_poi.csv --collection poi
+    python build_index.py --csv sample_poi.csv --collection poi --smoke-test
 """
 
 import argparse
