@@ -13,6 +13,8 @@ import os
 import streamlit as st
 import streamlit.components.v1 as components
 
+from api_client import fetch_joins
+
 
 BUCKET_JEJU = {
     "name": "버킷 제주",
@@ -23,7 +25,38 @@ BUCKET_JEJU = {
 SEARCH_RADIUS_METERS = 2_000
 
 
-st.set_page_config(page_title="버킷 제주 · 주변 2km", page_icon="🍊", layout="wide")
+st.set_page_config(page_title="버킷 제주", page_icon="🍊", layout="wide")
+
+page = st.sidebar.radio("메뉴", ("주변 2km 지도", "투숙객 Join"))
+if page == "투숙객 Join":
+    st.title("🍊 버킷 제주 투숙객 Join")
+    st.caption("가상 투숙객 30명과 Join 60건으로 구성된 합성 테스트 데이터입니다.")
+    filter_col, status_col = st.columns(2)
+    with filter_col:
+        keyword_filter = st.text_input("키워드", placeholder="식사, 산책, 사진…")
+    with status_col:
+        status_filter = st.selectbox("모집 상태", ("전체", "모집중", "모집완료", "일정완료"))
+    join_items, data_source = fetch_joins(
+        keyword=keyword_filter or None,
+        status=None if status_filter == "전체" else status_filter,
+    )
+    source_label = "FastAPI" if data_source == "api" else "로컬 합성 시드"
+    st.info(f"{source_label}에서 {len(join_items)}건을 불러왔습니다.")
+    for item in join_items:
+        with st.container(border=True):
+            st.subheader(item["title"])
+            st.write(item["description"])
+            st.caption(
+                f"#{' #'.join(item['keywords'])} · {item['scheduledDate']} "
+                f"{item['scheduledTime']} · {item['location']}"
+            )
+            st.write(
+                f"**{item['status']}** · "
+                f"{item['currentParticipants']}/{item['maxParticipants']}명 · "
+                f"by {item['hostNickname']}"
+            )
+    st.stop()
+
 st.title("🍊 버킷 제주 근처 둘러보기")
 st.caption(
     f"{BUCKET_JEJU['name']}의 고정 위치를 중심으로 "
@@ -281,4 +314,3 @@ components.html(
     height=720,
     scrolling=False,
 )
-
