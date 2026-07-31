@@ -159,3 +159,24 @@ node frontend/seed-data/generate-seed.mjs
 - [수정] 발견하여 고친 오류
 - [대기] 아직 반영되지 않은 항목
 ```
+
+
+### v5 — jeju-bucket-map React 원본을 M3 프론트엔드로 동기화
+
+#### 수정 및 변경 사항
+
+- 원본 `jeju-bucket-map/main/codex-vinext` 앱을 `DLthon_2nd/m3/frontend`에 반영
+- React 19, TypeScript, Vinext를 M3 공식 프론트엔드로 확정
+- 앱·데이터 계층·Worker·정적 이미지·빌드 설정 전체 반영
+- 기존 합성 시드 폴더와 v1~v4 기록은 삭제하지 않고 유지
+- React 화면의 가상 투숙객 30명과 Join 60건 생성 코드 확인
+
+#### 디버깅 및 검증 결과
+
+- [완료] `frontend/app/page.tsx`에 투숙객 30명 및 Join 60건 존재
+- [완료] `frontend/public/og.png` 등 정적 자산 반영
+- [완료] 기존 `frontend/seed-data` 유지
+- [완료] 원본 README를 `frontend/REACT_APP_README.md`로 보존
+- [주의] 기존 Streamlit 파일은 기록 보존용이며 공식 실행 대상은 React 앱
+- [대기] 로컬 환경의 npm registry 접근 제한으로 최종 빌드 재검증 보류
+- [대기] GitHub push와 기존 chatgpt.site 배포는 자동 연동되지 않으므로 별도 재배포 필요
