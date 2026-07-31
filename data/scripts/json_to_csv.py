@@ -20,10 +20,12 @@ df = df.rename(columns={
 def normalize_category(raw_cat):
     if raw_cat == 'restaurant':
         return '음식점'
-    elif raw_cat in ['tourist_spot', 'museum', 'gallery']:
+    elif raw_cat in ['attraction', 'culture']:     
         return '관광/문화'
     elif raw_cat in ['convenience_store', 'pharmacy']:
         return '편의시설'
+    elif raw_cat == 'parking':
+        return '주차장' 
     else:
         return '기타'
 
