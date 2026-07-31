@@ -66,3 +66,4 @@ data/eval/results/
 ._*
 .Rhistory
 .DS_Store
+data/embeddings/
