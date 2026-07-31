@@ -1,64 +1,60 @@
-# 버킷 제주 웹 데모 — M3 인수인계
+# 버킷 제주 웹 데모 — M3 1차 인수인계
 
-## 공식 작업 위치
+## 웹 데모
 
-- 원본: https://github.com/jsk900210-oss/jeju-bucket-map/tree/main/codex-vinext
-- 최종 M3: https://github.com/jsk900210-oss/DLthon_2nd/tree/m3/frontend
-- 합성 데이터: https://github.com/jsk900210-oss/DLthon_2nd/tree/m3/frontend/seed-data
-- 기존 라이브: https://bucket-jeju-join.ep01-sleepwar.chatgpt.site/
+- 라이브 주소: https://bucket-jeju-join.ep01-sleepwar.chatgpt.site/
+- 현재 배포 버전: Demo V4
+- 공식 프론트엔드: React 19 + TypeScript + Next.js 호환 Vinext
+- 원본 작업 저장소: https://github.com/jsk900210-oss/jeju-bucket-map/tree/gpt/codex-vinext
 
-## 공식 프론트엔드
+> GitHub push와 웹 배포는 자동 연동되지 않습니다. 변경 후 별도 빌드와 OpenAI Sites 재배포가 필요합니다.
 
-2026-07-31부터 M3의 공식 프론트엔드는 React 19 + TypeScript + Vinext입니다.
+## 서비스 목표
 
-- 앱 화면: `frontend/app/`
-- 정적 자산: `frontend/public/`
-- 데이터 계층: `frontend/db/`, `frontend/drizzle/`
-- Worker: `frontend/worker/`
-- 실행 설정: `frontend/package.json`, `frontend/vite.config.ts`, `frontend/next.config.ts`
-- 배포 설정: `frontend/.openai/hosting.json`
+제주 버킷 게스트하우스 숙박객이 주변 장소를 찾고 운동·식사·여행 등의 Join으로 교류하는 서비스입니다. 사용자는 닉네임만 사용하며 활동을 약 300개 키워드로 분석해 테스트 단계에서는 프로필 TOP 5를 표시합니다.
 
-`app.py`, `api_client.py`, `requirements.txt`는 이전 Streamlit 검토본이며 공식 실행 대상이 아닙니다. 기존 기록 보존을 위해 삭제하지 않았습니다.
+## 현재 구현
 
-## v5 — jeju-bucket-map React 원본을 M3로 동기화
+- 버킷 제주 중심 주변 장소 지도 및 검색 UI
+- 하모해변·모슬포항·운진항 등 장소 카드
+- Join 생성: 제목, 상세 모집글, 최대인원, 일정, 장소, 카테고리
+- Join 상태: 모집중, 모집완료, 일정완료
+- Join 참여·취소 및 필터
+- 닉네임 기반 데모 프로필
+- 활동 키워드 TOP 5 그래프
+- 모바일 하단 내비게이션
 
-- `jeju-bucket-map/main/codex-vinext`의 앱 소스와 설정을 `DLthon_2nd/m3/frontend`로 복사
-- 대표 이미지 `public/og.png` 포함
-- 가상 투숙객 30명과 Join 60건이 React 화면에 표시되는 코드 확인
-- 기존 `seed-data`, API 검토 문서, 인수인계 기록 보존
-- 원본 README는 충돌 방지를 위해 `REACT_APP_README.md`로 저장
+## 현재 제한
 
-## 실행
+- Join과 사용자 데이터는 메모리 상태라 새로고침 시 초기화됩니다.
+- 실제 닉네임 중복 검사와 데이터베이스 저장은 미구현입니다.
+- Kakao 지도 API 키는 아직 설정되지 않아 OpenStreetMap을 사용합니다.
+- OpenStreetMap에는 과거 상호 비치캐슬이 남아 있을 수 있습니다.
 
-`frontend` 폴더에서 다음을 실행합니다.
+## 지도 수정 진행 상태
 
-`pnpm install`
-`pnpm run dev`
+Codex 로컬 소스에는 다음 수정이 준비돼 있지만 아직 V5로 배포되지 않았습니다.
 
-빌드는 `pnpm run build`입니다.
+- 지도에 버킷 제주 공식 표식 고정
+- 대정쌍둥이식당 표식 추가
+- 장소 목록에 대정쌍둥이식당 추가
+- 식당 주소: 제주 서귀포시 대정읍 하모백사로 2
 
-## 점검 결과
+빌드 의존성 다운로드가 실행 환경에서 차단되어 검증 및 배포가 보류된 상태입니다. 라이브 V4에는 아직 반영되지 않았습니다.
 
-- React 소스·설정·정적 이미지의 M3 업로드 완료
-- `app/page.tsx`에서 투숙객 30명, Join 60건 생성 확인
-- Join 일정은 2026-08-01~2026-08-15 범위
-- 기존 합성 데이터 폴더 유지 확인
-- 로컬 빌드는 실행 환경의 npm registry 접근 제한(EACCES)으로 의존성 설치 단계에서 완료하지 못함
+## 다음 우선순위
 
-## API 상태
-
-- 저장소 루트의 `backend/main.py` FastAPI 조회 API는 유지됩니다.
-- 현재 React 화면의 Join 60건은 `app/page.tsx`에서 생성되며 FastAPI를 호출하지 않습니다.
-- 실제 API 연결 시 React에서 `/api/v1/joins`를 호출하도록 별도 작업이 필요합니다.
-- Kakao 지도는 JavaScript 키와 배포 도메인 등록이 필요합니다.
-
-## 배포 주의
-
-GitHub M3 업로드와 기존 chatgpt.site 배포는 자동 연동되지 않습니다. 실제 웹 반영에는 M3 프론트엔드 소스를 대상으로 별도 배포가 필요합니다.
+1. 지도 수정본 빌드 및 Demo V5 배포
+2. Kakao JavaScript 지도와 서버 검색 프록시 연결
+3. 검색 없이 주변 맛집·카페·명소 자동 로드
+4. 닉네임 생성 및 중복 확인
+5. D1 데이터베이스에 Join·참여·활동 저장
+6. 300개 키워드 점수 및 30일 반감기 적용
+7. 관리자 역할, 신고, 차단, 서버 금지어 검수
 
 ## 협업 규칙
 
-- M3 공식 프론트엔드 수정은 `frontend/app`, `frontend/public`, `frontend/db`, `frontend/worker` 범위에서 진행
-- API 키와 비밀번호는 커밋하지 않음
-- 버전별 변경과 테스트 결과를 문서에 누적 기록
-- 병합 전 PR에서 충돌 검사를 다시 수행
+- M3 작업 브랜치: m3
+- 작업 대상: frontend/
+- API 키와 비밀번호는 저장소에 커밋하지 않습니다.
+- 완료 시 변경 목적, 수정 파일, 테스트 결과, 미완료 사항을 기록합니다.
