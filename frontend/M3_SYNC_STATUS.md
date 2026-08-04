@@ -1,64 +1,49 @@
-# 버킷 제주 웹 데모 — M3 인수인계
+# M3 최신 연동 상태
 
-## 공식 작업 위치
+업데이트 기준일: 2026-08-04
 
-- 원본: https://github.com/jsk900210-oss/jeju-bucket-map/tree/main/codex-vinext
-- 최종 M3: https://github.com/jsk900210-oss/DLthon_2nd/tree/m3/frontend
-- 합성 데이터: https://github.com/jsk900210-oss/DLthon_2nd/tree/m3/frontend/seed-data
-- 기존 라이브: https://bucket-jeju-join.ep01-sleepwar.chatgpt.site/
+## 연동 경로
 
-## 공식 프론트엔드
+- 개인 구현: `jsk900210-oss/jeju-bucket-map`의 `gpt`
+- 포크 작업: `jsk900210-oss/DLthon_2nd`의 `m3`
+- 팀 검토: `gon311/DLthon_2nd`의 Draft PR #4
+- 운영 웹: https://bucket-jeju-join.ep01-sleepwar.chatgpt.site/
 
-2026-07-31부터 M3의 공식 프론트엔드는 React 19 + TypeScript + Vinext입니다.
+팀 저장소에는 `m3` 브랜치가 없고 현재 사용자에게 직접 쓰기 권한도 없습니다.
+따라서 포크 `m3`를 최신화하고 기존 Draft PR #4로 팀 `main`에 제안하는 흐름을 사용합니다.
 
-- 앱 화면: `frontend/app/`
-- 정적 자산: `frontend/public/`
-- 데이터 계층: `frontend/db/`, `frontend/drizzle/`
-- Worker: `frontend/worker/`
-- 실행 설정: `frontend/package.json`, `frontend/vite.config.ts`, `frontend/next.config.ts`
-- 배포 설정: `frontend/.openai/hosting.json`
+## 이번에 추가·갱신한 내용
 
-`app.py`, `api_client.py`, `requirements.txt`는 이전 Streamlit 검토본이며 공식 실행 대상이 아닙니다. 기존 기록 보존을 위해 삭제하지 않았습니다.
+- ChatGPT 로그인 사용자와 D1 사용자 레코드 연결
+- 닉네임 2~20자 변경 및 영구 저장
+- Join 목록 `GET /api/joins`
+- Join 작성 `POST /api/joins`
+- Join 작성 폼과 입력 검증
+- 작성 성공 직후 Join 탭에 반영
+- 최신 Join 3건을 메인 화면에 반영
+- 모집시간이 지나면 인원과 무관하게 `모집완료`로 자동 전환
+- AI 질문 탭 기본 화면 추가
+- Drizzle 사용자·Join·참여자 스키마 및 마이그레이션 추가
 
-## v5 — jeju-bucket-map React 원본을 M3로 동기화
+## 해결한 오류
 
-- `jeju-bucket-map/main/codex-vinext`의 앱 소스와 설정을 `DLthon_2nd/m3/frontend`로 복사
-- 대표 이미지 `public/og.png` 포함
-- 가상 투숙객 30명과 Join 60건이 React 화면에 표시되는 코드 확인
-- 기존 `seed-data`, API 검토 문서, 인수인계 기록 보존
-- 원본 README는 충돌 방지를 위해 `REACT_APP_README.md`로 저장
+1. 인증 이름이 닉네임을 덮어쓰는 문제
+2. Join 작성 API와 폼이 없어 글을 등록할 수 없던 문제
+3. `useMemo` 의존성 누락으로 작성 글이 즉시 표시되지 않던 문제
+4. 홈 미리보기가 DB Join과 연결되지 않던 문제
+5. 모집시간 이후에도 `모집중`으로 남던 문제
 
-## 실행
+## 아직 해야 할 일
 
-`frontend` 폴더에서 다음을 실행합니다.
+- 운영 사이트에 모집시간 자동 종료 버전 재배포
+- Join 참여·취소를 D1에 영구 저장
+- RAG 자료 수집 후 AI 질문 기능 연결
+- 게스트하우스 1층·2층 안내, 공간별 이용시간과 규칙 정리
+- 방문객 리뷰 탭 구현
+- 팀 리뷰 후 Draft PR #4 병합
 
-`pnpm install`
-`pnpm run dev`
+## 검증 메모
 
-빌드는 `pnpm run build`입니다.
-
-## 점검 결과
-
-- React 소스·설정·정적 이미지의 M3 업로드 완료
-- `app/page.tsx`에서 투숙객 30명, Join 60건 생성 확인
-- Join 일정은 2026-08-01~2026-08-15 범위
-- 기존 합성 데이터 폴더 유지 확인
-- 로컬 빌드는 실행 환경의 npm registry 접근 제한(EACCES)으로 의존성 설치 단계에서 완료하지 못함
-
-## API 상태
-
-- 저장소 루트의 `backend/main.py` FastAPI 조회 API는 유지됩니다.
-- 현재 React 화면의 Join 60건은 `app/page.tsx`에서 생성되며 FastAPI를 호출하지 않습니다.
-- 실제 API 연결 시 React에서 `/api/v1/joins`를 호출하도록 별도 작업이 필요합니다.
-- Kakao 지도는 JavaScript 키와 배포 도메인 등록이 필요합니다.
-
-## 배포 주의
-
-GitHub M3 업로드와 기존 chatgpt.site 배포는 자동 연동되지 않습니다. 실제 웹 반영에는 M3 프론트엔드 소스를 대상으로 별도 배포가 필요합니다.
-
-## 협업 규칙
-
-- M3 공식 프론트엔드 수정은 `frontend/app`, `frontend/public`, `frontend/db`, `frontend/worker` 범위에서 진행
-- API 키와 비밀번호는 커밋하지 않음
-- 버전별 변경과 테스트 결과를 문서에 누적 기록
-- 병합 전 PR에서 충돌 검사를 다시 수행
+- 최신 기능 소스는 개인 `gpt` 브랜치에서 확인했습니다.
+- 모집시간 자동 종료가 포함된 로컬 소스는 이전에 `vinext build`를 통과했습니다.
+- 현재 실행 환경의 외부 패키지·운영 저장소 연결 제한으로 최신 운영 배포는 보류 상태입니다.
