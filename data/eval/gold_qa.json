@@ -1,0 +1,308 @@
+[
+  {
+    "id": "QA-01",
+    "type": "poi_search",
+    "question": "게스트하우스와 가장 가까운 편의점은 어디야?",
+    "expected_answer": "CU 서귀최남단해안로점",
+    "gold_context": [
+      {
+        "name": "CU 서귀최남단해안로점",
+        "category": "편의점",
+        "distance_m": 280,
+        "poi_id": 1912194179
+      }
+    ],
+    "note": "가장 가까운 1개 POI만 정답"
+  },
+  {
+    "id": "QA-02",
+    "type": "poi_search",
+    "question": "게스트하우스와 가장 가까운 정류장은 어디인가요?",
+    "expected_answer": "모슬포 남항 여객선 터미널",
+    "gold_context": [
+      {
+        "name": "모슬포 남항 여객선 터미널",
+        "category": "버스정류장",
+        "distance_m": 450,
+        "poi_id": 8413554
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "QA-03",
+    "type": "poi_search",
+    "question": "혼밥할 수 있는 곳이 있어?",
+    "expected_answer": "일부 식당은 1인 메뉴 주문이 가능하다",
+    "gold_context": [
+      {
+        "category": "식당",
+        "feature": "1인메뉴",
+        "count": "2~3곳"
+      }
+    ],
+    "note": "정확한 식당명은 선택사항, 1인메뉴 가능 여부가 핵심"
+  },
+  {
+    "id": "QA-04",
+    "type": "poi_search",
+    "question": "가장 가까운 약국이 어디야?",
+    "expected_answer": "하모리오거리 근방의 약국",
+    "gold_context": [
+      {
+        "name": "하모리오거리 약국",
+        "category": "약국",
+        "distance_m": 600
+      }
+    ],
+    "note": "정확한 약국명 제시 + 리스트 제공"
+  },
+  {
+    "id": "QA-05",
+    "type": "poi_search",
+    "question": "가장 가까운 큰병원이 어디야?",
+    "expected_answer": "반경 3km 내에 응급실이 있는 병원은 없다",
+    "gold_context": [
+      {
+        "category": "병원",
+        "distance_m": 3000,
+        "availability": "none"
+      }
+    ],
+    "note": "근처에 없다는 것을 정확히 전달해야 함"
+  },
+  {
+    "id": "QA-06",
+    "type": "poi_search",
+    "question": "대정오일장은 언제 갈 수 있어?",
+    "expected_answer": "매월 1, 6, 11, 16, 21, 26, 31일에 영업",
+    "gold_context": [
+      {
+        "name": "대정오일장",
+        "category": "시장",
+        "schedule": "monthly 1,6,11,16,21,26,31"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "QA-07",
+    "type": "poi_search",
+    "question": "주변에 가볼만한 곳 있어?",
+    "expected_answer": "해수욕장, 맛집, 카페 등 다양한 장소가 있다",
+    "gold_context": [
+      {
+        "categories": [
+          "해수욕장",
+          "식당",
+          "카페"
+        ]
+      }
+    ],
+    "note": "카테고리별 POI 제시"
+  },
+  {
+    "id": "QA-08",
+    "type": "facility_info",
+    "question": "숙소에서 우리가 사용할 수 있는 공간이 뭐가 있어?",
+    "expected_answer": "1층 스페이스룸(주방+거실), 랩실, 코워킹마루, 테라스",
+    "gold_context": [
+      {
+        "location": "1층 스페이스룸",
+        "features": [
+          "주방",
+          "거실"
+        ]
+      },
+      {
+        "location": "랩실",
+        "features": []
+      },
+      {
+        "location": "코워킹마루",
+        "features": []
+      },
+      {
+        "location": "테라스",
+        "features": []
+      }
+    ],
+    "note": "모든 공용 공간을 나열"
+  },
+  {
+    "id": "QA-09",
+    "type": "facility_info",
+    "question": "1층 스페이스룸에 있는 물건 사용해도 되?",
+    "expected_answer": "보드게임, 도서, 다트 등 구비된 물건들을 자유롭게 사용 가능",
+    "gold_context": [
+      {
+        "location": "1층 스페이스룸",
+        "items": [
+          "보드게임",
+          "도서",
+          "다트"
+        ],
+        "usage": "free"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "QA-10",
+    "type": "facility_info",
+    "question": "주방에 사용할 수 있는 조미료가 있어?",
+    "expected_answer": "없다. 각 개인이 준비하여 조리해야 한다",
+    "gold_context": [
+      {
+        "location": "주방",
+        "seasonings": "not_provided",
+        "note": "개인물품 필수"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "QA-11",
+    "type": "facility_info",
+    "question": "공용공간 사용시간이 정해져 있어?",
+    "expected_answer": "아침 7시부터 저녁 11시까지 사용 가능",
+    "gold_context": [
+      {
+        "location": "공용공간",
+        "hours": "07:00-23:00"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "QA-12",
+    "type": "facility_info",
+    "question": "사용 가능한 조리기구가 있어?",
+    "expected_answer": "기본 조리도구는 사용 가능. 업소용 화구와 대용량 냄비는 확인 필요",
+    "gold_context": [
+      {
+        "location": "주방",
+        "tools": "basic_available",
+        "restrictions": [
+          "업소용 화구",
+          "대용량 냄비"
+        ]
+      }
+    ],
+    "note": "일부 제약사항이 있음을 명시"
+  },
+  {
+    "id": "QA-13",
+    "type": "facility_info",
+    "question": "물놀이용품을 빌릴 수 있어?",
+    "expected_answer": "없다. 개인물품으로 구비해야 한다",
+    "gold_context": [
+      {
+        "item": "수상용품",
+        "rental": false,
+        "note": "개인물품 필수"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "QA-14",
+    "type": "poi_search",
+    "question": "근처에 혼밥 할 수 있는 곳이 있어?",
+    "expected_answer": "네, 일부 식당에서 1인메뉴 주문이 가능하다",
+    "gold_context": [
+      {
+        "category": "식당",
+        "feature": "1인메뉴"
+      }
+    ],
+    "note": "QA-03과 동일 컨셉"
+  },
+  {
+    "id": "QA-15",
+    "type": "facility_info",
+    "question": "숙소에 흡연실이 따로 있어?",
+    "expected_answer": "네, 1층 바다테라스 앞에서 흡연 가능",
+    "gold_context": [
+      {
+        "location": "1층 바다테라스 앞",
+        "smoking": true
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "QA-16",
+    "type": "poi_search",
+    "question": "회 포장이 가능한 곳이 있을까?",
+    "expected_answer": "네, 홍마트, 하나로마트에서 포장 회를 판매",
+    "gold_context": [
+      {
+        "name": "홍마트",
+        "category": "마트",
+        "service": "회포장"
+      },
+      {
+        "name": "하나로마트",
+        "category": "마트",
+        "service": "회포장"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "QA-17",
+    "type": "facility_info",
+    "question": "음식물처리가 가능한 장소가 있어?",
+    "expected_answer": "네, 1층 주방에 음식물 쓰레기통이 준비되어 있다",
+    "gold_context": [
+      {
+        "location": "1층 주방",
+        "feature": "음식물쓰레기통"
+      }
+    ],
+    "note": "정확한 위치 안내 필수"
+  },
+  {
+    "id": "QA-18",
+    "type": "facility_info",
+    "question": "분리수거는 어떻게 해?",
+    "expected_answer": "1층 세탁실 뒤쪽에 분리수거함이 마련되어 있다",
+    "gold_context": [
+      {
+        "location": "1층 세탁실 뒤쪽",
+        "feature": "분리수거함"
+      }
+    ],
+    "note": "정확한 위치 안내 필수"
+  },
+  {
+    "id": "QA-19",
+    "type": "facility_info",
+    "question": "수건은 따로 제공해줘?",
+    "expected_answer": "수건은 개별적으로 구비해야 한다. 리셉션에서 구매 가능",
+    "gold_context": [
+      {
+        "item": "수건",
+        "provided": false,
+        "purchase": "리셉션"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "QA-20",
+    "type": "facility_info",
+    "question": "이불교체는 어떻게 해?",
+    "expected_answer": "1주일 이상 장박 시 주 1회 무료 교체 가능",
+    "gold_context": [
+      {
+        "item": "이불",
+        "exchange": "1회/week",
+        "condition": "1주일이상",
+        "cost": "free"
+      }
+    ],
+    "note": ""
+  }
+]
