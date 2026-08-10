@@ -1,60 +1,88 @@
-# 버킷 제주 웹 데모 — M3 1차 인수인계
+# 버킷 제주 M3 인수인계
 
 ## 웹 데모
 
 - 라이브 주소: https://bucket-jeju-join.ep01-sleepwar.chatgpt.site/
-- 현재 배포 버전: Demo V4
-- 공식 프론트엔드: React 19 + TypeScript + Next.js 호환 Vinext
+- 공식 프론트엔드: React 19 + TypeScript + Vinext
 - 원본 작업 저장소: https://github.com/jsk900210-oss/jeju-bucket-map/tree/gpt/codex-vinext
+- GitHub 변경과 웹 배포는 자동 연동되지 않으므로 별도 배포가 필요합니다.
 
-> GitHub push와 웹 배포는 자동 연동되지 않습니다. 변경 후 별도 빌드와 OpenAI Sites 재배포가 필요합니다.
+## 프로젝트 목표
 
-## 서비스 목표
+버킷 제주 게스트하우스 방문객이 주변 장소를 찾고, 투숙객끼리 Join을 만들며, 게스트하우스 이용 안내를 질문할 수 있는 서비스를 구축합니다.
 
-제주 버킷 게스트하우스 숙박객이 주변 장소를 찾고 운동·식사·여행 등의 Join으로 교류하는 서비스입니다. 사용자는 닉네임만 사용하며 활동을 약 300개 키워드로 분석해 테스트 단계에서는 프로필 TOP 5를 표시합니다.
+## 현재 프론트엔드
 
-## 현재 구현
-
-- 버킷 제주 중심 주변 장소 지도 및 검색 UI
-- 하모해변·모슬포항·운진항 등 장소 카드
-- Join 생성: 제목, 상세 모집글, 최대인원, 일정, 장소, 카테고리
-- Join 상태: 모집중, 모집완료, 일정완료
-- Join 참여·취소 및 필터
-- 닉네임 기반 데모 프로필
-- 활동 키워드 TOP 5 그래프
+- 홈, 근처 발견, Join, AI 질문, 프로필 화면
 - 모바일 하단 내비게이션
+- Join 작성 모달과 카테고리 필터
+- 최신 Join 메인 노출
+- 닉네임 편집 화면
+- 버킷 제주 중심 주변 장소 지도 및 장소 카드
 
-## 현재 제한
+주요 파일:
 
-- Join과 사용자 데이터는 메모리 상태라 새로고침 시 초기화됩니다.
-- 실제 닉네임 중복 검사와 데이터베이스 저장은 미구현입니다.
-- Kakao 지도 API 키는 아직 설정되지 않아 OpenStreetMap을 사용합니다.
-- OpenStreetMap에는 과거 상호 비치캐슬이 남아 있을 수 있습니다.
+- `frontend/app/client-home.tsx`
+- `frontend/app/globals.css`
+- `frontend/app/page.tsx`
+- `frontend/app/layout.tsx`
 
-## 지도 수정 진행 상태
+## 웹데모 전용 서버 기능
 
-Codex 로컬 소스에는 다음 수정이 준비돼 있지만 아직 V5로 배포되지 않았습니다.
+- Sites 인증 헤더 기반 사용자 식별
+- Cloudflare D1 + Drizzle ORM
+- Join 조회·작성 API
+- 닉네임 변경 API
+- 모집시간이 지난 Join의 상태 자동 종료
 
-- 지도에 버킷 제주 공식 표식 고정
-- 대정쌍둥이식당 표식 추가
-- 장소 목록에 대정쌍둥이식당 추가
-- 식당 주소: 제주 서귀포시 대정읍 하모백사로 2
+주요 파일:
 
-빌드 의존성 다운로드가 실행 환경에서 차단되어 검증 및 배포가 보류된 상태입니다. 라이브 V4에는 아직 반영되지 않았습니다.
+- `frontend/app/api/joins/route.ts`
+- `frontend/app/api/profile/route.ts`
+- `frontend/app/chatgpt-auth.ts`
+- `frontend/db/schema.ts`
+- `frontend/db/index.ts`
+- `frontend/drizzle/`
 
-## 다음 우선순위
+`backend/`의 FastAPI 코드는 팀의 RAG·검색 API 영역으로 유지합니다. Sites 전용 API와 D1 코드는 배포 구조상 `frontend/` 아래에 둡니다.
 
-1. 지도 수정본 빌드 및 Demo V5 배포
-2. Kakao JavaScript 지도와 서버 검색 프록시 연결
-3. 검색 없이 주변 맛집·카페·명소 자동 로드
-4. 닉네임 생성 및 중복 확인
-5. D1 데이터베이스에 Join·참여·활동 저장
-6. 300개 키워드 점수 및 30일 반감기 적용
-7. 관리자 역할, 신고, 차단, 서버 금지어 검수
+## 팀 RAG 백엔드
 
-## 협업 규칙
+팀 `M3`의 다음 내용을 우선 보존합니다.
 
-- M3 작업 브랜치: m3
-- 작업 대상: frontend/
+- `backend/build_index.py`
+- `backend/services/rag_service.py`
+- `backend/utils/geo.py`
+- `data/index/`, `data/processed/`, `data/scripts/`
+- `docs/api_contract.md`, `docs/kb_schema.md`
+
+## RAG 자료 요청
+
+- 체크인·체크아웃 안내
+- 1층·2층 공간 목록과 사진
+- 공간별 이용 가능 시간
+- 주방·세탁실·샤워실·공용공간 이용규칙
+- 정숙 시간과 금지사항
+- 안전시설·비상구 안내
+- 주변 맛집·카페·관광지 추천
+- 자주 묻는 질문과 답변
+- 자료별 출처와 최신 작성일
+
+## 현재 제한과 남은 작업
+
+1. 팀 리뷰 후 M3 PR 병합
+2. 최신 소스를 기존 운영 사이트에 재배포
+3. Join 참여·취소 API와 DB 저장 구현
+4. RAG 문서 분할·임베딩·검색·출처 표시 구현
+5. 1층·2층 게스트하우스 이용 안내 화면 구현
+6. 방문객 장소 리뷰 기능 구현
+7. Kakao 지도 API 연결 및 주변 장소 자동 로드
+
+## 협업 및 배포 규칙
+
+- 팀 대상 브랜치: `gon311/DLthon_2nd:M3`
+- 포크 작업 브랜치: `jsk900210-oss/DLthon_2nd:m3`
+- 프론트 작업 대상: `frontend/`
+- RAG 백엔드 작업 대상: `backend/`, `data/`, `docs/`
 - API 키와 비밀번호는 저장소에 커밋하지 않습니다.
-- 완료 시 변경 목적, 수정 파일, 테스트 결과, 미완료 사항을 기록합니다.
+- 기존 `.openai/hosting.json`의 `project_id`와 운영 주소를 재사용하며 새 사이트를 만들지 않습니다.
