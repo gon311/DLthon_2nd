@@ -61,7 +61,7 @@ except Exception as e:
 print("\n[2/5] RAG 서비스 초기화 중...\n")
 
 try:
-    from backend.services.rag_service_v1 import RAGService
+    from backend.services.rag_service import RAGService
     
     service = RAGService()
     print("✓ RAGService 초기화 완료")
