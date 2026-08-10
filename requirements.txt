@@ -8,6 +8,10 @@ pydantic==2.4.2
 aiohttp==3.9.0
 chromadb==0.4.24
 httpx==0.25.0
-ragas==0.1.15
+ragas==0.2.10
 langfuse
-python-dotenv
+python-dotenvlangchain>=0.2,<0.3
+langchain-community>=0.2,<0.3
+langchain-openai>=0.1,<0.2
+langchain-core>=0.2,<0.3
+langchain-text-splitters>=0.2,<0.3
