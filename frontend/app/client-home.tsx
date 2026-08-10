@@ -188,6 +188,39 @@ export default function ClientHome({ user }: { user: ChatGPTUser | null }) {
   const [statusNow, setStatusNow] = useState(() => Date.now());
   const mapRef = useRef<HTMLDivElement | null>(null);
   const mapInstanceRef = useRef<any>(null);
+
+  const [askLoading, setAskLoading] = useState(false);
+  const askBucket = async (askQuestion: string) => {
+    if (!askQuestion.trim() || askLoading) return;
+    const userMessage: AskMessage = { role: "user", text: askQuestion };
+    setAskMessages((prev) => [...prev, userMessage]);
+    setAskInput("");
+    setAskLoading(true);
+    try {
+      const response = await fetch("http://localhost:8000/api/v1/ask", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ question: askQuestion }),
+      });
+
+      if (!response.ok) {
+        throw new Error("API 요청 실패");
+      }
+      
+      const result = await response.json();
+      setAskMessages((prev) => [
+        ...prev,
+        { role: "assistant", text: result.answer, sources: result.sources?.map((s: any) => s.metadata?.source || "팀 자료") },
+      ]);
+    } catch (error) {
+      setAskMessages((prev) => [
+        ...prev,
+        { role: "assistant", text: "앗, 지금은 자료를 찾아보기가 어려워요. 조금 뒤에 다시 물어봐주세요!" },
+      ]);
+    } finally {
+      setAskLoading(false);
+    }
+  };
   const markersLayerRef = useRef<any>(null);
   const displayJoins = useMemo(
     () => joins.map((item) => withEffectiveStatus(item, statusNow)),

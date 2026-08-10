@@ -11,16 +11,22 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.config import ALLOWED_ORIGINS, API_PREFIX, SEED_DATA_PATH
 from backend.models import HealthResponse, JoinListResponse
 from backend.services.seed_repository import SeedRepository
+from backend.services.rag_service import RAGService
+from pydantic import BaseModel
 
 app = FastAPI(title="Bucket Jeju API", version="0.1.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
     allow_credentials=False,
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST", "PATCH", "DELETE", "PUT", "OPTIONS"],
     allow_headers=["*"],
 )
 repository = SeedRepository(SEED_DATA_PATH)
+rag_service = RAGService()
+
+class AskRequest(BaseModel):
+    question: str
 
 
 @app.get("/health", response_model=HealthResponse, response_model_by_alias=True)
@@ -93,3 +99,12 @@ def list_guests() -> dict:
         for guest in repository.guests()
     ]
     return {"items": guests, "total": len(guests), "synthetic": True}
+
+@app.post(f"{API_PREFIX}/ask")
+def ask(request: AskRequest) -> dict:
+    result = rag_service.answer_query(request.question)
+    return {
+        "query": result["query"],
+        "answer": result["response"],
+        "sources": result["search_results"]
+    }
