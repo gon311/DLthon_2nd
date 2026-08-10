@@ -1,7 +1,7 @@
 import { writeFileSync } from "node:fs";
 
-const generatedAt = "2026-07-31T12:00:00+09:00";
-const scheduleStart = "2026-08-01";
+const generatedAt = "2026-08-04T18:20:00+09:00";
+const scheduleStart = "2026-08-05";
 const scheduleDays = 15;
 const syntheticNotice =
   "SYNTHETIC DATA: 이 파일의 모든 투숙객·닉네임·객실·침대·숙박기간·조인 요청은 M3 개발 및 테스트를 위해 임의 생성한 합성 데이터이며 실제 인물, 예약 또는 모임을 나타내지 않습니다.";
@@ -28,6 +28,16 @@ const nicknames = [
   "제주책갈피", "감귤마카롱", "파도타는귤", "오름이", "하모바다",
   "돌고래우체부", "동백여행자", "푸른현무암", "귤꽃향기", "바당친구",
   "숲길메아리", "노꼬메구름", "용머리노을", "비자림새", "제주한바퀴",
+];
+const syntheticIdentities = [
+  ["김하린","여성","대한민국"],["이도윤","남성","대한민국"],["박서아","여성","대한민국"],["최민준","남성","대한민국"],
+  ["사토 유이","여성","일본"],["다나카 렌","남성","일본"],["왕신위","여성","중국"],["리웨이","남성","중국"],
+  ["에밀리 첸","여성","싱가포르"],["노아 탄","남성","싱가포르"],["소피 마틴","여성","프랑스"],["뤼카 베르나르","남성","프랑스"],
+  ["에마 윌슨","여성","영국"],["올리버 브라운","남성","영국"],["미아 존슨","여성","미국"],["이선 데이비스","남성","미국"],
+  ["클라라 뮐러","여성","독일"],["레온 슈미트","남성","독일"],["소피아 로시","여성","이탈리아"],["마테오 콘티","남성","이탈리아"],
+  ["이사벨라 가르시아","여성","스페인"],["디에고 로페스","남성","스페인"],["올리비아 스미스","여성","호주"],["잭 테일러","남성","호주"],
+  ["메이 린","여성","말레이시아"],["아담 라만","남성","말레이시아"],["안야 샤르마","여성","인도"],["아르준 파텔","남성","인도"],
+  ["린 응우옌","여성","베트남"],["민 쩐","남성","베트남"],
 ];
 
 const keywordPool = [
@@ -60,15 +70,19 @@ const guests = nicknames.map((nickname, index) => {
     .sort(() => random() - 0.5)
     .slice(0, 5);
   const checkInDate = index < 10
-    ? pick(["2026-07-30", "2026-07-31"])
-    : addDays("2026-07-29", Math.floor(random() * 6));
+    ? pick(["2026-08-04", "2026-08-05"])
+    : addDays("2026-08-03", Math.floor(random() * 6));
   const checkOutDate = index < 10
-    ? "2026-08-16"
+    ? "2026-08-20"
     : addDays(checkInDate, 7 + Math.floor(random() * 9));
 
   return {
     id: `guest-${String(index + 1).padStart(3, "0")}`,
+    testAccountId: `TEST-${String(index + 1).padStart(3, "0")}`,
     nickname,
+    syntheticName: syntheticIdentities[index][0],
+    gender: syntheticIdentities[index][1],
+    nationality: syntheticIdentities[index][2],
     checkInDate,
     checkOutDate,
     ...availableBeds[index],
@@ -107,7 +121,7 @@ const times = ["07:00", "09:30", "12:00", "15:30", "18:30", "20:00"];
 
 // 총 60건을 15일에 불균등하게 배정한다.
 // 일별 건수 구성은 1~7건이며, 날짜 배치는 고정 난수 seed로 섞어 재현한다.
-const dailyJoinCounts = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7];
+const dailyJoinCounts = [1, 2, 2, 3, 3, 4, 4, 4, 4, 4, 5, 5, 6, 6, 7];
 for (let index = dailyJoinCounts.length - 1; index > 0; index -= 1) {
   const swapIndex = Math.floor(random() * (index + 1));
   [dailyJoinCounts[index], dailyJoinCounts[swapIndex]] =
@@ -121,7 +135,6 @@ const joinDistribution = Object.fromEntries(
 );
 
 const joinRequests = Array.from({ length: 60 }, (_, index) => {
-  // 15일에 정확히 4건씩 분배한다.
   const dayOffset = joinDayOffsets[index];
   const scheduledDate = addDays(scheduleStart, dayOffset);
   const eligibleGuests = guests.filter(
@@ -163,7 +176,7 @@ const seed = {
   _notice: syntheticNotice,
   _meta: {
     datasetName: "Bucket Jeju M3 15-Day Join Seed Dataset",
-    version: "2.0.0",
+    version: "4.0.0",
     generatedAt,
     locale: "ko-KR",
     synthetic: true,
@@ -187,3 +200,4 @@ writeFileSync(
   `${JSON.stringify(seed, null, 2)}\n`,
   "utf8",
 );
+

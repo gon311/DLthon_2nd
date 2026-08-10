@@ -60,3 +60,4 @@ export const joinParticipants = sqliteTable(
     ),
   ],
 );
+
