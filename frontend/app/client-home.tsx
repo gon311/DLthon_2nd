@@ -20,6 +20,18 @@ type JoinItem = {
   description: string;
 };
 
+type AskResponse = {
+  query: string;
+  answer: string;
+  sources: Array<{
+    name: string;
+    category_norm: string;
+    distance_m: number;
+    solo_friendly: boolean | null;
+    document: string;
+  }>;
+};
+
 export default function ClientHome({ user }: { user: ChatGPTUser | null }) {
   const [tab, setTab] = useState<Tab>("home");
   const [displayName, setDisplayName] = useState(user?.displayName ?? "");
@@ -41,6 +53,9 @@ export default function ClientHome({ user }: { user: ChatGPTUser | null }) {
   const [keyword, setKeyword] = useState("전체");
   const [joined, setJoined] = useState<number[]>([]);
   const [toast, setToast] = useState("");
+  const [askQuestion, setAskQuestion] = useState("");
+  const [askLoading, setAskLoading] = useState(false);
+  const [askResponse, setAskResponse] = useState<AskResponse | null>(null);
   const keywords = ["전체", ...Array.from(new Set(joins.map((item) => item.keyword)))];
   const visible = useMemo(
     () => joins.filter((item) => keyword === "전체" || item.keyword === keyword),
@@ -126,6 +141,36 @@ export default function ClientHome({ user }: { user: ChatGPTUser | null }) {
     window.setTimeout(() => setToast(""), 1800);
   };
 
+  const submitQuestion = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!askQuestion.trim()) return;
+
+    setAskLoading(true);
+    try {
+      const response = await fetch("http://localhost:8000/api/v1/ask", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ question: askQuestion }),
+      });
+
+      if (!response.ok) {
+        setToast("질문을 처리하지 못했어요.");
+        window.setTimeout(() => setToast(""), 2200);
+        setAskLoading(false);
+        return;
+      }
+
+      const result = (await response.json()) as AskResponse;
+      setAskResponse(result);
+      setAskQuestion("");
+    } catch {
+      setToast("질문을 처리하지 못했어요.");
+      window.setTimeout(() => setToast(""), 2200);
+    } finally {
+      setAskLoading(false);
+    }
+  };
+
   return (
     <main>
       <header className="topbar">
@@ -167,20 +212,30 @@ export default function ClientHome({ user }: { user: ChatGPTUser | null }) {
       </section>}
 
       {tab === "ask" && <section className="subpage shell ask-page">
-        <span className="eyebrow">BUCKET AI · COMING SOON</span>
+        <span className="eyebrow">BUCKET AI · BETA</span>
         <h1>버킷에게 무엇이든 물어보세요</h1>
-        <p className="lead">제주 여행과 버킷 게스트하우스 자료를 바탕으로, 필요한 답을 근거와 함께 안내할 예정이에요.</p>
+        <p className="lead">제주 여행과 버킷 게스트하우스 자료를 바탕으로, 필요한 답을 근거와 함께 안내합니다.</p>
         <div className="ask-layout">
           <div className="ask-chat">
-            <div className="assistant-message"><span className="ask-bot">귤</span><div><b>안녕하세요, 버킷 AI예요.</b><p>다겸님과 현겸님이 준비해 주실 자료를 학습한 뒤 질문에 답할 수 있어요. 지금은 질문 공간을 먼저 준비하고 있어요.</p></div></div>
-            <div className="ask-suggestions"><span>이런 질문을 할 수 있어요</span><div><button disabled>체크인 전에 짐을 맡길 수 있나요?</button><button disabled>비 오는 날 가기 좋은 곳은 어디예요?</button><button disabled>근처 흑돼지 맛집을 추천해 주세요</button></div></div>
-            <div className="ask-composer"><label htmlFor="bucket-question">질문 입력</label><div><input id="bucket-question" disabled placeholder="자료가 준비되면 질문할 수 있어요" /><button disabled>보내기</button></div><small>답변에는 참고한 자료의 출처가 함께 표시됩니다.</small></div>
+            {!askResponse && <div className="assistant-message"><span className="ask-bot">귤</span><div><b>안녕하세요, 버킷 AI예요.</b><p>제주 여행과 버킷제주 숙소 정보를 바탕으로 질문에 답변해드립니다. 근처 맛집, 관광지, 숙소 정보 등 무엇이든 물어보세요!</p></div></div>}
+            {askResponse && <div className="assistant-message"><span className="ask-bot">귤</span><div><b>질문: {askResponse.query}</b><p>{askResponse.answer}</p>{askResponse.sources.length > 0 && <div style={{marginTop: 12, paddingTop: 12, borderTop: "1px solid #eee", fontSize: "0.875em"}}>
+              <b>참고 자료:</b>
+              <ul style={{marginTop: 8}}>
+                {askResponse.sources.map((source, idx) => (
+                  <li key={idx} style={{marginBottom: 8}}>
+                    <strong>{source.name || "[숙소 내부 정보]"}</strong> ({source.category_norm}) • {source.distance_m}m
+                  </li>
+                ))}
+              </ul>
+            </div>}</div></div>}
+            {!askResponse && <div className="ask-suggestions"><span>예시 질문들</span><div><button onClick={() => setAskQuestion("체크인 전에 짐을 맡길 수 있나요?")}>체크인 전에 짐을 맡길 수 있나요?</button><button onClick={() => setAskQuestion("비 오는 날 가기 좋은 곳은 어디예요?")}>비 오는 날 가기 좋은 곳은 어디예요?</button><button onClick={() => setAskQuestion("근처 한식당 추천해주세요")}>근처 한식당 추천해주세요</button></div></div>}
+            <div className="ask-composer"><label htmlFor="bucket-question">질문 입력</label><form onSubmit={submitQuestion}><div><input id="bucket-question" value={askQuestion} onChange={(e) => setAskQuestion(e.target.value)} placeholder="질문을 입력하세요" disabled={askLoading} /><button type="submit" disabled={askLoading || !askQuestion.trim()}>{askLoading ? "생각 중…" : "보내기"}</button></div></form><small>답변에는 참고한 자료의 출처가 함께 표시됩니다.</small></div>
           </div>
           <aside className="knowledge-status">
-            <span className="mini-label">KNOWLEDGE STATUS</span><h2>자료 준비 중</h2><p>받은 자료를 정리해 검색 가능한 지식으로 연결할 예정입니다.</p>
-            <div className="source-owner"><span>다</span><div><b>다겸님 자료</b><small>전달 대기 중</small></div><i>준비 중</i></div>
-            <div className="source-owner"><span>현</span><div><b>현겸님 자료</b><small>전달 대기 중</small></div><i>준비 중</i></div>
-            <div className="rag-flow"><b>적용 순서</b><ol><li>자료 수집</li><li>내용 정리·검색 연결</li><li>답변 및 출처 검증</li></ol></div>
+            <span className="mini-label">KNOWLEDGE STATUS</span><h2>자료 준비 완료</h2><p>POI 21개 + 숙소 정보 30개를 학습했습니다.</p>
+            <div className="source-owner"><span>🗺</span><div><b>근처 장소 (POI)</b><small>21개 항목 학습 완료</small></div><i>✓ 준비됨</i></div>
+            <div className="source-owner"><span>🏠</span><div><b>숙소 정보</b><small>게스트하우스 FAQ 30개</small></div><i>✓ 준비됨</i></div>
+            <div className="rag-flow"><b>응답 프로세스</b><ol><li>질문 입력</li><li>관련 정보 검색</li><li>AI 답변 생성</li></ol></div>
           </aside>
         </div>
       </section>}
