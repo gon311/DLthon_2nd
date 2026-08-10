@@ -45,7 +45,6 @@ venv.bak/
 # 데이터 파일 (용량 크면 Git LFS 사용, 아니면 아래 무시)
 data/raw/*.csv
 data/raw/*.json
-data/processed/*.json
 data/embeddings/*.pkl
 data/embeddings/*.faiss
 
@@ -67,3 +66,13 @@ data/eval/results/
 .Rhistory
 .DS_Store
 data/embeddings/
+# Backup files
+*.backup.*
+*_old.py
+data/index/chroma.backup*/
+
+# Diagnostic scripts
+diagnose*.py
+
+# Test directories
+tests/
