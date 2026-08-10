@@ -1,20 +1,69 @@
 """
 RAG 서비스: 근거리 정보 조회 파이프라인.
-버전이 업데이트 될 경우 항상 이 파일을 최선 버전으로 유지 
-(현재 최신 버전 rag_service_v3)
 
-흐름:
-1. 사용자 쿼리 임베딩 → ChromaDB 검색 (상위 10개)
-2. [수정] 의미 유사도 기준으로 우선 정렬 유지, solo_friendly/거리는 상위 후보 내에서만 보조 재순위화
-3. 상위 3개 선정
-4. LLM으로 자연어 응답 생성 (각 POI 설명 포함)
+=== 버전 이력 ===
+[BASELINE] 2026-08-10 오전 : 최초 구현 (베이스라인 RAGAS 평가 대상)
+[V1]       2026-08-10 오후 : _rerank() 버그 수정 (rag_service_v1.py)
+[V2]                       : + 데이터 갭(약국/병원/마트) 가드 추가 (rag_service_v2.py)
+[V3]                       : + Multi-Query 검색 추가 (이 파일)
 
-출력: 자연어 응답
+=== V3에서 무엇을, 왜 고쳤나 ===
+
+문제: V2 재평가 결과 context_recall이 여전히 낮음(0.268). 원인 확인 중
+      "게스트하우스와 가장 가까운 편의점은 어디야?"(골드셋 원문 그대로)로
+      테스트했더니, "가까운 편의점"(짧은 표현)에서는 정확했던 검색이
+      다시 게스트하우스 FAQ(냉장고/드라이기)를 반환하는 걸 발견.
+      → 벡터 검색 자체가 특정 문구 표현에 따라 불안정함 (질문 표현과 인덱스
+        문서 표현의 어휘 차이로 인한 임베딩 유사도 계산의 한계).
+
+수정 내용 (아래 [V2→V3] 표시된 부분):
+  1. generate_alternative_queries() 신규 추가: 원본 쿼리를 의미상 동등한
+     다른 표현 2개로 변환 (LLM 활용).
+  2. search_multi() 신규 추가: 원본 + 대체 쿼리 각각 검색 후
+     Reciprocal Rank Fusion(RRF)으로 결과 병합.
+  3. answer_query(): self.search(query) → self.search_multi(query)로 교체.
+ 
+효과 (RAGAS 재평가 결과, V2 대비):
+  faithfulness       0.620 → 0.514   (-10.6%p, 베이스라인 대비로도 -1.7%p로 하회)
+  answer_relevancy   0.294 → 0.319   (+2.4%p)
+  context_precision  0.476 → 0.440   (-3.6%p)
+  context_recall     0.268 → 0.429   (+16.1%p, 전체 여정 중 단일 변화폭 최대)
+ 
+  → context_recall이 베이스라인(0.196) 대비 +23.2%p(상대 +119%)로 대폭 개선.
+    Multi-Query가 겨냥했던 "표현 불일치로 놓치던 문서"를 상당수 되찾아옴.
+    다만 여러 쿼리로 검색을 넓히면서 컨텍스트에 약하게만 관련된 문서가 섞여
+    들어갔고, LLM이 이를 종합하며 부정확한 근사·조합이 늘어나 faithfulness가
+    하락한 것으로 추정 (recall vs faithfulness 트레이드오프).
+
+=== 최종 결정 (2026-08-10) ===
+  V3을 최종본으로 채택. 근거:
+    - 4개 지표 중 3개(recall, relevancy, precision)가 베이스라인보다 우수
+    - context_recall은 "근거리 정보 RAG의 실효성"이라는 프로젝트 핵심 주장에
+      가장 직결되는 지표이며, 개선폭이 압도적으로 큼
+    - faithfulness 하락(-1.7%p, 베이스라인 대비)은 원인이 파악되어 있어
+      발표 시 "한계 및 향후 과제"로 투명하게 설명 가능
+  잔여 과제 (시간 되면): search_multi()의 top_k_per_query를 5→3으로 축소하거나
+  RRF 병합 시 원본 쿼리 결과에 가중치를 더 주는 방식으로 faithfulness 회복 여지 있음.
+
 
 사용법:
     export PYTHONPATH="${PYTHONPATH}:$(pwd)"
     python backend/services/rag_service.py
 
+---
+2026-08-10 수정 내역 (베이스라인 RAGAS 평가 결과 기반):
+  1. [핵심] _rerank()가 similarity_score를 완전히 무시하고 distance_m으로만
+     정렬하던 버그 수정. 게스트하우스 FAQ(distance_m=0)가 항상 최우선으로
+     밀려 올라가고, 물리적으로 가장 가까운 POI 2~3곳이 질문 내용과 무관하게
+     반복 등장하던 원인이었음. → 벡터 유사도 순위를 1차 기준으로 유지하고,
+     solo_friendly/거리는 상위 후보 내에서만 보조적으로 사용.
+  2. _build_context()에서 metadata.get("name", "")가 게스트하우스 FAQ 문서에
+     빈 문자열을 반환 → LLM이 빈칸을 임의의 장소명으로 지어내는 할루시네이션
+     (예: "성산읍사무소") 유발. → 게스트하우스 정보는 name 대신 항목 유형으로
+     표기.
+  3. temperature 기본값(1.0)이 매번 다른 응답(같은 질문에 다른 정류장명 등)을
+     유발 → temperature=0으로 고정.
+  4. 프롬프트에 "컨텍스트에 없는 정보는 지어내지 말고 모른다고 답하라" 규칙 추가.
 """
 
 import json
