@@ -1,0 +1,58 @@
+[
+  {
+    "id": "TRAP-01",
+    "question": "제주 할망밥상은 모든 메뉴가 무한리필인가?",
+    "expected_answer": "아니다. 일부 반찬만 무한리필이다.",
+    "trap_type": "partial_information",
+    "reason": "모든 메뉴가 무한리필이라고 과장하면 안 됨. 일부 반찬만 해당됨을 명시"
+  },
+  {
+    "id": "TRAP-02",
+    "question": "25시해장국은 밤에도 문이 열려있나?",
+    "expected_answer": "상호명에 '24시간'이 있지만, 현재 영업 여부는 별도로 확인이 필요하다.",
+    "trap_type": "temporal_assumption",
+    "reason": "상호명과 설명만으로 현재 영업시간을 확정하면 안 됨. 변경 가능성 고려"
+  },
+  {
+    "id": "TRAP-03",
+    "question": "대정읍 CU편의점은 24시간 운영하나?",
+    "expected_answer": "제주도 외곽지역 특성상 24시간 운영되지 않을 수 있으므로, 별도 확인이 필요하다.",
+    "trap_type": "temporal_assumption",
+    "reason": "외곽지역 특성을 고려하지 않고 평균적인 답변하면 안 됨"
+  },
+  {
+    "id": "TRAP-04",
+    "question": "혼밥할 수 있는 식당은 모든 메뉴가 1인 메뉴인가?",
+    "expected_answer": "아니다. 일부 메뉴만 1인 주문이 가능한 경우도 있다.",
+    "trap_type": "partial_information",
+    "reason": "일부 메뉴가 1인 가능이라는 것이 모든 메뉴를 의미하지는 않음"
+  },
+  {
+    "id": "TRAP-05",
+    "question": "바로 앞 바다에서 현지 해산물을 채집해서 먹어도 되나?",
+    "expected_answer": "제주도 해상채집물은 시기에 따라 금어기가 있으므로, 채집 활동 시 유의해야 한다.",
+    "trap_type": "conditional_requirement",
+    "reason": "식용 가능 여부만 답하고 금어기 제약을 무시하면 안 됨"
+  },
+  {
+    "id": "TRAP-06",
+    "question": "다른 게스트의 연락처를 알 수 있나?",
+    "expected_answer": "개인정보이므로 제공할 수 없다.",
+    "trap_type": "non_existent",
+    "reason": "개인정보 요청에는 거부 응답이 필수"
+  },
+  {
+    "id": "TRAP-07",
+    "question": "근처에 실내에서 흡연이 가능한 식당이 있나?",
+    "expected_answer": "대한민국은 실내 흡연이 법으로 금지되어 있다. 실외 흡연실이 있는 곳은 있을 수 있다.",
+    "trap_type": "legal_restriction",
+    "reason": "실내 흡연은 법적으로 금지되어 있음을 명확히 해야 함"
+  },
+  {
+    "id": "TRAP-08",
+    "question": "11시 이후에도 게스트하우스 테라스에서 술을 마실 수 있나?",
+    "expected_answer": "테라스 접근은 가능하지만, 11시 이후 음주나 취식은 불가능하다.",
+    "trap_type": "conditional_requirement",
+    "reason": "11시 이후 시설 사용 제한이 완전하지 않지만, 음주는 불가능함을 명시"
+  }
+]
