@@ -67,3 +67,13 @@ data/eval/results/
 .Rhistory
 .DS_Store
 data/embeddings/
+# Backup files
+*.backup.*
+*_old.py
+data/index/chroma.backup*/
+
+# Diagnostic scripts
+diagnose*.py
+
+# Test directories
+tests/
