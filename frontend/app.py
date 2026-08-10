@@ -30,7 +30,7 @@ st.set_page_config(page_title="버킷 제주", page_icon="🍊", layout="wide")
 page = st.sidebar.radio("메뉴", ("주변 2km 지도", "투숙객 Join"))
 if page == "투숙객 Join":
     st.title("🍊 버킷 제주 투숙객 Join")
-    st.caption("가상 투숙객 30명과 Join 60건으로 구성된 합성 테스트 데이터입니다.")
+    st.caption("가상 투숙객 30명과 Join 30건으로 구성된 합성 테스트 데이터입니다.")
     filter_col, status_col = st.columns(2)
     with filter_col:
         keyword_filter = st.text_input("키워드", placeholder="식사, 산책, 사진…")

@@ -1,0 +1,611 @@
+{
+  "meta": {
+    "name": "버킷 제주 RAG 평가셋 (BUCKET JEJU RAG Eval Set)",
+    "version": "1.0",
+    "created": "2026-08-10",
+    "purpose": "근거리 정보 + 게스트하우스 FAQ RAG 검색 품질을 정량 평가하기 위한 테스트셋. 발표에서 '정확도/Recall@3'를 수치로 어필하는 데 사용.",
+    "guesthouse": {
+      "name": "버킷 제주 게스트하우스",
+      "address": "제주특별자치도 서귀포시 대정읍 하모백사로14번길 1",
+      "coordinates": {
+        "lat": 33.2124518,
+        "lng": 126.2598287
+      },
+      "coverage_radius_m": 2000
+    },
+    "source_data": [
+      "data/processed/guesthouse_pois.csv (POI 21곳, kakao 실좌표)",
+      "data/processed/bucket_jeju_guesthouse_faq.csv (FAQ 29개)"
+    ],
+    "question_style": "실제 투숙객이 말하듯 반말·구어체 위주로 작성(정형 문장 아님).",
+    "field_guide": {
+      "type": "poi=근처 장소 추천 / faq=게스트하우스 안내 / out_of_scope=범위 밖(폴백·거부 검증)",
+      "expected.sources": "정답으로 인정되는 POI 이름 또는 FAQ id 목록",
+      "expected.top1": "거리/혼밥 재랭킹이 맞으면 1위로 와야 하는 항목(선택)",
+      "expected.answer_contains": "답변에 반드시 포함돼야 하는 핵심 팩트 토큰",
+      "signals": "이 질문이 검증하는 RAG 신호(거리인지/혼밥/시간/카테고리 필터 등)"
+    },
+    "scoring": {
+      "recall_at_k": 3,
+      "hit_rule": "expected.sources 중 최소 1개가 상위 3개 검색결과에 포함되면 hit",
+      "top1_rule": "expected.top1이 있으면 검색 1위와 일치하는지 별도 집계(재랭킹 품질)",
+      "answer_rule": "expected.answer_contains의 토큰이 최종 답변에 모두 포함되면 정답",
+      "fallback_rule": "out_of_scope는 '정보 없음/직원 문의' 등 거부 응답이면 정답(환각 시 오답)",
+      "report": "카테고리별 Recall@3, Top-1 정확도, 폴백 정확도를 표로 정리 → 발표 슬라이드에 수치로 표기"
+    }
+  },
+  "eval_set": [
+    {
+      "id": "q01",
+      "type": "poi",
+      "question": "야 나 혼자 왔는데 걸어서 갈만한 밥집 어디 있어?",
+      "intent": "혼밥 가능 식당 추천(도보권)",
+      "expected": {
+        "sources": [
+          "대정쌍둥이식당",
+          "산방산접짝뼈&돌우럭",
+          "25시해장국"
+        ],
+        "answer_contains": [
+          "대정쌍둥이식당",
+          "100m"
+        ],
+        "category": "음식점",
+        "top1": "대정쌍둥이식당"
+      },
+      "signals": {
+        "distance_aware": true,
+        "solo_friendly": true
+      },
+      "notes": "가장 가까운(102m)+혼밥 식당이 상위여야 함. 거리·solo 재랭킹 동시 검증."
+    },
+    {
+      "id": "q02",
+      "type": "poi",
+      "question": "지금 밤 열두 시 넘었는데 아직 문 연 데 있나? 배고파",
+      "intent": "심야 영업 식당",
+      "expected": {
+        "sources": [
+          "25시해장국"
+        ],
+        "answer_contains": [
+          "25시해장국",
+          "24시간"
+        ],
+        "category": "음식점",
+        "top1": "25시해장국"
+      },
+      "signals": {
+        "time_aware": true
+      },
+      "notes": "24시간 영업은 25시해장국뿐. 시간 맥락 반영 검증."
+    },
+    {
+      "id": "q03",
+      "type": "poi",
+      "question": "제일 가까운 편의점 어디야? 뭐 좀 사게",
+      "intent": "최근접 편의점",
+      "expected": {
+        "sources": [
+          "CU 서귀최남단해안로점",
+          "모슬포낚시편의점"
+        ],
+        "answer_contains": [
+          "CU",
+          "편의점"
+        ],
+        "category": "편의시설",
+        "top1": "CU 서귀최남단해안로점"
+      },
+      "signals": {
+        "distance_aware": true,
+        "category_filter": true
+      },
+      "notes": "271m CU가 1위. 카테고리 필터+거리."
+    },
+    {
+      "id": "q04",
+      "type": "poi",
+      "question": "바다 보고 싶은데 근처에 걸어갈 만한 해변 있어?",
+      "intent": "근처 해변",
+      "expected": {
+        "sources": [
+          "하모해변"
+        ],
+        "answer_contains": [
+          "하모해변",
+          "180m"
+        ],
+        "category": "관광/문화",
+        "top1": "하모해변"
+      },
+      "signals": {
+        "distance_aware": true
+      },
+      "notes": "하모해변 177m. category_norm은 '관광/문화'임에 주의."
+    },
+    {
+      "id": "q05",
+      "type": "poi",
+      "question": "차 어디다 대지? 주차할 데 있나",
+      "intent": "주차장",
+      "expected": {
+        "sources": [
+          "M1971 요트투어 주차장"
+        ],
+        "answer_contains": [
+          "주차장"
+        ],
+        "category": "주차장"
+      },
+      "signals": {
+        "category_filter": true
+      },
+      "notes": "2km 내 주차장 POI는 M1971 하나."
+    },
+    {
+      "id": "q06",
+      "type": "poi",
+      "question": "심심한데 근처에 구경할 만한 데 없을까?",
+      "intent": "관광/거리 추천",
+      "expected": {
+        "sources": [
+          "방어축제의거리",
+          "시계탑상가거리",
+          "농남못"
+        ],
+        "answer_contains": [
+          "거리"
+        ],
+        "category": "관광/문화"
+      },
+      "signals": {
+        "category_filter": true
+      },
+      "notes": "관광/문화 카테고리 다건 추천."
+    },
+    {
+      "id": "q07",
+      "type": "poi",
+      "question": "해장국 먹고 싶은데 파는 데 있어?",
+      "intent": "해장국 식당",
+      "expected": {
+        "sources": [
+          "25시해장국"
+        ],
+        "answer_contains": [
+          "25시해장국"
+        ],
+        "category": "음식점",
+        "top1": "25시해장국"
+      },
+      "signals": {
+        "keyword": true
+      },
+      "notes": "상호/메뉴 키워드 '해장국' 매칭(하이브리드 검색 이점 구간)."
+    },
+    {
+      "id": "q08",
+      "type": "poi",
+      "question": "곱창 땡기는데 근처에 곱창집 있나?",
+      "intent": "곱창 식당",
+      "expected": {
+        "sources": [
+          "별미양곱창"
+        ],
+        "answer_contains": [
+          "별미양곱창"
+        ],
+        "category": "음식점",
+        "top1": "별미양곱창"
+      },
+      "signals": {
+        "keyword": true
+      },
+      "notes": "'곱창' 고유 메뉴 키워드."
+    },
+    {
+      "id": "q09",
+      "type": "poi",
+      "question": "회나 해산물 잘하는 집 좀 알려줘",
+      "intent": "해산물 식당",
+      "expected": {
+        "sources": [
+          "신모슬포포구식당",
+          "힛뜨수산 제주",
+          "제주사쿠 모슬포본점"
+        ],
+        "answer_contains": [
+          "해산물"
+        ],
+        "category": "음식점"
+      },
+      "signals": {
+        "semantic": true
+      },
+      "notes": "설명문 의미검색(회↔해산물) 검증."
+    },
+    {
+      "id": "q10",
+      "type": "poi",
+      "question": "짜장면 먹고 싶다, 중국집 있어?",
+      "intent": "중식당",
+      "expected": {
+        "sources": [
+          "하모반점"
+        ],
+        "answer_contains": [
+          "하모반점",
+          "중국"
+        ],
+        "category": "음식점",
+        "top1": "하모반점"
+      },
+      "signals": {
+        "semantic": true,
+        "keyword": true
+      },
+      "notes": "'짜장면'→중국집 의미 확장."
+    },
+    {
+      "id": "q11",
+      "type": "poi",
+      "question": "국물 있는 따뜻한 거 먹고 싶은데 곰탕 같은 거",
+      "intent": "곰탕/국물 식당",
+      "expected": {
+        "sources": [
+          "모슬포왕곰탕"
+        ],
+        "answer_contains": [
+          "곰탕"
+        ],
+        "category": "음식점",
+        "top1": "모슬포왕곰탕"
+      },
+      "signals": {
+        "semantic": true
+      },
+      "notes": "'국물'→곰탕 의미검색."
+    },
+    {
+      "id": "q12",
+      "type": "poi",
+      "question": "가정식 백반 같은 거 먹을 수 있는 데 있나?",
+      "intent": "가정식 식당",
+      "expected": {
+        "sources": [
+          "영희네휴게점",
+          "이든모아휴게점"
+        ],
+        "answer_contains": [
+          "가정식"
+        ],
+        "category": "음식점"
+      },
+      "signals": {
+        "semantic": true
+      },
+      "notes": "설명문 '가정식' 매칭."
+    },
+    {
+      "id": "q13",
+      "type": "poi",
+      "question": "낚시하려는데 용품 살 데 있어?",
+      "intent": "낚시용품 편의점",
+      "expected": {
+        "sources": [
+          "모슬포낚시편의점"
+        ],
+        "answer_contains": [
+          "낚시"
+        ],
+        "category": "편의시설",
+        "top1": "모슬포낚시편의점"
+      },
+      "signals": {
+        "keyword": true
+      },
+      "notes": "'낚시' 키워드 편의점."
+    },
+    {
+      "id": "q14",
+      "type": "poi",
+      "question": "제주 역사 같은 거 좋아하는데 볼 만한 데 있을까?",
+      "intent": "역사/전시 관광",
+      "expected": {
+        "sources": [
+          "대정현역사자료전시관",
+          "이기풍선교기념관"
+        ],
+        "answer_contains": [
+          "전시관"
+        ],
+        "category": "기타"
+      },
+      "signals": {
+        "semantic": true
+      },
+      "notes": "category_norm '기타'로 분류된 전시/기념관."
+    },
+    {
+      "id": "q15",
+      "type": "faq",
+      "question": "와이파이 비번 뭐야?",
+      "intent": "와이파이 비밀번호",
+      "expected": {
+        "sources": [
+          "GH-004"
+        ],
+        "answer_contains": [
+          "bucket1234"
+        ]
+      },
+      "signals": {
+        "faq": true
+      },
+      "notes": "정확 팩트값. 반드시 bucket1234."
+    },
+    {
+      "id": "q16",
+      "type": "faq",
+      "question": "자전거 빌리면 얼마야?",
+      "intent": "자전거 대여비",
+      "expected": {
+        "sources": [
+          "GH-001"
+        ],
+        "answer_contains": [
+          "2,000원"
+        ]
+      },
+      "signals": {
+        "faq": true,
+        "price": true
+      },
+      "notes": "유료 서비스 금액."
+    },
+    {
+      "id": "q17",
+      "type": "faq",
+      "question": "수건 안 가져왔는데 여기서 살 수 있어?",
+      "intent": "수건 구매",
+      "expected": {
+        "sources": [
+          "GH-002",
+          "GH-022"
+        ],
+        "answer_contains": [
+          "2,000원",
+          "수건"
+        ]
+      },
+      "signals": {
+        "faq": true
+      },
+      "notes": "수건 미제공+1장 2,000원. 샴푸는 제공(혼동 방지)."
+    },
+    {
+      "id": "q18",
+      "type": "faq",
+      "question": "밤에 술 마셔도 돼?",
+      "intent": "야간 음주 가능 여부",
+      "expected": {
+        "sources": [
+          "GH-019",
+          "GH-006"
+        ],
+        "answer_contains": [
+          "23:00",
+          "음주"
+        ]
+      },
+      "signals": {
+        "faq": true,
+        "time_aware": true
+      },
+      "notes": "23시 이후 전 구역 음주 금지."
+    },
+    {
+      "id": "q19",
+      "type": "faq",
+      "question": "공용공간 몇 시까지 쓸 수 있어?",
+      "intent": "공용공간 운영시간",
+      "expected": {
+        "sources": [
+          "GH-017"
+        ],
+        "answer_contains": [
+          "07:00",
+          "23:00"
+        ]
+      },
+      "signals": {
+        "faq": true
+      },
+      "notes": "07:00~23:00."
+    },
+    {
+      "id": "q20",
+      "type": "faq",
+      "question": "세탁기 공짜야?",
+      "intent": "세탁기 무료 여부",
+      "expected": {
+        "sources": [
+          "GH-011"
+        ],
+        "answer_contains": [
+          "무료"
+        ]
+      },
+      "signals": {
+        "faq": true
+      },
+      "notes": "세탁기 무료."
+    },
+    {
+      "id": "q21",
+      "type": "faq",
+      "question": "담배는 어디서 피워?",
+      "intent": "흡연 장소",
+      "expected": {
+        "sources": [
+          "GH-005"
+        ],
+        "answer_contains": [
+          "테라스"
+        ]
+      },
+      "signals": {
+        "faq": true
+      },
+      "notes": "외부 테라스 왼쪽 지정 장소."
+    },
+    {
+      "id": "q22",
+      "type": "faq",
+      "question": "방에서 과자 먹어도 되나?",
+      "intent": "객실 취식 규칙",
+      "expected": {
+        "sources": [
+          "GH-020"
+        ],
+        "answer_contains": [
+          "커피",
+          "물"
+        ]
+      },
+      "signals": {
+        "faq": true
+      },
+      "notes": "객실은 커피·물만, 음식 금지."
+    },
+    {
+      "id": "q23",
+      "type": "faq",
+      "question": "드라이기 없는데 여기 있어?",
+      "intent": "드라이기 비치",
+      "expected": {
+        "sources": [
+          "GH-023"
+        ],
+        "answer_contains": [
+          "드라이기"
+        ]
+      },
+      "signals": {
+        "faq": true
+      },
+      "notes": "각 객실 공용 드라이기."
+    },
+    {
+      "id": "q24",
+      "type": "faq",
+      "question": "쓰레기 어디다 버려?",
+      "intent": "쓰레기 배출 장소",
+      "expected": {
+        "sources": [
+          "GH-013"
+        ],
+        "answer_contains": [
+          "세탁실"
+        ]
+      },
+      "signals": {
+        "faq": true
+      },
+      "notes": "분리수거/일반쓰레기는 세탁실 안쪽."
+    },
+    {
+      "id": "q25",
+      "type": "faq",
+      "question": "머리 아픈데 상비약 같은 거 있어?",
+      "intent": "응급약품 비치",
+      "expected": {
+        "sources": [
+          "GH-029"
+        ],
+        "answer_contains": [
+          "두통약"
+        ]
+      },
+      "signals": {
+        "faq": true,
+        "semantic": true
+      },
+      "notes": "'머리 아프다'→두통약 등 응급약품."
+    },
+    {
+      "id": "q26",
+      "type": "faq",
+      "question": "코워킹 할 데 있어? 노트북 좀 하려고",
+      "intent": "코워킹 공간",
+      "expected": {
+        "sources": [
+          "GH-015"
+        ],
+        "answer_contains": [
+          "코워킹마루"
+        ]
+      },
+      "signals": {
+        "faq": true,
+        "semantic": true
+      },
+      "notes": "1.5층 코워킹마루."
+    },
+    {
+      "id": "q27",
+      "type": "out_of_scope",
+      "question": "성산일출봉 가는 버스 언제 있어?",
+      "intent": "범위 밖(2km 초과·교통정보 없음)",
+      "expected": {
+        "sources": [],
+        "answer_contains": [
+          "정보",
+          "없",
+          "문의"
+        ]
+      },
+      "signals": {
+        "fallback": true
+      },
+      "notes": "2km 밖+버스시간표 미보유 → 거부/직원 안내. 시간표를 지어내면 오답."
+    },
+    {
+      "id": "q28",
+      "type": "out_of_scope",
+      "question": "체크인 몇 시부터야?",
+      "intent": "보유하지 않은 팩트(체크인 시간 미상)",
+      "expected": {
+        "sources": [],
+        "answer_contains": [
+          "정보",
+          "없",
+          "문의"
+        ]
+      },
+      "signals": {
+        "fallback": true
+      },
+      "notes": "체크인/아웃 시간 데이터 없음 → 임의 시간 지어내면 오답, 직원 문의 안내가 정답."
+    },
+    {
+      "id": "q29",
+      "type": "out_of_scope",
+      "question": "강아지 데리고 가도 돼?",
+      "intent": "보유하지 않은 팩트(반려동물 정책 미상)",
+      "expected": {
+        "sources": [],
+        "answer_contains": [
+          "정보",
+          "없",
+          "문의"
+        ]
+      },
+      "signals": {
+        "fallback": true
+      },
+      "notes": "반려동물 정책 데이터 없음 → 폴백이 정답."
+    }
+  ]
+}

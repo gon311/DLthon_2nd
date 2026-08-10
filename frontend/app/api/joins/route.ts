@@ -1,7 +1,7 @@
 import { and, desc, eq, lte } from "drizzle-orm";
 import { NextResponse } from "next/server";
 import { getDb } from "../../../db";
-import { joins, users } from "../../../db/schema";
+import { joinParticipants, joins, users } from "../../../db/schema";
 import { getChatGPTUser } from "../../chatgpt-auth";
 
 const iconByKeyword: Record<string, string> = {
@@ -15,6 +15,7 @@ const iconByKeyword: Record<string, string> = {
 export async function GET() {
   const db = getDb();
   const now = new Date();
+  const viewer = await getChatGPTUser();
 
   await db
     .update(joins)
@@ -32,13 +33,35 @@ export async function GET() {
       max: joins.maxParticipants,
       status: joins.status,
       host: users.displayName,
+      ownerId: joins.ownerId,
     })
     .from(joins)
     .innerJoin(users, eq(joins.ownerId, users.id))
     .orderBy(desc(joins.createdAt));
 
+  const participantRows = await db
+    .select({
+      joinId: joinParticipants.joinId,
+      userId: joinParticipants.userId,
+      status: joinParticipants.status,
+      displayName: users.displayName,
+    })
+    .from(joinParticipants)
+    .innerJoin(users, eq(joinParticipants.userId, users.id));
+  const activeParticipants = participantRows.filter((row) => row.status === "신청");
+
   return NextResponse.json({
-    joins: rows.map((row) => toJoinItem(row, row.keyword, now)),
+    joins: rows.map((row) => {
+      const participants = activeParticipants.filter((item) => item.joinId === row.id);
+      const isOwner = viewer?.id === row.ownerId;
+      return {
+        ...toJoinItem(row, row.keyword, now),
+        people: participants.length + 1,
+        isOwner,
+        joined: Boolean(viewer && participants.some((item) => item.userId === viewer.id)),
+        participantNames: isOwner ? participants.map((item) => item.displayName) : undefined,
+      };
+    }),
   });
 }
 
@@ -81,11 +104,16 @@ export async function POST(request: Request) {
       .returning({ id: joins.id, status: joins.status });
 
     return NextResponse.json({
-      join: toJoinItem(
+      join: {
+        ...toJoinItem(
         { id: created[0].id, title, description, location, scheduledAt, max, status: created[0].status, host: owner[0].displayName },
         keyword,
         new Date(),
-      ),
+        ),
+        isOwner: true,
+        joined: false,
+        participantNames: [],
+      },
     });
   } catch {
     return NextResponse.json({ error: "같은 제목의 Join이 이미 있어요." }, { status: 409 });
@@ -101,7 +129,10 @@ function toJoinItem(
   keyword: string,
   now: Date,
 ) {
-  const korea = new Date(row.scheduledAt.getTime() + 9 * 60 * 60 * 1000);
+  const scheduledAt = row.scheduledAt instanceof Date
+    ? row.scheduledAt
+    : new Date(row.scheduledAt);
+  const korea = new Date(scheduledAt.getTime() + 9 * 60 * 60 * 1000);
   return {
     id: row.id,
     title: row.title,
@@ -113,7 +144,8 @@ function toJoinItem(
     time: korea.toISOString().slice(11, 16),
     max: row.max,
     people: 1,
-    status: row.scheduledAt <= now && row.status === "모집중" ? "모집완료" : row.status,
+    status: scheduledAt.getTime() <= now.getTime() && row.status === "모집중" ? "모집완료" : row.status,
     host: row.host,
   };
 }
+

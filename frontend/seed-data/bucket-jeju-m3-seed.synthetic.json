@@ -2,32 +2,32 @@
   "_notice": "SYNTHETIC DATA: 이 파일의 모든 투숙객·닉네임·객실·침대·숙박기간·조인 요청은 M3 개발 및 테스트를 위해 임의 생성한 합성 데이터이며 실제 인물, 예약 또는 모임을 나타내지 않습니다.",
   "_meta": {
     "datasetName": "Bucket Jeju M3 15-Day Join Seed Dataset",
-    "version": "2.0.0",
-    "generatedAt": "2026-07-31T12:00:00+09:00",
+    "version": "4.0.0",
+    "generatedAt": "2026-08-04T18:20:00+09:00",
     "locale": "ko-KR",
     "synthetic": true,
     "randomSeed": 20260731,
     "guestCount": 30,
     "joinRequestCount": 60,
-    "scheduleStart": "2026-08-01",
-    "scheduleEnd": "2026-08-15",
+    "scheduleStart": "2026-08-05",
+    "scheduleEnd": "2026-08-19",
     "scheduleDays": 15,
     "joinDistribution": {
-      "2026-08-01": 7,
-      "2026-08-02": 1,
-      "2026-08-03": 1,
-      "2026-08-04": 3,
-      "2026-08-05": 2,
-      "2026-08-06": 6,
-      "2026-08-07": 5,
-      "2026-08-08": 2,
-      "2026-08-09": 6,
+      "2026-08-05": 7,
+      "2026-08-06": 1,
+      "2026-08-07": 2,
+      "2026-08-08": 3,
+      "2026-08-09": 3,
       "2026-08-10": 5,
-      "2026-08-11": 6,
-      "2026-08-12": 5,
-      "2026-08-13": 4,
+      "2026-08-11": 5,
+      "2026-08-12": 2,
+      "2026-08-13": 6,
       "2026-08-14": 4,
-      "2026-08-15": 3
+      "2026-08-15": 6,
+      "2026-08-16": 4,
+      "2026-08-17": 4,
+      "2026-08-18": 4,
+      "2026-08-19": 4
     },
     "minimumJoinsPerDay": 1,
     "maximumJoinsPerDay": 7,
@@ -36,9 +36,13 @@
   "guests": [
     {
       "id": "guest-001",
+      "testAccountId": "TEST-001",
       "nickname": "귤빛파도",
-      "checkInDate": "2026-07-31",
-      "checkOutDate": "2026-08-16",
+      "syntheticName": "김하린",
+      "gender": "여성",
+      "nationality": "대한민국",
+      "checkInDate": "2026-08-05",
+      "checkOutDate": "2026-08-20",
       "roomNumber": "203",
       "bedNumber": 2,
       "bedKey": "203-B02",
@@ -61,9 +65,13 @@
     },
     {
       "id": "guest-002",
+      "testAccountId": "TEST-002",
       "nickname": "오름한스푼",
-      "checkInDate": "2026-07-31",
-      "checkOutDate": "2026-08-16",
+      "syntheticName": "이도윤",
+      "gender": "남성",
+      "nationality": "대한민국",
+      "checkInDate": "2026-08-05",
+      "checkOutDate": "2026-08-20",
       "roomNumber": "207",
       "bedNumber": 5,
       "bedKey": "207-B05",
@@ -86,9 +94,13 @@
     },
     {
       "id": "guest-003",
+      "testAccountId": "TEST-003",
       "nickname": "돌담산책",
-      "checkInDate": "2026-07-31",
-      "checkOutDate": "2026-08-16",
+      "syntheticName": "박서아",
+      "gender": "여성",
+      "nationality": "대한민국",
+      "checkInDate": "2026-08-05",
+      "checkOutDate": "2026-08-20",
       "roomNumber": "101",
       "bedNumber": 2,
       "bedKey": "101-B02",
@@ -111,9 +123,13 @@
     },
     {
       "id": "guest-004",
+      "testAccountId": "TEST-004",
       "nickname": "한라구름",
-      "checkInDate": "2026-07-31",
-      "checkOutDate": "2026-08-16",
+      "syntheticName": "최민준",
+      "gender": "남성",
+      "nationality": "대한민국",
+      "checkInDate": "2026-08-05",
+      "checkOutDate": "2026-08-20",
       "roomNumber": "201",
       "bedNumber": 1,
       "bedKey": "201-B01",
@@ -136,9 +152,13 @@
     },
     {
       "id": "guest-005",
+      "testAccountId": "TEST-005",
       "nickname": "바람소라",
-      "checkInDate": "2026-07-30",
-      "checkOutDate": "2026-08-16",
+      "syntheticName": "사토 유이",
+      "gender": "여성",
+      "nationality": "일본",
+      "checkInDate": "2026-08-04",
+      "checkOutDate": "2026-08-20",
       "roomNumber": "203",
       "bedNumber": 5,
       "bedKey": "203-B05",
@@ -161,9 +181,13 @@
     },
     {
       "id": "guest-006",
+      "testAccountId": "TEST-006",
       "nickname": "노을러너",
-      "checkInDate": "2026-07-31",
-      "checkOutDate": "2026-08-16",
+      "syntheticName": "다나카 렌",
+      "gender": "남성",
+      "nationality": "일본",
+      "checkInDate": "2026-08-05",
+      "checkOutDate": "2026-08-20",
       "roomNumber": "101",
       "bedNumber": 4,
       "bedKey": "101-B04",
@@ -186,9 +210,13 @@
     },
     {
       "id": "guest-007",
+      "testAccountId": "TEST-007",
       "nickname": "해녀의별",
-      "checkInDate": "2026-07-30",
-      "checkOutDate": "2026-08-16",
+      "syntheticName": "왕신위",
+      "gender": "여성",
+      "nationality": "중국",
+      "checkInDate": "2026-08-04",
+      "checkOutDate": "2026-08-20",
       "roomNumber": "101",
       "bedNumber": 7,
       "bedKey": "101-B07",
@@ -211,9 +239,13 @@
     },
     {
       "id": "guest-008",
+      "testAccountId": "TEST-008",
       "nickname": "모슬포참새",
-      "checkInDate": "2026-07-30",
-      "checkOutDate": "2026-08-16",
+      "syntheticName": "리웨이",
+      "gender": "남성",
+      "nationality": "중국",
+      "checkInDate": "2026-08-04",
+      "checkOutDate": "2026-08-20",
       "roomNumber": "202",
       "bedNumber": 6,
       "bedKey": "202-B06",
@@ -236,9 +268,13 @@
     },
     {
       "id": "guest-009",
+      "testAccountId": "TEST-009",
       "nickname": "산방산콩",
-      "checkInDate": "2026-07-30",
-      "checkOutDate": "2026-08-16",
+      "syntheticName": "에밀리 첸",
+      "gender": "여성",
+      "nationality": "싱가포르",
+      "checkInDate": "2026-08-04",
+      "checkOutDate": "2026-08-20",
       "roomNumber": "207",
       "bedNumber": 4,
       "bedKey": "207-B04",
@@ -261,9 +297,13 @@
     },
     {
       "id": "guest-010",
+      "testAccountId": "TEST-010",
       "nickname": "우도땅콩",
-      "checkInDate": "2026-07-30",
-      "checkOutDate": "2026-08-16",
+      "syntheticName": "노아 탄",
+      "gender": "남성",
+      "nationality": "싱가포르",
+      "checkInDate": "2026-08-04",
+      "checkOutDate": "2026-08-20",
       "roomNumber": "206",
       "bedNumber": 1,
       "bedKey": "206-B01",
@@ -286,9 +326,13 @@
     },
     {
       "id": "guest-011",
+      "testAccountId": "TEST-011",
       "nickname": "새별오름달",
-      "checkInDate": "2026-07-31",
-      "checkOutDate": "2026-08-14",
+      "syntheticName": "소피 마틴",
+      "gender": "여성",
+      "nationality": "프랑스",
+      "checkInDate": "2026-08-05",
+      "checkOutDate": "2026-08-19",
       "roomNumber": "202",
       "bedNumber": 1,
       "bedKey": "202-B01",
@@ -311,9 +355,13 @@
     },
     {
       "id": "guest-012",
+      "testAccountId": "TEST-012",
       "nickname": "협재물결",
-      "checkInDate": "2026-08-02",
-      "checkOutDate": "2026-08-14",
+      "syntheticName": "뤼카 베르나르",
+      "gender": "남성",
+      "nationality": "프랑스",
+      "checkInDate": "2026-08-07",
+      "checkOutDate": "2026-08-19",
       "roomNumber": "202",
       "bedNumber": 5,
       "bedKey": "202-B05",
@@ -336,9 +384,13 @@
     },
     {
       "id": "guest-013",
+      "testAccountId": "TEST-013",
       "nickname": "곶자왈토끼",
-      "checkInDate": "2026-07-31",
-      "checkOutDate": "2026-08-15",
+      "syntheticName": "에마 윌슨",
+      "gender": "여성",
+      "nationality": "영국",
+      "checkInDate": "2026-08-05",
+      "checkOutDate": "2026-08-20",
       "roomNumber": "202",
       "bedNumber": 3,
       "bedKey": "202-B03",
@@ -361,9 +413,13 @@
     },
     {
       "id": "guest-014",
+      "testAccountId": "TEST-014",
       "nickname": "애월필름",
-      "checkInDate": "2026-07-30",
-      "checkOutDate": "2026-08-14",
+      "syntheticName": "올리버 브라운",
+      "gender": "남성",
+      "nationality": "영국",
+      "checkInDate": "2026-08-04",
+      "checkOutDate": "2026-08-19",
       "roomNumber": "207",
       "bedNumber": 6,
       "bedKey": "207-B06",
@@ -386,9 +442,13 @@
     },
     {
       "id": "guest-015",
+      "testAccountId": "TEST-015",
       "nickname": "성산해돋이",
-      "checkInDate": "2026-07-29",
-      "checkOutDate": "2026-08-12",
+      "syntheticName": "미아 존슨",
+      "gender": "여성",
+      "nationality": "미국",
+      "checkInDate": "2026-08-03",
+      "checkOutDate": "2026-08-17",
       "roomNumber": "302B",
       "bedNumber": 2,
       "bedKey": "302B-B02",
@@ -411,9 +471,13 @@
     },
     {
       "id": "guest-016",
+      "testAccountId": "TEST-016",
       "nickname": "제주책갈피",
-      "checkInDate": "2026-07-29",
-      "checkOutDate": "2026-08-08",
+      "syntheticName": "이선 데이비스",
+      "gender": "남성",
+      "nationality": "미국",
+      "checkInDate": "2026-08-03",
+      "checkOutDate": "2026-08-13",
       "roomNumber": "206",
       "bedNumber": 3,
       "bedKey": "206-B03",
@@ -436,9 +500,13 @@
     },
     {
       "id": "guest-017",
+      "testAccountId": "TEST-017",
       "nickname": "감귤마카롱",
-      "checkInDate": "2026-07-30",
-      "checkOutDate": "2026-08-08",
+      "syntheticName": "클라라 뮐러",
+      "gender": "여성",
+      "nationality": "독일",
+      "checkInDate": "2026-08-04",
+      "checkOutDate": "2026-08-13",
       "roomNumber": "101",
       "bedNumber": 8,
       "bedKey": "101-B08",
@@ -461,9 +529,13 @@
     },
     {
       "id": "guest-018",
+      "testAccountId": "TEST-018",
       "nickname": "파도타는귤",
-      "checkInDate": "2026-08-02",
-      "checkOutDate": "2026-08-14",
+      "syntheticName": "레온 슈미트",
+      "gender": "남성",
+      "nationality": "독일",
+      "checkInDate": "2026-08-07",
+      "checkOutDate": "2026-08-19",
       "roomNumber": "207",
       "bedNumber": 7,
       "bedKey": "207-B07",
@@ -486,9 +558,13 @@
     },
     {
       "id": "guest-019",
+      "testAccountId": "TEST-019",
       "nickname": "오름이",
-      "checkInDate": "2026-07-29",
-      "checkOutDate": "2026-08-12",
+      "syntheticName": "소피아 로시",
+      "gender": "여성",
+      "nationality": "이탈리아",
+      "checkInDate": "2026-08-03",
+      "checkOutDate": "2026-08-17",
       "roomNumber": "201",
       "bedNumber": 3,
       "bedKey": "201-B03",
@@ -511,9 +587,13 @@
     },
     {
       "id": "guest-020",
+      "testAccountId": "TEST-020",
       "nickname": "하모바다",
-      "checkInDate": "2026-08-02",
-      "checkOutDate": "2026-08-17",
+      "syntheticName": "마테오 콘티",
+      "gender": "남성",
+      "nationality": "이탈리아",
+      "checkInDate": "2026-08-07",
+      "checkOutDate": "2026-08-22",
       "roomNumber": "203",
       "bedNumber": 4,
       "bedKey": "203-B04",
@@ -536,9 +616,13 @@
     },
     {
       "id": "guest-021",
+      "testAccountId": "TEST-021",
       "nickname": "돌고래우체부",
-      "checkInDate": "2026-08-01",
-      "checkOutDate": "2026-08-12",
+      "syntheticName": "이사벨라 가르시아",
+      "gender": "여성",
+      "nationality": "스페인",
+      "checkInDate": "2026-08-06",
+      "checkOutDate": "2026-08-17",
       "roomNumber": "201",
       "bedNumber": 2,
       "bedKey": "201-B02",
@@ -561,9 +645,13 @@
     },
     {
       "id": "guest-022",
+      "testAccountId": "TEST-022",
       "nickname": "동백여행자",
-      "checkInDate": "2026-07-31",
-      "checkOutDate": "2026-08-14",
+      "syntheticName": "디에고 로페스",
+      "gender": "남성",
+      "nationality": "스페인",
+      "checkInDate": "2026-08-05",
+      "checkOutDate": "2026-08-19",
       "roomNumber": "203",
       "bedNumber": 6,
       "bedKey": "203-B06",
@@ -586,9 +674,13 @@
     },
     {
       "id": "guest-023",
+      "testAccountId": "TEST-023",
       "nickname": "푸른현무암",
-      "checkInDate": "2026-07-31",
-      "checkOutDate": "2026-08-07",
+      "syntheticName": "올리비아 스미스",
+      "gender": "여성",
+      "nationality": "호주",
+      "checkInDate": "2026-08-05",
+      "checkOutDate": "2026-08-12",
       "roomNumber": "202",
       "bedNumber": 4,
       "bedKey": "202-B04",
@@ -611,9 +703,13 @@
     },
     {
       "id": "guest-024",
+      "testAccountId": "TEST-024",
       "nickname": "귤꽃향기",
-      "checkInDate": "2026-08-01",
-      "checkOutDate": "2026-08-14",
+      "syntheticName": "잭 테일러",
+      "gender": "남성",
+      "nationality": "호주",
+      "checkInDate": "2026-08-06",
+      "checkOutDate": "2026-08-19",
       "roomNumber": "207",
       "bedNumber": 1,
       "bedKey": "207-B01",
@@ -636,9 +732,13 @@
     },
     {
       "id": "guest-025",
+      "testAccountId": "TEST-025",
       "nickname": "바당친구",
-      "checkInDate": "2026-07-30",
-      "checkOutDate": "2026-08-14",
+      "syntheticName": "메이 린",
+      "gender": "여성",
+      "nationality": "말레이시아",
+      "checkInDate": "2026-08-04",
+      "checkOutDate": "2026-08-19",
       "roomNumber": "201",
       "bedNumber": 4,
       "bedKey": "201-B04",
@@ -661,9 +761,13 @@
     },
     {
       "id": "guest-026",
+      "testAccountId": "TEST-026",
       "nickname": "숲길메아리",
-      "checkInDate": "2026-08-03",
-      "checkOutDate": "2026-08-13",
+      "syntheticName": "아담 라만",
+      "gender": "남성",
+      "nationality": "말레이시아",
+      "checkInDate": "2026-08-08",
+      "checkOutDate": "2026-08-18",
       "roomNumber": "202",
       "bedNumber": 2,
       "bedKey": "202-B02",
@@ -686,9 +790,13 @@
     },
     {
       "id": "guest-027",
+      "testAccountId": "TEST-027",
       "nickname": "노꼬메구름",
-      "checkInDate": "2026-07-30",
-      "checkOutDate": "2026-08-07",
+      "syntheticName": "안야 샤르마",
+      "gender": "여성",
+      "nationality": "인도",
+      "checkInDate": "2026-08-04",
+      "checkOutDate": "2026-08-12",
       "roomNumber": "101",
       "bedNumber": 6,
       "bedKey": "101-B06",
@@ -711,841 +819,13 @@
     },
     {
       "id": "guest-028",
+      "testAccountId": "TEST-028",
       "nickname": "용머리노을",
-      "checkInDate": "2026-08-01",
-      "checkOutDate": "2026-08-16",
-      "roomNumber": "206",
-      "bedNumber": 4,
-      "bedKey": "206-B04",
-      "interests": [
-        "자전거",
-        "친목",
-        "수영",
-        "카페",
-        "해변"
-      ],
-      "profileKeywords": [
-        "자전거",
-        "친목",
-        "수영",
-        "카페",
-        "해변"
-      ],
-      "stayVerificationStatus": "인증완료",
-      "isSynthetic": true
-    },
-    {
-      "id": "guest-029",
-      "nickname": "비자림새",
-      "checkInDate": "2026-07-29",
-      "checkOutDate": "2026-08-06",
-      "roomNumber": "201",
-      "bedNumber": 5,
-      "bedKey": "201-B05",
-      "interests": [
-        "독서",
-        "브런치",
-        "러닝",
-        "디저트",
-        "고기국수"
-      ],
-      "profileKeywords": [
-        "독서",
-        "브런치",
-        "러닝",
-        "디저트",
-        "고기국수"
-      ],
-      "stayVerificationStatus": "인증완료",
-      "isSynthetic": true
-    },
-    {
-      "id": "guest-030",
-      "nickname": "제주한바퀴",
-      "checkInDate": "2026-07-30",
-      "checkOutDate": "2026-08-06",
-      "roomNumber": "207",
-      "bedNumber": 3,
-      "bedKey": "207-B03",
-      "interests": [
-        "트레킹",
-        "독서",
-        "숲",
-        "요가",
-        "일출"
-      ],
-      "profileKeywords": [
-        "트레킹",
-        "독서",
-        "숲",
-        "요가",
-        "일출"
-      ],
-      "stayVerificationStatus": "인증완료",
-      "isSynthetic": true
-    }
-  ],
-  "joinRequests": [
-    {
-      "id": "join-001",
-      "title": "하모해변 노을 러닝 1일차",
-      "description": "하모해변을 따라 가볍게 달린 뒤 함께 노을을 봐요.",
-      "category": "운동",
-      "keywords": [
-        "러닝",
-        "노을",
-        "해변"
-      ],
-      "scheduledDate": "2026-08-01",
-      "scheduledTime": "07:00",
-      "location": "하모해변",
-      "hostGuestId": "guest-001",
-      "hostNickname": "귤빛파도",
-      "maxParticipants": 3,
-      "currentParticipants": 2,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-002"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-002",
-      "title": "모슬포 고기국수 저녁 1일차",
-      "description": "혼밥 대신 따뜻한 고기국수를 같이 먹어요.",
-      "category": "식사",
-      "keywords": [
-        "식사",
-        "고기국수",
-        "혼밥탈출"
-      ],
-      "scheduledDate": "2026-08-01",
-      "scheduledTime": "09:30",
-      "location": "버킷 제주 로비",
-      "hostGuestId": "guest-002",
-      "hostNickname": "오름한스푼",
-      "maxParticipants": 4,
-      "currentParticipants": 3,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-003",
-        "guest-004"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-003",
-      "title": "송악산 둘레길 산책 1일차",
-      "description": "풍경을 보며 무리하지 않는 속도로 걸어요.",
-      "category": "여행",
-      "keywords": [
-        "산책",
-        "트레킹",
-        "오름"
-      ],
-      "scheduledDate": "2026-08-01",
-      "scheduledTime": "12:00",
-      "location": "송악산 주차장",
-      "hostGuestId": "guest-003",
-      "hostNickname": "돌담산책",
-      "maxParticipants": 5,
-      "currentParticipants": 4,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-004",
-        "guest-005",
-        "guest-006"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-004",
-      "title": "산방산 일출 사진 1일차",
-      "description": "휴대폰이나 카메라로 산방산의 아침을 담아요.",
-      "category": "사진",
-      "keywords": [
-        "사진",
-        "일출",
-        "오름"
-      ],
-      "scheduledDate": "2026-08-01",
-      "scheduledTime": "15:30",
-      "location": "산방산 입구",
-      "hostGuestId": "guest-004",
-      "hostNickname": "한라구름",
-      "maxParticipants": 6,
-      "currentParticipants": 6,
-      "status": "모집완료",
-      "participantGuestIds": [
-        "guest-005",
-        "guest-006",
-        "guest-007",
-        "guest-008",
-        "guest-009"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-005",
-      "title": "대정오일시장 간식 투어 1일차",
-      "description": "시장 간식을 조금씩 나눠 먹으며 둘러봐요.",
-      "category": "식사",
-      "keywords": [
-        "시장",
-        "식사",
-        "로컬문화"
-      ],
-      "scheduledDate": "2026-08-01",
-      "scheduledTime": "18:30",
-      "location": "대정오일시장 입구",
-      "hostGuestId": "guest-005",
-      "hostNickname": "바람소라",
-      "maxParticipants": 7,
-      "currentParticipants": 3,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-006",
-        "guest-007"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-006",
-      "title": "용머리해안 지질 산책 1일차",
-      "description": "독특한 지층과 바다 풍경을 천천히 구경해요.",
-      "category": "여행",
-      "keywords": [
-        "산책",
-        "사진",
-        "해변"
-      ],
-      "scheduledDate": "2026-08-01",
-      "scheduledTime": "20:00",
-      "location": "용머리해안 매표소",
-      "hostGuestId": "guest-006",
-      "hostNickname": "노을러너",
-      "maxParticipants": 8,
-      "currentParticipants": 4,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-007",
-        "guest-008",
-        "guest-009"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-007",
-      "title": "모슬포항 새벽 산책 1일차",
-      "description": "조용한 항구의 아침 공기를 함께 느껴요.",
-      "category": "운동",
-      "keywords": [
-        "산책",
-        "일출",
-        "해변"
-      ],
-      "scheduledDate": "2026-08-01",
-      "scheduledTime": "07:00",
-      "location": "모슬포항",
-      "hostGuestId": "guest-007",
-      "hostNickname": "해녀의별",
-      "maxParticipants": 3,
-      "currentParticipants": 2,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-008"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-008",
-      "title": "대정 로컬 카페 탐방 2일차",
-      "description": "작은 카페 두 곳을 골라 천천히 둘러봐요.",
-      "category": "카페",
-      "keywords": [
-        "카페",
-        "디저트",
-        "대화"
-      ],
-      "scheduledDate": "2026-08-02",
-      "scheduledTime": "09:30",
-      "location": "버킷 제주 입구",
-      "hostGuestId": "guest-008",
-      "hostNickname": "모슬포참새",
-      "maxParticipants": 4,
-      "currentParticipants": 4,
-      "status": "모집완료",
-      "participantGuestIds": [
-        "guest-009",
-        "guest-010",
-        "guest-011"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-009",
-      "title": "가파도 자전거 한 바퀴 3일차",
-      "description": "가파도에 들어가 자전거로 섬을 둘러봐요.",
-      "category": "여행",
-      "keywords": [
-        "자전거",
-        "섬여행",
-        "사진"
-      ],
-      "scheduledDate": "2026-08-03",
-      "scheduledTime": "12:00",
-      "location": "운진항",
-      "hostGuestId": "guest-009",
-      "hostNickname": "산방산콩",
-      "maxParticipants": 5,
-      "currentParticipants": 4,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-010",
-        "guest-011",
-        "guest-012"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-010",
-      "title": "해변 요가 스트레칭 4일차",
-      "description": "여행으로 굳은 몸을 바닷바람과 함께 풀어요.",
-      "category": "운동",
-      "keywords": [
-        "요가",
-        "해변",
-        "산책"
-      ],
-      "scheduledDate": "2026-08-04",
-      "scheduledTime": "15:30",
-      "location": "하모해변",
-      "hostGuestId": "guest-010",
-      "hostNickname": "우도땅콩",
-      "maxParticipants": 6,
-      "currentParticipants": 2,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-011"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-011",
-      "title": "제주 흑돼지 같이 먹기 4일차",
-      "description": "여럿이 먹으면 더 맛있는 흑돼지 저녁 모임이에요.",
-      "category": "식사",
-      "keywords": [
-        "식사",
-        "흑돼지",
-        "친목"
-      ],
-      "scheduledDate": "2026-08-04",
-      "scheduledTime": "18:30",
-      "location": "버킷 제주 로비",
-      "hostGuestId": "guest-011",
-      "hostNickname": "새별오름달",
-      "maxParticipants": 7,
-      "currentParticipants": 3,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-012",
-        "guest-013"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-012",
-      "title": "노을 필름사진 산책 4일차",
-      "description": "골목과 바다를 필름 감성으로 담아봐요.",
-      "category": "사진",
-      "keywords": [
-        "필름사진",
-        "노을",
-        "산책"
-      ],
-      "scheduledDate": "2026-08-04",
-      "scheduledTime": "20:00",
-      "location": "하모체육공원",
-      "hostGuestId": "guest-012",
-      "hostNickname": "협재물결",
-      "maxParticipants": 8,
-      "currentParticipants": 8,
-      "status": "모집완료",
-      "participantGuestIds": [
-        "guest-013",
-        "guest-014",
-        "guest-015",
-        "guest-016",
-        "guest-017",
-        "guest-018",
-        "guest-019"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-013",
-      "title": "편의점 간식 월드컵 5일차",
-      "description": "각자 추천하는 제주 간식을 골라 맛봐요.",
-      "category": "친목",
-      "keywords": [
-        "친목",
-        "디저트",
-        "대화"
-      ],
-      "scheduledDate": "2026-08-05",
-      "scheduledTime": "07:00",
-      "location": "버킷 제주 공용공간",
-      "hostGuestId": "guest-013",
-      "hostNickname": "곶자왈토끼",
-      "maxParticipants": 3,
-      "currentParticipants": 2,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-014"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-014",
-      "title": "여행책 한 챕터 읽기 5일차",
-      "description": "각자 책을 읽고 짧게 감상을 나눠요.",
-      "category": "친목",
-      "keywords": [
-        "독서",
-        "카페",
-        "대화"
-      ],
-      "scheduledDate": "2026-08-05",
-      "scheduledTime": "09:30",
-      "location": "버킷 제주 라운지",
-      "hostGuestId": "guest-014",
-      "hostNickname": "애월필름",
-      "maxParticipants": 4,
-      "currentParticipants": 3,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-015",
-        "guest-016"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-015",
-      "title": "곶자왈 숲길 트레킹 6일차",
-      "description": "제주의 숲 냄새를 느끼며 천천히 걸어요.",
-      "category": "여행",
-      "keywords": [
-        "숲",
-        "트레킹",
-        "사진"
-      ],
-      "scheduledDate": "2026-08-06",
-      "scheduledTime": "12:00",
-      "location": "곶자왈 도립공원",
-      "hostGuestId": "guest-015",
-      "hostNickname": "성산해돋이",
-      "maxParticipants": 5,
-      "currentParticipants": 4,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-016",
-        "guest-017",
-        "guest-018"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-016",
-      "title": "아침 해장국 원정대 6일차",
-      "description": "일찍 일어난 사람끼리 든든하게 아침을 먹어요.",
-      "category": "식사",
-      "keywords": [
-        "식사",
-        "혼밥탈출",
-        "로컬문화"
-      ],
-      "scheduledDate": "2026-08-06",
-      "scheduledTime": "15:30",
-      "location": "버킷 제주 입구",
-      "hostGuestId": "guest-016",
-      "hostNickname": "제주책갈피",
-      "maxParticipants": 6,
-      "currentParticipants": 6,
-      "status": "모집완료",
-      "participantGuestIds": [
-        "guest-017",
-        "guest-018",
-        "guest-019",
-        "guest-020",
-        "guest-021"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-017",
-      "title": "별 보며 여행 이야기 6일차",
-      "description": "별을 보며 서로의 제주 일정을 나눠요.",
-      "category": "친목",
-      "keywords": [
-        "별보기",
-        "대화",
-        "해변"
-      ],
-      "scheduledDate": "2026-08-06",
-      "scheduledTime": "18:30",
-      "location": "하모해변",
-      "hostGuestId": "guest-017",
-      "hostNickname": "감귤마카롱",
-      "maxParticipants": 7,
-      "currentParticipants": 3,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-018",
-        "guest-019"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-018",
-      "title": "대정쌍둥이식당 점심 6일차",
-      "description": "대정쌍둥이식당에서 점심을 같이 먹어요.",
-      "category": "식사",
-      "keywords": [
-        "식사",
-        "혼밥탈출",
-        "로컬문화"
-      ],
-      "scheduledDate": "2026-08-06",
-      "scheduledTime": "20:00",
-      "location": "대정쌍둥이식당",
-      "hostGuestId": "guest-018",
-      "hostNickname": "파도타는귤",
-      "maxParticipants": 8,
-      "currentParticipants": 4,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-019",
-        "guest-020",
-        "guest-021"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-019",
-      "title": "바닷가 플로깅 6일차",
-      "description": "산책하며 작은 쓰레기를 줍는 가벼운 모임이에요.",
-      "category": "운동",
-      "keywords": [
-        "플로깅",
-        "산책",
-        "해변"
-      ],
-      "scheduledDate": "2026-08-06",
-      "scheduledTime": "07:00",
-      "location": "하모해변",
-      "hostGuestId": "guest-019",
-      "hostNickname": "오름이",
-      "maxParticipants": 3,
-      "currentParticipants": 2,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-020"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-020",
-      "title": "제주 남서쪽 드라이브 6일차",
-      "description": "근처 전망 포인트를 골라 짧게 드라이브해요.",
-      "category": "여행",
-      "keywords": [
-        "드라이브",
-        "노을",
-        "사진"
-      ],
-      "scheduledDate": "2026-08-06",
-      "scheduledTime": "09:30",
-      "location": "버킷 제주 주차장",
-      "hostGuestId": "guest-020",
-      "hostNickname": "하모바다",
-      "maxParticipants": 4,
-      "currentParticipants": 4,
-      "status": "모집완료",
-      "participantGuestIds": [
-        "guest-021",
-        "guest-022",
-        "guest-023"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-021",
-      "title": "하모해변 노을 러닝 7일차",
-      "description": "하모해변을 따라 가볍게 달린 뒤 함께 노을을 봐요.",
-      "category": "운동",
-      "keywords": [
-        "러닝",
-        "노을",
-        "해변"
-      ],
-      "scheduledDate": "2026-08-07",
-      "scheduledTime": "12:00",
-      "location": "하모해변",
-      "hostGuestId": "guest-021",
-      "hostNickname": "돌고래우체부",
-      "maxParticipants": 5,
-      "currentParticipants": 4,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-022",
-        "guest-024",
-        "guest-025"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-022",
-      "title": "모슬포 고기국수 저녁 7일차",
-      "description": "혼밥 대신 따뜻한 고기국수를 같이 먹어요.",
-      "category": "식사",
-      "keywords": [
-        "식사",
-        "고기국수",
-        "혼밥탈출"
-      ],
-      "scheduledDate": "2026-08-07",
-      "scheduledTime": "15:30",
-      "location": "버킷 제주 로비",
-      "hostGuestId": "guest-022",
-      "hostNickname": "동백여행자",
-      "maxParticipants": 6,
-      "currentParticipants": 2,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-024"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-023",
-      "title": "송악산 둘레길 산책 7일차",
-      "description": "풍경을 보며 무리하지 않는 속도로 걸어요.",
-      "category": "여행",
-      "keywords": [
-        "산책",
-        "트레킹",
-        "오름"
-      ],
-      "scheduledDate": "2026-08-07",
-      "scheduledTime": "18:30",
-      "location": "송악산 주차장",
-      "hostGuestId": "guest-024",
-      "hostNickname": "귤꽃향기",
-      "maxParticipants": 7,
-      "currentParticipants": 3,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-025",
-        "guest-026"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-024",
-      "title": "산방산 일출 사진 7일차",
-      "description": "휴대폰이나 카메라로 산방산의 아침을 담아요.",
-      "category": "사진",
-      "keywords": [
-        "사진",
-        "일출",
-        "오름"
-      ],
-      "scheduledDate": "2026-08-07",
-      "scheduledTime": "20:00",
-      "location": "산방산 입구",
-      "hostGuestId": "guest-025",
-      "hostNickname": "바당친구",
-      "maxParticipants": 8,
-      "currentParticipants": 8,
-      "status": "모집완료",
-      "participantGuestIds": [
-        "guest-026",
-        "guest-028",
-        "guest-001",
-        "guest-002",
-        "guest-003",
-        "guest-004",
-        "guest-005"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-025",
-      "title": "대정오일시장 간식 투어 7일차",
-      "description": "시장 간식을 조금씩 나눠 먹으며 둘러봐요.",
-      "category": "식사",
-      "keywords": [
-        "시장",
-        "식사",
-        "로컬문화"
-      ],
-      "scheduledDate": "2026-08-07",
-      "scheduledTime": "07:00",
-      "location": "대정오일시장 입구",
-      "hostGuestId": "guest-026",
-      "hostNickname": "숲길메아리",
-      "maxParticipants": 3,
-      "currentParticipants": 2,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-028"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-026",
-      "title": "용머리해안 지질 산책 8일차",
-      "description": "독특한 지층과 바다 풍경을 천천히 구경해요.",
-      "category": "여행",
-      "keywords": [
-        "산책",
-        "사진",
-        "해변"
-      ],
-      "scheduledDate": "2026-08-08",
-      "scheduledTime": "09:30",
-      "location": "용머리해안 매표소",
-      "hostGuestId": "guest-002",
-      "hostNickname": "오름한스푼",
-      "maxParticipants": 4,
-      "currentParticipants": 3,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-004",
-        "guest-005"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-027",
-      "title": "모슬포항 새벽 산책 8일차",
-      "description": "조용한 항구의 아침 공기를 함께 느껴요.",
-      "category": "운동",
-      "keywords": [
-        "산책",
-        "일출",
-        "해변"
-      ],
-      "scheduledDate": "2026-08-08",
-      "scheduledTime": "12:00",
-      "location": "모슬포항",
-      "hostGuestId": "guest-003",
-      "hostNickname": "돌담산책",
-      "maxParticipants": 5,
-      "currentParticipants": 4,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-005",
-        "guest-006",
-        "guest-007"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-028",
-      "title": "대정 로컬 카페 탐방 9일차",
-      "description": "작은 카페 두 곳을 골라 천천히 둘러봐요.",
-      "category": "카페",
-      "keywords": [
-        "카페",
-        "디저트",
-        "대화"
-      ],
-      "scheduledDate": "2026-08-09",
-      "scheduledTime": "15:30",
-      "location": "버킷 제주 입구",
-      "hostGuestId": "guest-004",
-      "hostNickname": "한라구름",
-      "maxParticipants": 6,
-      "currentParticipants": 6,
-      "status": "모집완료",
-      "participantGuestIds": [
-        "guest-006",
-        "guest-007",
-        "guest-008",
-        "guest-009",
-        "guest-010"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-029",
-      "title": "가파도 자전거 한 바퀴 9일차",
-      "description": "가파도에 들어가 자전거로 섬을 둘러봐요.",
-      "category": "여행",
-      "keywords": [
-        "자전거",
-        "섬여행",
-        "사진"
-      ],
-      "scheduledDate": "2026-08-09",
-      "scheduledTime": "18:30",
-      "location": "운진항",
-      "hostGuestId": "guest-005",
-      "hostNickname": "바람소라",
-      "maxParticipants": 7,
-      "currentParticipants": 3,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-007",
-        "guest-008"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-030",
-      "title": "해변 요가 스트레칭 9일차",
-      "description": "여행으로 굳은 몸을 바닷바람과 함께 풀어요.",
-      "category": "운동",
-      "keywords": [
-        "요가",
-        "해변",
-        "산책"
-      ],
-      "scheduledDate": "2026-08-09",
-      "scheduledTime": "20:00",
-      "location": "하모해변",
-      "hostGuestId": "guest-006",
-      "hostNickname": "노을러너",
-      "maxParticipants": 8,
-      "currentParticipants": 4,
-      "status": "모집중",
-      "participantGuestIds": [
-        "guest-008",
-        "guest-009",
-        "guest-010"
-      ],
-      "isSynthetic": true
-    },
-    {
-      "id": "join-031",
-      "title": "제주 흑돼지 같이 먹기 9일차",
-      "description": "여럿이 먹으면 더 맛있는 흑돼지 저녁 모임이에요.",
-      "category": "식사",
-      "keywords": [
-        "식사",
-        "흑돼지",
-        "친목"
-      ],
-      "scheduledDate": "2026-08-09",
-      "scheduledTime": "07:00",
-      "location": "버킷 제주 로비",
-      "hostGuestId": "guest-007",
-      "hostNickname": "해녀의별",
-      "maxParticipants": 3,
-      "currentParticipants": 2,
-      "status": "모집중",
+      "syntheticName": "아르준 파텔",
+      "gender": "남성",
+      "nationality": "인도",
+      "checkInDate": "2026-08-06",
+      "checkOutDate"…5704 tokens truncated…  "status": "모집중",
       "participantGuestIds": [
         "guest-009"
       ],
@@ -1561,7 +841,7 @@
         "노을",
         "산책"
       ],
-      "scheduledDate": "2026-08-09",
+      "scheduledDate": "2026-08-13",
       "scheduledTime": "09:30",
       "location": "하모체육공원",
       "hostGuestId": "guest-008",
@@ -1586,7 +866,7 @@
         "디저트",
         "대화"
       ],
-      "scheduledDate": "2026-08-09",
+      "scheduledDate": "2026-08-13",
       "scheduledTime": "12:00",
       "location": "버킷 제주 공용공간",
       "hostGuestId": "guest-009",
@@ -1603,7 +883,7 @@
     },
     {
       "id": "join-034",
-      "title": "여행책 한 챕터 읽기 10일차",
+      "title": "여행책 한 챕터 읽기 9일차",
       "description": "각자 책을 읽고 짧게 감상을 나눠요.",
       "category": "친목",
       "keywords": [
@@ -1611,7 +891,7 @@
         "카페",
         "대화"
       ],
-      "scheduledDate": "2026-08-10",
+      "scheduledDate": "2026-08-13",
       "scheduledTime": "15:30",
       "location": "버킷 제주 라운지",
       "hostGuestId": "guest-010",
@@ -1634,7 +914,7 @@
         "트레킹",
         "사진"
       ],
-      "scheduledDate": "2026-08-10",
+      "scheduledDate": "2026-08-14",
       "scheduledTime": "18:30",
       "location": "곶자왈 도립공원",
       "hostGuestId": "guest-011",
@@ -1658,7 +938,7 @@
         "혼밥탈출",
         "로컬문화"
       ],
-      "scheduledDate": "2026-08-10",
+      "scheduledDate": "2026-08-14",
       "scheduledTime": "20:00",
       "location": "버킷 제주 입구",
       "hostGuestId": "guest-012",
@@ -1687,7 +967,7 @@
         "대화",
         "해변"
       ],
-      "scheduledDate": "2026-08-10",
+      "scheduledDate": "2026-08-14",
       "scheduledTime": "07:00",
       "location": "하모해변",
       "hostGuestId": "guest-013",
@@ -1710,7 +990,7 @@
         "혼밥탈출",
         "로컬문화"
       ],
-      "scheduledDate": "2026-08-10",
+      "scheduledDate": "2026-08-14",
       "scheduledTime": "09:30",
       "location": "대정쌍둥이식당",
       "hostGuestId": "guest-014",
@@ -1734,7 +1014,7 @@
         "산책",
         "해변"
       ],
-      "scheduledDate": "2026-08-11",
+      "scheduledDate": "2026-08-15",
       "scheduledTime": "12:00",
       "location": "하모해변",
       "hostGuestId": "guest-015",
@@ -1759,7 +1039,7 @@
         "노을",
         "사진"
       ],
-      "scheduledDate": "2026-08-11",
+      "scheduledDate": "2026-08-15",
       "scheduledTime": "15:30",
       "location": "버킷 제주 주차장",
       "hostGuestId": "guest-018",
@@ -1786,7 +1066,7 @@
         "노을",
         "해변"
       ],
-      "scheduledDate": "2026-08-11",
+      "scheduledDate": "2026-08-15",
       "scheduledTime": "18:30",
       "location": "하모해변",
       "hostGuestId": "guest-019",
@@ -1810,7 +1090,7 @@
         "고기국수",
         "혼밥탈출"
       ],
-      "scheduledDate": "2026-08-11",
+      "scheduledDate": "2026-08-15",
       "scheduledTime": "20:00",
       "location": "버킷 제주 로비",
       "hostGuestId": "guest-020",
@@ -1835,7 +1115,7 @@
         "트레킹",
         "오름"
       ],
-      "scheduledDate": "2026-08-11",
+      "scheduledDate": "2026-08-15",
       "scheduledTime": "07:00",
       "location": "송악산 주차장",
       "hostGuestId": "guest-021",
@@ -1858,7 +1138,7 @@
         "일출",
         "오름"
       ],
-      "scheduledDate": "2026-08-11",
+      "scheduledDate": "2026-08-15",
       "scheduledTime": "09:30",
       "location": "산방산 입구",
       "hostGuestId": "guest-022",
@@ -1883,18 +1163,18 @@
         "식사",
         "로컬문화"
       ],
-      "scheduledDate": "2026-08-12",
+      "scheduledDate": "2026-08-16",
       "scheduledTime": "12:00",
       "location": "대정오일시장 입구",
-      "hostGuestId": "guest-003",
-      "hostNickname": "돌담산책",
+      "hostGuestId": "guest-024",
+      "hostNickname": "귤꽃향기",
       "maxParticipants": 5,
       "currentParticipants": 4,
       "status": "모집중",
       "participantGuestIds": [
-        "guest-006",
-        "guest-007",
-        "guest-008"
+        "guest-026",
+        "guest-028",
+        "guest-001"
       ],
       "isSynthetic": true
     },
@@ -1908,16 +1188,16 @@
         "사진",
         "해변"
       ],
-      "scheduledDate": "2026-08-12",
+      "scheduledDate": "2026-08-16",
       "scheduledTime": "15:30",
       "location": "용머리해안 매표소",
-      "hostGuestId": "guest-004",
-      "hostNickname": "한라구름",
+      "hostGuestId": "guest-025",
+      "hostNickname": "바당친구",
       "maxParticipants": 6,
       "currentParticipants": 2,
       "status": "모집중",
       "participantGuestIds": [
-        "guest-007"
+        "guest-028"
       ],
       "isSynthetic": true
     },
@@ -1931,17 +1211,17 @@
         "일출",
         "해변"
       ],
-      "scheduledDate": "2026-08-12",
+      "scheduledDate": "2026-08-16",
       "scheduledTime": "18:30",
       "location": "모슬포항",
-      "hostGuestId": "guest-005",
-      "hostNickname": "바람소라",
+      "hostGuestId": "guest-026",
+      "hostNickname": "숲길메아리",
       "maxParticipants": 7,
       "currentParticipants": 3,
       "status": "모집중",
       "participantGuestIds": [
-        "guest-008",
-        "guest-009"
+        "guest-001",
+        "guest-002"
       ],
       "isSynthetic": true
     },
@@ -1955,28 +1235,28 @@
         "디저트",
         "대화"
       ],
-      "scheduledDate": "2026-08-12",
+      "scheduledDate": "2026-08-16",
       "scheduledTime": "20:00",
       "location": "버킷 제주 입구",
-      "hostGuestId": "guest-006",
-      "hostNickname": "노을러너",
+      "hostGuestId": "guest-028",
+      "hostNickname": "용머리노을",
       "maxParticipants": 8,
       "currentParticipants": 8,
       "status": "모집완료",
       "participantGuestIds": [
-        "guest-009",
-        "guest-010",
-        "guest-011",
-        "guest-012",
-        "guest-013",
-        "guest-014",
-        "guest-018"
+        "guest-002",
+        "guest-003",
+        "guest-004",
+        "guest-005",
+        "guest-006",
+        "guest-007",
+        "guest-008"
       ],
       "isSynthetic": true
     },
     {
       "id": "join-049",
-      "title": "가파도 자전거 한 바퀴 12일차",
+      "title": "가파도 자전거 한 바퀴 13일차",
       "description": "가파도에 들어가 자전거로 섬을 둘러봐요.",
       "category": "여행",
       "keywords": [
@@ -1984,7 +1264,7 @@
         "섬여행",
         "사진"
       ],
-      "scheduledDate": "2026-08-12",
+      "scheduledDate": "2026-08-17",
       "scheduledTime": "07:00",
       "location": "운진항",
       "hostGuestId": "guest-007",
@@ -2007,17 +1287,17 @@
         "해변",
         "산책"
       ],
-      "scheduledDate": "2026-08-13",
+      "scheduledDate": "2026-08-17",
       "scheduledTime": "09:30",
       "location": "하모해변",
-      "hostGuestId": "guest-010",
-      "hostNickname": "우도땅콩",
+      "hostGuestId": "guest-008",
+      "hostNickname": "모슬포참새",
       "maxParticipants": 4,
       "currentParticipants": 3,
       "status": "모집중",
       "participantGuestIds": [
-        "guest-013",
-        "guest-014"
+        "guest-011",
+        "guest-012"
       ],
       "isSynthetic": true
     },
@@ -2031,18 +1311,18 @@
         "흑돼지",
         "친목"
       ],
-      "scheduledDate": "2026-08-13",
+      "scheduledDate": "2026-08-17",
       "scheduledTime": "12:00",
       "location": "버킷 제주 로비",
-      "hostGuestId": "guest-011",
-      "hostNickname": "새별오름달",
+      "hostGuestId": "guest-009",
+      "hostNickname": "산방산콩",
       "maxParticipants": 5,
       "currentParticipants": 4,
       "status": "모집중",
       "participantGuestIds": [
-        "guest-014",
-        "guest-018",
-        "guest-020"
+        "guest-012",
+        "guest-013",
+        "guest-014"
       ],
       "isSynthetic": true
     },
@@ -2056,26 +1336,26 @@
         "노을",
         "산책"
       ],
-      "scheduledDate": "2026-08-13",
+      "scheduledDate": "2026-08-17",
       "scheduledTime": "15:30",
       "location": "하모체육공원",
-      "hostGuestId": "guest-012",
-      "hostNickname": "협재물결",
+      "hostGuestId": "guest-010",
+      "hostNickname": "우도땅콩",
       "maxParticipants": 6,
       "currentParticipants": 6,
       "status": "모집완료",
       "participantGuestIds": [
+        "guest-013",
+        "guest-014",
         "guest-018",
         "guest-020",
-        "guest-022",
-        "guest-024",
-        "guest-025"
+        "guest-022"
       ],
       "isSynthetic": true
     },
     {
       "id": "join-053",
-      "title": "편의점 간식 월드컵 13일차",
+      "title": "편의점 간식 월드컵 14일차",
       "description": "각자 추천하는 제주 간식을 골라 맛봐요.",
       "category": "친목",
       "keywords": [
@@ -2083,7 +1363,7 @@
         "디저트",
         "대화"
       ],
-      "scheduledDate": "2026-08-13",
+      "scheduledDate": "2026-08-18",
       "scheduledTime": "18:30",
       "location": "버킷 제주 공용공간",
       "hostGuestId": "guest-013",
@@ -2107,18 +1387,18 @@
         "카페",
         "대화"
       ],
-      "scheduledDate": "2026-08-14",
+      "scheduledDate": "2026-08-18",
       "scheduledTime": "20:00",
       "location": "버킷 제주 라운지",
-      "hostGuestId": "guest-002",
-      "hostNickname": "오름한스푼",
+      "hostGuestId": "guest-014",
+      "hostNickname": "애월필름",
       "maxParticipants": 8,
       "currentParticipants": 4,
       "status": "모집중",
       "participantGuestIds": [
-        "guest-007",
-        "guest-008",
-        "guest-009"
+        "guest-022",
+        "guest-024",
+        "guest-025"
       ],
       "isSynthetic": true
     },
@@ -2132,16 +1412,16 @@
         "트레킹",
         "사진"
       ],
-      "scheduledDate": "2026-08-14",
+      "scheduledDate": "2026-08-18",
       "scheduledTime": "07:00",
       "location": "곶자왈 도립공원",
-      "hostGuestId": "guest-003",
-      "hostNickname": "돌담산책",
+      "hostGuestId": "guest-018",
+      "hostNickname": "파도타는귤",
       "maxParticipants": 3,
       "currentParticipants": 2,
       "status": "모집중",
       "participantGuestIds": [
-        "guest-008"
+        "guest-024"
       ],
       "isSynthetic": true
     },
@@ -2155,24 +1435,24 @@
         "혼밥탈출",
         "로컬문화"
       ],
-      "scheduledDate": "2026-08-14",
+      "scheduledDate": "2026-08-18",
       "scheduledTime": "09:30",
       "location": "버킷 제주 입구",
-      "hostGuestId": "guest-004",
-      "hostNickname": "한라구름",
+      "hostGuestId": "guest-020",
+      "hostNickname": "하모바다",
       "maxParticipants": 4,
       "currentParticipants": 4,
       "status": "모집완료",
       "participantGuestIds": [
-        "guest-009",
-        "guest-010",
-        "guest-013"
+        "guest-025",
+        "guest-028",
+        "guest-001"
       ],
       "isSynthetic": true
     },
     {
       "id": "join-057",
-      "title": "별 보며 여행 이야기 14일차",
+      "title": "별 보며 여행 이야기 15일차",
       "description": "별을 보며 서로의 제주 일정을 나눠요.",
       "category": "친목",
       "keywords": [
@@ -2180,7 +1460,7 @@
         "대화",
         "해변"
       ],
-      "scheduledDate": "2026-08-14",
+      "scheduledDate": "2026-08-19",
       "scheduledTime": "12:00",
       "location": "하모해변",
       "hostGuestId": "guest-005",
@@ -2205,16 +1485,16 @@
         "혼밥탈출",
         "로컬문화"
       ],
-      "scheduledDate": "2026-08-15",
+      "scheduledDate": "2026-08-19",
       "scheduledTime": "15:30",
       "location": "대정쌍둥이식당",
-      "hostGuestId": "guest-010",
-      "hostNickname": "우도땅콩",
+      "hostGuestId": "guest-006",
+      "hostNickname": "노을러너",
       "maxParticipants": 6,
       "currentParticipants": 2,
       "status": "모집중",
       "participantGuestIds": [
-        "guest-003"
+        "guest-013"
       ],
       "isSynthetic": true
     },
@@ -2228,17 +1508,17 @@
         "산책",
         "해변"
       ],
-      "scheduledDate": "2026-08-15",
+      "scheduledDate": "2026-08-19",
       "scheduledTime": "18:30",
       "location": "하모해변",
-      "hostGuestId": "guest-020",
-      "hostNickname": "하모바다",
+      "hostGuestId": "guest-007",
+      "hostNickname": "해녀의별",
       "maxParticipants": 7,
       "currentParticipants": 3,
       "status": "모집중",
       "participantGuestIds": [
-        "guest-004",
-        "guest-005"
+        "guest-020",
+        "guest-028"
       ],
       "isSynthetic": true
     },
@@ -2252,24 +1532,25 @@
         "노을",
         "사진"
       ],
-      "scheduledDate": "2026-08-15",
+      "scheduledDate": "2026-08-19",
       "scheduledTime": "20:00",
       "location": "버킷 제주 주차장",
-      "hostGuestId": "guest-028",
-      "hostNickname": "용머리노을",
+      "hostGuestId": "guest-008",
+      "hostNickname": "모슬포참새",
       "maxParticipants": 8,
       "currentParticipants": 8,
       "status": "모집완료",
       "participantGuestIds": [
+        "guest-028",
+        "guest-001",
+        "guest-002",
+        "guest-003",
+        "guest-004",
         "guest-005",
-        "guest-006",
-        "guest-007",
-        "guest-008",
-        "guest-009",
-        "guest-010",
-        "guest-020"
+        "guest-006"
       ],
       "isSynthetic": true
     }
   ]
 }
+
