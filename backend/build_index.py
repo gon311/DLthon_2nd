@@ -19,7 +19,10 @@ import json
 import os
 
 import chromadb
+from dotenv import load_dotenv
 from openai import OpenAI
+
+load_dotenv()
 
 from utils.geo import distance_from_lodging_m, haversine_m
 
@@ -172,7 +175,7 @@ def build_index(
             "type": "poi",
         })
 
-    # Step 2: 숙소 FAQ 로드 및 문서 생성 (옵션)
+    # Step 2: 숙소 FAQ 로드 및 문서 생성 
     if faq_path and os.path.exists(faq_path):
         print(f"🏠 숙소 FAQ 처리 중: {faq_path}")
         faq_rows, guesthouse_name = load_guesthouse_faq(faq_path)
@@ -203,6 +206,26 @@ def build_index(
             })
         
         print(f"✅ 숙소 정보 {len(faq_rows)}건 추가")
+
+    # Step 2.5: 숙소 최근접 정류장 문서 추가 (add_lodging_stop_doc 활용)
+    # 현재는 타켓 숙소가 하나지만, 타겟 숙소가 늘어나게 된다면 수정 필요 
+    try:
+        from utils.add_lodging_stop_doc import find_nearest_stop, build_document_text as stop_doc_text_builder
+        
+        nearest_stop = find_nearest_stop()
+        stop_doc_text = stop_doc_text_builder(nearest_stop)
+        
+        documents.append(stop_doc_text)
+        metadatas.append({
+            "category": "정류장",
+            "poi_name": nearest_stop["name"],
+            "distance_m": nearest_stop["distance_m"],
+            "type": "poi" 
+        })
+        ids.append("lodging_nearest_stop")
+        print("✅ 타겟 숙소 최근접 정류장 문서 1건 추가 완료")
+    except ImportError as e:
+         print(f"⚠️ 정류장 모듈을 불러올 수 없습니다. 추가를 건너뜁니다: {e}")    
 
     # Step 3: 일괄 임베딩
     print(f"🔤 임베딩 중: {len(documents)}건 (배치 호출)")
