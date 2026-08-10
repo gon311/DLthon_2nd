@@ -8,5 +8,6 @@ pydantic==2.4.2
 aiohttp==3.9.0
 chromadb==0.4.24
 httpx==0.25.0
+ragas==0.1.15
 langfuse
 python-dotenv
