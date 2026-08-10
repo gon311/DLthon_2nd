@@ -1,0 +1,555 @@
+{
+  "guesthouse": {
+    "name_ko": "버킷 제주 게스트하우스",
+    "name_en": "BUCKET GUESTHOUSE JEJU",
+    "tagline": "오늘의 인연이 내일의 추억으로",
+    "address": "제주특별자치도 서귀포시 대정읍 하모백사로14번길 1",
+    "area": "제주 서귀포시 대정읍 (모슬포·하모)",
+    "coordinates": {
+      "lat": 33.2124518,
+      "lng": 126.2598287
+    },
+    "website": "https://bucket-jeju-join.ep01-sleepwar.chatgpt.site",
+    "service_radius_m": 2000,
+    "contact": {
+      "phone": null,
+      "email": null,
+      "instagram": null
+    },
+    "check_in": null,
+    "check_out": null
+  },
+  "summary": {
+    "wifi_password": "bucket1234",
+    "common_area_hours": "07:00-23:00",
+    "always_available": [
+      "정수기",
+      "공용화장실"
+    ],
+    "alcohol_policy": "23:00 이후 게스트하우스 전 구역 음주 금지 (거실 음주는 23:00 이전만)",
+    "checkout_note": "퇴실 시 객실 에어컨을 반드시 끄기",
+    "amenities_provided": [
+      "샴푸",
+      "바디워시",
+      "공용 드라이기(각 객실)"
+    ],
+    "amenities_not_provided": [
+      "수건(개인 지참 또는 1장 2,000원 구매)",
+      "기본 조미료·식재료"
+    ],
+    "free_facilities": [
+      "세탁기",
+      "냉장고",
+      "전자레인지",
+      "1.5층 코워킹마루",
+      "빔프로젝터",
+      "피아노",
+      "도서·다트·보드게임"
+    ],
+    "paid_services": [
+      {
+        "item": "자전거 대여",
+        "price_krw": 2000,
+        "unit": "1회/1개",
+        "location": "프런트"
+      },
+      {
+        "item": "수건(1장)",
+        "price_krw": 2000,
+        "unit": "1회/1개",
+        "location": "프런트"
+      },
+      {
+        "item": "캡슐 세제(1개)",
+        "price_krw": 1000,
+        "unit": "1회/1개",
+        "location": "프런트"
+      }
+    ],
+    "room_rules": [
+      "객실 내 커피·물만 섭취 가능(과자·빵·단백질바 금지)",
+      "퇴실 시 에어컨 끄기"
+    ]
+  },
+  "faq": [
+    {
+      "id": "GH-001",
+      "category": "유료 서비스",
+      "question": "자전거 대여 비용은 얼마인가요?",
+      "answer": "자전거 대여 요금은 2,000원입니다.",
+      "keywords": [
+        "자전거",
+        "대여",
+        "요금",
+        "가격"
+      ],
+      "location": "프런트",
+      "price_krw": 2000,
+      "available_hours": null,
+      "notes": null
+    },
+    {
+      "id": "GH-002",
+      "category": "유료 서비스",
+      "question": "수건을 구매할 수 있나요?",
+      "answer": "수건은 1장당 2,000원에 판매합니다. 기본 제공되지 않으므로 개인 수건 지참을 권장합니다.",
+      "keywords": [
+        "수건",
+        "판매",
+        "가격",
+        "개인지참"
+      ],
+      "location": "프런트",
+      "price_krw": 2000,
+      "available_hours": null,
+      "notes": null
+    },
+    {
+      "id": "GH-003",
+      "category": "유료 서비스",
+      "question": "캡슐 세제는 얼마인가요?",
+      "answer": "캡슐 세제는 1개당 1,000원에 판매합니다.",
+      "keywords": [
+        "세제",
+        "캡슐세제",
+        "세탁",
+        "가격"
+      ],
+      "location": "프런트",
+      "price_krw": 1000,
+      "available_hours": null,
+      "notes": null
+    },
+    {
+      "id": "GH-004",
+      "category": "인터넷",
+      "question": "와이파이 비밀번호는 무엇인가요?",
+      "answer": "공용 와이파이 비밀번호는 bucket1234입니다.",
+      "keywords": [
+        "와이파이",
+        "wifi",
+        "비밀번호",
+        "인터넷",
+        "공용"
+      ],
+      "location": "숙소 내부",
+      "price_krw": null,
+      "available_hours": null,
+      "notes": "공용 정보"
+    },
+    {
+      "id": "GH-005",
+      "category": "흡연",
+      "question": "흡연 장소는 어디인가요?",
+      "answer": "흡연 장소는 외부 테라스 왼쪽에 있습니다. 지정된 장소만 이용해 주세요.",
+      "keywords": [
+        "흡연실",
+        "흡연구역",
+        "테라스"
+      ],
+      "location": "외부 테라스 왼쪽",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": "공용공간 운영시간 적용"
+    },
+    {
+      "id": "GH-006",
+      "category": "공용공간",
+      "question": "1층 거실에서는 무엇을 할 수 있나요?",
+      "answer": "1층 거실(스페이스룸)에서는 식사, 대화, 음주가 가능합니다. 단, 음주는 23:00 이전에만 가능합니다.",
+      "keywords": [
+        "거실",
+        "스페이스룸",
+        "식사",
+        "토크",
+        "음주"
+      ],
+      "location": "1층 거실",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": "23:00 이후 숙소 전 구역 음주 금지"
+    },
+    {
+      "id": "GH-007",
+      "category": "주방",
+      "question": "1층 주방의 조리도구를 사용할 수 있나요?",
+      "answer": "1층 주방의 일부 조리도구는 사용할 수 있지만 업소용 화구는 사용할 수 없습니다.",
+      "keywords": [
+        "주방",
+        "조리도구",
+        "화구",
+        "요리"
+      ],
+      "location": "1층 주방",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": "업소용 화구 사용 금지"
+    },
+    {
+      "id": "GH-008",
+      "category": "주방",
+      "question": "기본 조미료가 제공되나요?",
+      "answer": "기본 조미료는 제공하지 않습니다. 필요한 조미료와 식재료는 개인이 준비해야 합니다.",
+      "keywords": [
+        "조미료",
+        "식재료",
+        "주방",
+        "준비물"
+      ],
+      "location": "1층 주방",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": null
+    },
+    {
+      "id": "GH-009",
+      "category": "편의시설",
+      "question": "정수기는 어디에 있나요?",
+      "answer": "정수기는 1층 식당 안에 있습니다.",
+      "keywords": [
+        "정수기",
+        "물",
+        "식당"
+      ],
+      "location": "1층 식당",
+      "price_krw": null,
+      "available_hours": "상시 사용 가능",
+      "notes": "23:00 이후에도 사용 가능하지만 가능한 한 이전 이용 권장"
+    },
+    {
+      "id": "GH-010",
+      "category": "세탁",
+      "question": "세탁실은 어디에 있나요?",
+      "answer": "세탁실은 1층 식당 안쪽에 있습니다.",
+      "keywords": [
+        "세탁실",
+        "위치",
+        "식당"
+      ],
+      "location": "1층 식당 안쪽",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": null
+    },
+    {
+      "id": "GH-011",
+      "category": "세탁",
+      "question": "세탁기를 무료로 사용할 수 있나요?",
+      "answer": "세탁기는 무료로 사용할 수 있습니다.",
+      "keywords": [
+        "세탁기",
+        "무료",
+        "세탁"
+      ],
+      "location": "세탁실",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": null
+    },
+    {
+      "id": "GH-012",
+      "category": "편의시설",
+      "question": "냉장고를 무료로 사용할 수 있나요?",
+      "answer": "냉장고는 무료로 사용할 수 있습니다.",
+      "keywords": [
+        "냉장고",
+        "무료",
+        "보관"
+      ],
+      "location": "1층",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": null
+    },
+    {
+      "id": "GH-013",
+      "category": "쓰레기",
+      "question": "쓰레기는 어디에 버리나요?",
+      "answer": "분리수거와 일반쓰레기 배출 장소는 세탁실 안쪽에 있습니다.",
+      "keywords": [
+        "분리수거",
+        "일반쓰레기",
+        "쓰레기"
+      ],
+      "location": "세탁실 안쪽",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": null
+    },
+    {
+      "id": "GH-014",
+      "category": "공용공간",
+      "question": "피아노를 사용할 수 있나요?",
+      "answer": "1층 로비의 피아노를 사용할 수 있습니다.",
+      "keywords": [
+        "피아노",
+        "로비",
+        "악기"
+      ],
+      "location": "1층 로비",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": "다른 투숙객에게 피해가 없도록 이용"
+    },
+    {
+      "id": "GH-015",
+      "category": "공용공간",
+      "question": "코워킹마루를 사용할 수 있나요?",
+      "answer": "1.5층 코워킹마루는 자유롭게 사용할 수 있습니다.",
+      "keywords": [
+        "코워킹",
+        "마루",
+        "업무",
+        "공용공간"
+      ],
+      "location": "1.5층 코워킹마루",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": null
+    },
+    {
+      "id": "GH-016",
+      "category": "공용공간",
+      "question": "빔프로젝터를 사용할 수 있나요?",
+      "answer": "1층 외부 랩실의 빔프로젝터를 자유롭게 사용할 수 있습니다.",
+      "keywords": [
+        "빔프로젝터",
+        "랩실",
+        "프로젝터"
+      ],
+      "location": "1층 외부 랩실",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": null
+    },
+    {
+      "id": "GH-017",
+      "category": "운영시간",
+      "question": "공용공간 이용 시간은 언제인가요?",
+      "answer": "모든 공용공간은 07:00부터 23:00까지만 이용할 수 있습니다.",
+      "keywords": [
+        "공용공간",
+        "이용시간",
+        "운영시간"
+      ],
+      "location": "숙소 공용공간",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": "정수기와 공용화장실은 예외"
+    },
+    {
+      "id": "GH-018",
+      "category": "운영시간",
+      "question": "23시 이후에도 정수기와 공용화장실을 이용할 수 있나요?",
+      "answer": "23:00 이후에도 정수기와 공용화장실은 이용할 수 있습니다. 다만 가능한 한 23:00 이전 이용을 권장합니다.",
+      "keywords": [
+        "23시",
+        "정수기",
+        "공용화장실",
+        "야간"
+      ],
+      "location": "1층 식당 및 공용화장실",
+      "price_krw": null,
+      "available_hours": "상시 사용 가능",
+      "notes": "야간에는 정숙하게 이용"
+    },
+    {
+      "id": "GH-019",
+      "category": "음주",
+      "question": "23시 이후에 술을 마실 수 있나요?",
+      "answer": "23:00 이후에는 버킷게스트하우스 내 모든 장소에서 음주할 수 없습니다.",
+      "keywords": [
+        "음주",
+        "술",
+        "금지",
+        "23시",
+        "야간"
+      ],
+      "location": "숙소 전 구역",
+      "price_krw": null,
+      "available_hours": "23:00 이후 금지",
+      "notes": null
+    },
+    {
+      "id": "GH-020",
+      "category": "객실 규칙",
+      "question": "객실에서 음식을 먹을 수 있나요?",
+      "answer": "객실에서는 커피와 물만 섭취할 수 있습니다. 과자, 단백질바, 빵 등 음식 섭취는 금지됩니다.",
+      "keywords": [
+        "객실",
+        "음식",
+        "과자",
+        "빵",
+        "단백질바",
+        "커피",
+        "물"
+      ],
+      "location": "각 객실",
+      "price_krw": null,
+      "available_hours": null,
+      "notes": "커피와 물만 허용"
+    },
+    {
+      "id": "GH-021",
+      "category": "퇴실",
+      "question": "퇴실할 때 에어컨은 어떻게 해야 하나요?",
+      "answer": "퇴실할 때 객실 에어컨을 반드시 꺼 주세요.",
+      "keywords": [
+        "퇴실",
+        "체크아웃",
+        "에어컨",
+        "전원"
+      ],
+      "location": "각 객실",
+      "price_krw": null,
+      "available_hours": null,
+      "notes": null
+    },
+    {
+      "id": "GH-022",
+      "category": "욕실용품",
+      "question": "샴푸와 바디워시가 제공되나요?",
+      "answer": "샴푸와 바디워시는 기본 제공됩니다. 수건은 제공되지 않으므로 개인 수건을 지참하거나 구매해 주세요.",
+      "keywords": [
+        "샴푸",
+        "바디워시",
+        "수건",
+        "어메니티"
+      ],
+      "location": "욕실",
+      "price_krw": null,
+      "available_hours": null,
+      "notes": null
+    },
+    {
+      "id": "GH-023",
+      "category": "객실 비품",
+      "question": "드라이기가 있나요?",
+      "answer": "각 객실에 공용 드라이기가 구비되어 있습니다.",
+      "keywords": [
+        "드라이기",
+        "헤어드라이어",
+        "객실비품"
+      ],
+      "location": "각 객실",
+      "price_krw": null,
+      "available_hours": null,
+      "notes": null
+    },
+    {
+      "id": "GH-024",
+      "category": "공용공간",
+      "question": "도서, 다트, 보드게임을 이용할 수 있나요?",
+      "answer": "1층 거실의 도서, 다트, 보드게임은 자유롭게 이용할 수 있습니다. 사용 후 정리해 제자리에 두어야 합니다.",
+      "keywords": [
+        "도서",
+        "다트",
+        "보드게임",
+        "놀이"
+      ],
+      "location": "1층 거실",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": "사용 후 원위치"
+    },
+    {
+      "id": "GH-025",
+      "category": "세탁",
+      "question": "세탁물은 어디에서 말리나요?",
+      "answer": "세탁 후 세탁물은 외부 테라스 오른쪽 건조대에서 바로 건조하고, 바람에 날리지 않도록 집게로 고정해 주세요. 세탁물 분실에 대해서는 숙소가 책임지지 않습니다.",
+      "keywords": [
+        "세탁물",
+        "건조대",
+        "집게",
+        "분실"
+      ],
+      "location": "외부 테라스 오른쪽",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": "분실 책임 없음"
+    },
+    {
+      "id": "GH-026",
+      "category": "편의시설",
+      "question": "전자레인지는 어디에서 사용할 수 있나요?",
+      "answer": "전자레인지는 1층 거실에서 사용할 수 있습니다.",
+      "keywords": [
+        "전자레인지",
+        "데우기",
+        "거실"
+      ],
+      "location": "1층 거실",
+      "price_krw": null,
+      "available_hours": "07:00-23:00",
+      "notes": null
+    },
+    {
+      "id": "GH-027",
+      "category": "분실물",
+      "question": "23시 이후 분실물은 어디에서 찾을 수 있나요?",
+      "answer": "23:00 이후 수거된 분실물은 프런트(리셉션) 앞 로스트함에서 찾을 수 있습니다.",
+      "keywords": [
+        "분실물",
+        "로스트함",
+        "프런트",
+        "리셉션",
+        "23시"
+      ],
+      "location": "프런트(리셉션) 앞 로스트함",
+      "price_krw": null,
+      "available_hours": "23:00 이후",
+      "notes": null
+    },
+    {
+      "id": "GH-028",
+      "category": "분실물",
+      "question": "분실한 식품도 냉장 보관되나요?",
+      "answer": "분실 식품은 별도로 냉장 보관하지 않고 다른 분실물과 함께 로스트함으로 이동합니다. 변질이나 폐기를 막기 위해 식품과 개인 물품을 직접 잘 관리해 주세요.",
+      "keywords": [
+        "식품",
+        "분실물",
+        "냉장보관",
+        "로스트함",
+        "주의"
+      ],
+      "location": "프런트(리셉션) 앞 로스트함",
+      "price_krw": null,
+      "available_hours": "23:00 이후",
+      "notes": "식품 별도 냉장보관 없음"
+    },
+    {
+      "id": "GH-029",
+      "category": "응급용품",
+      "question": "응급약품이 구비되어 있나요?",
+      "answer": "급한 상황에 대처할 수 있도록 밴드, 마데카솔, 후시딘, 두통약, 생리통약, 생리대, 감기약 등의 기본 응급용품이 구비되어 있습니다. 품목별 재고에 따라 일부 약품은 없을 수 있습니다.",
+      "keywords": [
+        "응급약품",
+        "구급함",
+        "밴드",
+        "마데카솔",
+        "후시딘",
+        "두통약",
+        "생리통약",
+        "생리대",
+        "감기약"
+      ],
+      "location": "프런트 문의",
+      "price_krw": null,
+      "available_hours": null,
+      "notes": "재고에 따라 일부 품목 미구비 가능"
+    }
+  ],
+  "meta": {
+    "source": "jsk900210-oss/jeju-bucket-map · data/processed/bucket_jeju_guesthouse_faq.csv + frontend/app.py",
+    "faq_count": 29,
+    "generated": "2026-08-10",
+    "missing_fields": [
+      "연락처(전화/이메일/SNS)",
+      "체크인/체크아웃 시간",
+      "객실 타입·요금",
+      "주차 정보",
+      "반려동물 정책"
+    ],
+    "note": "다국어(en/ja/zh) FAQ는 frontend/seed-data/guesthouse-faq.ts 에 별도 존재"
+  }
+}
