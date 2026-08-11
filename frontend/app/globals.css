@@ -137,3 +137,7 @@ footer{background:#183f37;color:white;padding:35px 0;margin-top:30px}footer .she
 .join-view-tabs{grid-template-columns:repeat(3,1fr)}
 @media(max-width:600px){.join-view-tabs{grid-template-columns:1fr}.join-view-tabs button{padding:10px}}
 
+
+/* FIX-ACCOUNT-OVERLAP: account card 로그아웃 버튼이 설명 문단과 겹치는 문제 수정 */
+a.primary{display:inline-block;vertical-align:middle}
+.keyword-panel .primary{margin-top:16px}
