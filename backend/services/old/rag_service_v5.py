@@ -1,7 +1,7 @@
 """
 RAG 서비스: 근거리 정보 조회 파이프라인.
 버전이 업데이트 될 경우 항상 이 파일을 최선 버전으로 유지 
-(현재 최신 버전 rag_service_v7)
+(현재 최신 버전 rag_service_v3)
 
 흐름:
 1. 사용자 쿼리 임베딩 → ChromaDB 검색 (상위 10개)
@@ -21,7 +21,6 @@ import json
 import os 
 import time
 from typing import Optional
-import concurrent.futures
 
 import chromadb
 from openai import OpenAI
@@ -137,7 +136,7 @@ class RAGService:
 
         try:
             response = self.openai_client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gpt-3.5-turbo",
                 temperature=0,
                 max_tokens=100,
                 messages=[{"role": "user", "content": prompt}],
@@ -168,13 +167,8 @@ class RAGService:
 
         rrf_scores: dict[str, dict] = {}  # key: 문서 식별용(name 우선, 없으면 document 앞부분)
 
-        def _do_search(q):
-            return self.search(q, top_k=top_k_per_query)
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, len(queries))) as executor:
-            results_list = list(executor.map(_do_search, queries))
-
-        for per_query_results in results_list:
+        for q in queries:
+            per_query_results = self.search(q, top_k=top_k_per_query)
             for rank, item in enumerate(per_query_results):
                 key = item["name"] or item["document"][:40]
                 if key not in rrf_scores:
@@ -257,10 +251,9 @@ class RAGService:
     - 마크다운 불릿(-, *) 사용 금지
     - 예: "근처에는 대정쌍둥이식당이 숙소에서 약 102m 거리에 있으며, 저렴한 가격에 맛난 한식을 즐길 수 있습니다."
 
-    3. **[중요] 사실 그라운딩(환각 방지) 규칙**
-    - 반드시 아래 "검색 결과"의 [설명] 텍스트에 있는 내용만을 바탕으로 답변하세요.
-    - 식당의 분위기, 메뉴, 레스토랑 종류(예: 런던 스타일 등)에 대해 당신의 사전 지식을 절대 덧붙이지 마세요. 검색 결과에 없는 특징은 일절 언급해서는 안 됩니다.
-    - 아래 "검색 결과"에 실제로 적힌 이름·거리·상태·설명만 사용하세요.
+    3. **[중요] 사실 그라운딩 규칙**
+    - 아래 "검색 결과"에 실제로 적힌 이름·거리·시간·수치만 사용하세요.
+    - 검색 결과에 없는 장소명, 숫자, 시간, 특징을 절대 지어내지 마세요.
     - 검색 결과가 질문과 관련이 없다면, 억지로 답을 만들지 말고
       "제공된 정보로는 정확히 답변드리기 어렵습니다. 프런트 데스크에 문의해주세요."
       라고 답하세요.
@@ -274,22 +267,19 @@ class RAGService:
 
         # LLM 호출 — temperature=0으로 고정 (동일 질문에 매번 다른 답이 나오는 문제 방지)
         response = self.openai_client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-3.5-turbo",
             max_tokens=500,
             temperature=0,
             messages=[{"role": "user", "content": prompt}],
-            stream=True,
-            stream_options={"include_usage": True},
         )
 
-        for chunk in response:
-            if chunk.usage:
-                print(f"\n--- [답변 생성 토큰] ---")
-                print(f"입력(Prompt) 토큰: {chunk.usage.prompt_tokens}")
-                print(f"출력(Completion) 토큰: {chunk.usage.completion_tokens}")
-                print(f"총(Total) 토큰: {chunk.usage.total_tokens}")
-            if chunk.choices and chunk.choices[0].delta.content is not None:
-                yield chunk.choices[0].delta.content
+        if response.usage:
+            print(f"--- [답변 생성 토큰] ---")
+            print(f"입력(Prompt) 토큰: {response.usage.prompt_tokens}")
+            print(f"출력(Completion) 토큰: {response.usage.completion_tokens}")
+            print(f"총(Total) 토큰: {response.usage.total_tokens}")
+
+        return response.choices[0].message.content
 
     def _build_context(self, results: list[dict]) -> str:
         """검색 결과를 프롬프트 컨텍스트로 변환."""
@@ -355,15 +345,13 @@ class RAGService:
         if gap_label:
             end_time = time.time()
             print(f"⏱️ [실행 시간] 총 소요 시간: {end_time - start_time:.2f}초 (빠른 예외 처리)")
-            def _dummy_gen():
-                yield (
+            return {
+                "query": query,
+                "response": (
                     f"죄송합니다, 현재 안내 가능한 정보에는 {gap_label} 데이터가 "
                     f"포함되어 있지 않습니다. 정확한 안내를 위해 프런트 데스크에 "
                     f"문의해주세요."
-                )
-            return {
-                "query": query,
-                "response": _dummy_gen(),
+                ),
                 "search_results": [],
             }
 
@@ -373,13 +361,14 @@ class RAGService:
         search_time = time.time()
 
         # 2. 응답 생성
-        response_generator = self.generate_response(query, search_results)
+        response = self.generate_response(query, search_results)
+        end_time = time.time()
 
-        print(f"⏱️ [실행 시간] 검색(임베딩+ChromaDB) 단계: {search_time - start_time:.2f}초")
+        print(f"⏱️ [실행 시간] 검색(임베딩+ChromaDB) 단계: {search_time - start_time:.2f}초 | 응답 생성(LLM) 단계: {end_time - search_time:.2f}초 | 총 소요 시간: {end_time - start_time:.2f}초")
 
         return {
             "query": query,
-            "response": response_generator,
+            "response": response,
             "search_results": search_results[:3],  # 상위 3개만 반환
         }
 
@@ -400,15 +389,8 @@ if __name__ == "__main__":
         print(f"쿼리: {query}")
         print(f"{'='*60}")
 
-        start_test = time.time()
         result = service.answer_query(query)
-        
-        print("답변: ", end="")
-        for chunk in result["response"]:
-            print(chunk, end="", flush=True)
-        print()
-        
-        print(f"⏱️ [스트리밍 완료] 응답 생성 소요 시간: {time.time() - start_test:.2f}초")
+        print(result["response"])
 
         print("\n[검색 결과 상세]")
         for idx, poi in enumerate(result["search_results"], 1):
