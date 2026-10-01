@@ -16,8 +16,8 @@
 
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.104-009688?logo=fastapi&logoColor=white)
-![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector_DB-FF6F00)
-![OpenAI](https://img.shields.io/badge/OpenAI-Embedding_%26_LLM-412991?logo=openai&logoColor=white)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20Database-FF6F00)
+![OpenAI](https://img.shields.io/badge/OpenAI-API-412991?logo=openai&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 
